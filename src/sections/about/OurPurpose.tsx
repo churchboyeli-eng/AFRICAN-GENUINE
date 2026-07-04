@@ -22,7 +22,7 @@ export default function OurPurpose() {
           <p className="text-sand text-[17px] leading-relaxed max-w-xl mx-auto mb-12">
             Not the Africa of glossy brochures or rehearsed game drives — the real Africa of dust and light, early mornings and unexpected silences, and communities whose livelihoods depend on the wildness being kept wild.
           </p>
-          <a href="/#enquiry" className="btn-gold inline-flex items-center gap-2">
+          <a href="/contact" className="btn-gold inline-flex items-center gap-2">
             Start your journey
           </a>
         </FadeUp>

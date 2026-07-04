@@ -20,7 +20,7 @@ export default function PricingTable({ departures }: Props) {
             </p>
           </div>
           <a
-            href="/#enquiry"
+            href="/contact"
             className="btn-gold whitespace-nowrap shrink-0"
           >
             Enquire for dates
@@ -67,7 +67,7 @@ export default function PricingTable({ departures }: Props) {
                 </td>
                 <td className="px-4 py-4 hidden md:table-cell">
                   <a
-                    href="/#enquiry"
+                    href="/contact"
                     className="rounded-pill border border-gold/40 px-4 py-2 font-body text-[11px] font-bold text-gold hover:bg-gold/10 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-gold whitespace-nowrap"
                   >
                     Reserve

@@ -48,7 +48,7 @@ function OverviewPanel({
         <p className="text-sand text-[15px] leading-relaxed mb-6 max-w-lg">
           Detailed trip notes — park briefings, daily highlights, and accommodation recommendations — are included in your personalised itinerary proposal.
         </p>
-        <a href="/#enquiry" className="btn-gold inline-flex items-center justify-center">
+        <a href="/contact" className="btn-gold inline-flex items-center justify-center">
           Request trip notes
         </a>
       </div>

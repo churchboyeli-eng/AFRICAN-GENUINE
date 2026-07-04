@@ -77,7 +77,7 @@ export default function SiteFooter() {
             <Link href="/about" className="text-clay text-[12px] hover:text-sand transition-colors focus:outline-none focus-visible:underline">
               About us
             </Link>
-            <Link href="/#enquiry" className="text-clay text-[12px] hover:text-sand transition-colors focus:outline-none focus-visible:underline">
+            <Link href="/contact" className="text-clay text-[12px] hover:text-sand transition-colors focus:outline-none focus-visible:underline">
               Contact
             </Link>
           </div>

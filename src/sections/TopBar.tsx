@@ -40,7 +40,7 @@ export default function TopBar() {
         </ul>
 
         {/* CTA */}
-        <a href="/#enquiry" className="btn-gold hidden sm:inline-flex items-center">
+        <a href="/contact" className="btn-gold hidden sm:inline-flex items-center">
           Plan My Safari
         </a>
 

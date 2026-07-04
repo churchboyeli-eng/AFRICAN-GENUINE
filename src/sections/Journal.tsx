@@ -15,7 +15,7 @@ export default function Journal() {
               </h2>
             </div>
             <a
-              href="/#enquiry"
+              href="/contact"
               className="hidden sm:inline-block font-body text-[13px] font-semibold text-gold hover:text-gold-bright transition-colors focus:outline-none focus-visible:underline"
             >
               Get in touch →
@@ -44,7 +44,7 @@ export default function Journal() {
                   </h3>
                   <p className="text-sand text-[13px] leading-relaxed mb-4">{post.excerpt}</p>
                   <a
-                    href="/#enquiry"
+                    href="/contact"
                     className="font-body text-[12px] font-semibold text-gold hover:text-gold-bright transition-colors focus:outline-none focus-visible:underline"
                     aria-label={`Enquire about: ${post.title}`}
                   >

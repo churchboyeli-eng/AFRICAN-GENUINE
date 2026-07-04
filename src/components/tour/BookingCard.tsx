@@ -72,10 +72,10 @@ function RequestCard({ guests, setGuests }: { guests: number; setGuests: (n: num
         </div>
 
         <div className="flex flex-col gap-3">
-          <a href="/#enquiry" className="btn-gold text-center">
+          <a href="/contact" className="btn-gold text-center">
             Request this trip
           </a>
-          <a href="/#enquiry" className="btn-ghost text-center">
+          <a href="/contact" className="btn-ghost text-center">
             Talk to a specialist
           </a>
         </div>
@@ -106,7 +106,7 @@ function RequestCard({ guests, setGuests }: { guests: number; setGuests: (n: num
           </p>
           <p className="font-mono text-[9px] uppercase tracking-label text-clay mt-0.5">enquire for dates</p>
         </div>
-        <a href="/#enquiry" className="btn-gold whitespace-nowrap">
+        <a href="/contact" className="btn-gold whitespace-nowrap">
           Request this trip
         </a>
       </div>
@@ -239,10 +239,10 @@ function DeparturesCard({
         </div>
 
         <div className="flex flex-col gap-3">
-          <a href="/#enquiry" className="btn-gold text-center">
+          <a href="/contact" className="btn-gold text-center">
             Request this trip
           </a>
-          <a href="/#enquiry" className="btn-ghost text-center">
+          <a href="/contact" className="btn-ghost text-center">
             Talk to a specialist
           </a>
         </div>

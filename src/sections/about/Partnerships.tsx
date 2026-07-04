@@ -19,7 +19,7 @@ export default function Partnerships() {
             <p className="text-sand text-[16px] leading-[1.85] mb-10">
               We visit every property ourselves before recommending it. No kickback relationships, no commission-driven shortcuts — only places we would book for our own families.
             </p>
-            <a href="/#enquiry" className="btn-ghost inline-flex items-center gap-2">
+            <a href="/contact" className="btn-ghost inline-flex items-center gap-2">
               Ask about our partners
             </a>
           </FadeUp>

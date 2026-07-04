@@ -12,7 +12,7 @@ export default function EnquiryCTA() {
           Tell us your dates, group size and budget — we&rsquo;ll send you a personalised proposal within one working day.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href="/#enquiry" className="btn-gold inline-flex items-center justify-center">
+          <a href="/contact" className="btn-gold inline-flex items-center justify-center">
             Send an enquiry
           </a>
           <Link href="/itineraries" className="btn-ghost inline-flex items-center justify-center">
