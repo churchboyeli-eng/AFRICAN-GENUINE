@@ -1,10 +1,10 @@
 import FadeUp from '@/components/FadeUp';
 
 const STATS: { num: string; label: string }[] = [
-  { num: '15+',  label: 'Years in Tanzania' },
+  { num: '5',    label: 'Years in Tanzania' },
   { num: '20',   label: 'Signature itineraries' },
   { num: '7',    label: 'Key ecosystems' },
-  { num: '200+', label: 'Guests hosted every year' },
+  { num: '52',   label: 'Guests hosted every year' },
   { num: '100%', label: 'Locally guided' },
   { num: '1',    label: 'Mission: real Africa' },
 ];

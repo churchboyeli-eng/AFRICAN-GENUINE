@@ -137,8 +137,8 @@ export const searchExperiences = [
 ] as const;
 
 export const stats = [
-  { value: '15',    label: 'Years on the ground' },
+  { value: '5',     label: 'Years on the ground' },
   { value: '4,200', label: 'Summits supported' },
   { value: '95%',   label: 'Kilimanjaro success' },
-  { value: '5.0★',  label: '1,800+ reviews' },
+  { value: '5.0★',  label: '29 reviews' },
 ];
