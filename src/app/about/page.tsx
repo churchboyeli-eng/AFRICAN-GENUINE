@@ -4,6 +4,7 @@ import AboutHero from '@/sections/about/AboutHero';
 import AboutMission from '@/sections/about/AboutMission';
 import BrandLineBand from '@/sections/about/BrandLineBand';
 import StatsBand from '@/sections/about/StatsBand';
+import WhyUs from '@/sections/WhyUs';
 import OurPurpose from '@/sections/about/OurPurpose';
 import OriginStory from '@/sections/about/OriginStory';
 import Partnerships from '@/sections/about/Partnerships';
@@ -12,6 +13,7 @@ import Awards from '@/sections/about/Awards';
 import GeniusFamily from '@/sections/about/GeniusFamily';
 import PlanCTA from '@/sections/about/PlanCTA';
 import NewsletterSignup from '@/sections/about/NewsletterSignup';
+import Reviews from '@/sections/Reviews';
 
 export const metadata = {
   title: 'About Us — African Genuine Tours & Safaris',
@@ -28,11 +30,13 @@ export default function AboutPage() {
         <AboutMission />
         <BrandLineBand />
         <StatsBand />
+        <WhyUs />
         <OurPurpose />
         <OriginStory />
         <Partnerships />
         <Careers />
         <Awards />
+        <Reviews />
         <GeniusFamily />
         <PlanCTA />
         <NewsletterSignup />
