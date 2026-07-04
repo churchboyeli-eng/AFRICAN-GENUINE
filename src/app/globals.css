@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base { body { background: #0c0a07; } }
+
+@layer components {
+  .eyebrow      { @apply font-mono text-[10px] uppercase tracking-label text-gold; }
+  .shell        { @apply mx-auto max-w-shell px-[46px]; }
+  .btn-gold     { @apply rounded-pill bg-gold px-7 py-4 font-body text-[13px] font-bold text-[#1a1206] transition hover:bg-gold-bright; }
+  .btn-ghost    { @apply rounded-pill border border-line px-6 py-3.5 font-body text-[12px] font-bold text-gold-bright transition hover:border-gold; }
+  .card-surface { @apply rounded-card border border-line bg-panel; }
+  .gold-rule    { @apply h-[3px] w-full bg-gold-line; }
+  .section-title{ @apply font-display text-[32px] font-bold leading-[1.1] tracking-tighter text-cream; }
+}
+
+@layer utilities {
+  .h-display { @apply font-display font-extrabold tracking-tighter text-cream; }
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+}
