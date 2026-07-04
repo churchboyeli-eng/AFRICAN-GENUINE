@@ -239,7 +239,7 @@ function DeparturesCard({
         </div>
 
         <div className="flex flex-col gap-3">
-          <a href="#" className="btn-gold text-center">
+          <a href="/#enquiry" className="btn-gold text-center">
             Request this trip
           </a>
           <a href="/#enquiry" className="btn-ghost text-center">

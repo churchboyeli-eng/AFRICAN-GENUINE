@@ -113,8 +113,8 @@ export default function KilimanjaroRoutes() {
                 <p className="font-display text-[48px] font-extrabold text-gold leading-none">{detail.success}</p>
                 <p className="text-sand text-[13px]">summit success rate</p>
               </div>
-              <a href="#enquiry" className="btn-gold whitespace-nowrap">
-                View itinerary →
+              <a href={`/kilimanjaro/${detail.slug}`} className="btn-gold whitespace-nowrap">
+                View route →
               </a>
             </div>
           </div>

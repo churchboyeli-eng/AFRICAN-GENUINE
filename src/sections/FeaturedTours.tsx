@@ -32,7 +32,7 @@ export default function FeaturedTours() {
             href="/itineraries"
             className="hidden lg:inline-block shrink-0 font-body text-[13px] font-semibold text-gold hover:text-gold-bright transition-colors focus:outline-none focus-visible:underline"
           >
-            All 20 itineraries →
+            All 21 itineraries →
           </Link>
         </div>
 
@@ -61,7 +61,7 @@ export default function FeaturedTours() {
         {/* Mobile "see all" link */}
         <div className="lg:hidden mb-6">
           <Link href="/itineraries" className="font-body text-[13px] font-semibold text-gold hover:text-gold-bright transition-colors focus:outline-none focus-visible:underline">
-            Browse all 20 itineraries →
+            Browse all 21 itineraries →
           </Link>
         </div>
 

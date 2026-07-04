@@ -3,10 +3,8 @@ import Link from 'next/link';
 const navLinks = [
   { label: 'Itineraries', href: '/itineraries' },
   { label: 'Kilimanjaro', href: '/kilimanjaro' },
-  { label: 'Honeymoon', href: '#honeymoon' },
-  { label: 'Destinations', href: '#destinations' },
+  { label: 'Honeymoon', href: '/itineraries' },
   { label: 'About', href: '/about' },
-  { label: 'Journal', href: '#journal' },
 ];
 
 export default function TopBar() {
@@ -42,7 +40,7 @@ export default function TopBar() {
         </ul>
 
         {/* CTA */}
-        <a href="#enquiry" className="btn-gold hidden sm:inline-flex items-center">
+        <a href="/#enquiry" className="btn-gold hidden sm:inline-flex items-center">
           Plan My Safari
         </a>
 

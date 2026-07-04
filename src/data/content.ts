@@ -37,7 +37,7 @@ export const tours: Tour[] = [
     rating: '4.9',
     price: 'From $3,200',
     image: '/img/tours/lemosho.webp',
-    href: '/#enquiry',
+    href: '/kilimanjaro/lemosho-8-day',
   },
   {
     id: 'serengeti-zanzibar',
@@ -63,7 +63,7 @@ export const tours: Tour[] = [
     rating: '4.9',
     price: 'From $3,750',
     image: '/img/tours/migration-crater.webp',
-    href: '/itineraries/4-serengeti-explorer',
+    href: '/itineraries/15-crater-world',
   },
   {
     id: 'zanzibar-spice',
@@ -89,7 +89,7 @@ export const tours: Tour[] = [
     rating: '4.8',
     price: 'From $2,950',
     image: '/img/tours/machame.webp',
-    href: '/#enquiry',
+    href: '/kilimanjaro/machame-7-day',
   },
 ];
 
@@ -106,14 +106,14 @@ export const destinations: Destination[] = [
 ];
 
 export type Route = {
-  key: string; name: string; tag: string; days: string; distance: string;
+  key: string; slug: string; name: string; tag: string; days: string; distance: string;
   difficulty: 'Moderate' | 'Challenging'; difficultyPct: number; success: string; description: string;
 };
 export const routes: Route[] = [
-  { key: 'machame', name: 'Machame', tag: 'The Whiskey Route',    days: '7 days', distance: '62 km', difficulty: 'Challenging', difficultyPct: 90, success: '92%', description: 'The most popular route — dramatic scenery, the famous Barranco Wall and a strong success rate thanks to its natural "climb high, sleep low" profile.' },
-  { key: 'lemosho', name: 'Lemosho', tag: 'The Scenic Route',     days: '8 days', distance: '70 km', difficulty: 'Moderate',    difficultyPct: 62, success: '95%', description: 'Our highest summit success. A longer, quieter approach from the remote west gives your body the best possible time to acclimatise.' },
-  { key: 'marangu', name: 'Marangu', tag: 'The Coca-Cola Route',  days: '6 days', distance: '72 km', difficulty: 'Moderate',    difficultyPct: 62, success: '80%', description: 'The only route with dormitory huts rather than tents. A gentle gradient, but the shorter profile lowers summit odds for most climbers.' },
-  { key: 'rongai',  name: 'Rongai',  tag: 'The Wilderness Route', days: '7 days', distance: '73 km', difficulty: 'Moderate',    difficultyPct: 62, success: '88%', description: 'The peaceful approach from the Kenyan side — drier, remote and our top pick for the rainy season or travellers seeking solitude.' },
+  { key: 'machame', slug: 'machame-7-day',          name: 'Machame', tag: 'The Whiskey Route',    days: '7 days', distance: '62 km', difficulty: 'Challenging', difficultyPct: 90, success: '92%', description: 'The most popular route — dramatic scenery, the famous Barranco Wall and a strong success rate thanks to its natural "climb high, sleep low" profile.' },
+  { key: 'lemosho', slug: 'lemosho-8-day',           name: 'Lemosho', tag: 'The Scenic Route',     days: '8 days', distance: '70 km', difficulty: 'Moderate',    difficultyPct: 62, success: '95%', description: 'Our highest summit success. A longer, quieter approach from the remote west gives your body the best possible time to acclimatise.' },
+  { key: 'marangu', slug: 'marangu-7-day',           name: 'Marangu', tag: 'The Coca-Cola Route',  days: '7 days', distance: '72 km', difficulty: 'Moderate',    difficultyPct: 62, success: '80%', description: 'The only route with dormitory huts rather than tents. A gentle gradient, but the shorter profile lowers summit odds for most climbers.' },
+  { key: 'rongai',  slug: 'rongai-8-day',            name: 'Rongai',  tag: 'The Wilderness Route', days: '8 days', distance: '73 km', difficulty: 'Moderate',    difficultyPct: 62, success: '88%', description: 'The peaceful approach from the Kenyan side — drier, remote and our top pick for the rainy season or travellers seeking solitude.' },
 ];
 
 export type Review = { quote: string; author: string; trip: string; avatar: string };

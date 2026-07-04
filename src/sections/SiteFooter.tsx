@@ -1,28 +1,17 @@
+import Link from 'next/link';
 import NewsletterForm from '@/components/NewsletterForm';
 
 const exploreLinks = [
-  { label: 'All itineraries', href: '/itineraries' },
-  { label: 'Kilimanjaro routes', href: '#kilimanjaro' },
-  { label: 'Honeymoon escapes', href: '#honeymoon' },
-  { label: 'Destinations', href: '#destinations' },
-  { label: 'The Journal', href: '#journal' },
+  { label: 'All itineraries',    href: '/itineraries' },
+  { label: 'Kilimanjaro routes', href: '/kilimanjaro' },
+  { label: 'Honeymoon escapes',  href: '/itineraries' },
 ];
 
 const companyLinks = [
-  { label: 'Our story', href: '#' },
-  { label: 'Meet the team', href: '#' },
-  { label: 'Responsible travel', href: '#' },
-  { label: 'Reviews', href: '#reviews' },
-  { label: 'Contact us', href: '#enquiry' },
-];
-
-const policyLinks = [
-  { label: 'Terms and Conditions', href: '/terms' },
-  { label: 'Cookies Policy', href: '/cookies' },
-  { label: 'Privacy Policy', href: '/privacy' },
-  { label: 'Refund Policy', href: '/refund' },
-  { label: 'Editorial Policy', href: '/editorial' },
-  { label: 'Sustainability Policy', href: '/sustainability' },
+  { label: 'Our story',          href: '/about' },
+  { label: 'Meet the team',      href: '/about' },
+  { label: 'Responsible travel', href: '/about' },
+  { label: 'Contact us',         href: '/#enquiry' },
 ];
 
 export default function SiteFooter() {
@@ -32,10 +21,10 @@ export default function SiteFooter() {
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4 mb-14">
           {/* Brand */}
           <div className="lg:col-span-1">
-            <div className="flex items-baseline gap-2 mb-4">
+            <Link href="/" className="flex items-baseline gap-2 mb-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold rounded">
               <span className="font-display text-[20px] font-extrabold tracking-tighter text-cream">AFRICAN GENUINE</span>
               <span className="font-mono text-[8px] uppercase tracking-wider2 text-gold">TOURS &amp; SAFARIS</span>
-            </div>
+            </Link>
             <p className="text-sand text-[13px] leading-relaxed max-w-[220px]">
               Tanzanian-owned. Tailor-made. Every itinerary built from scratch for the way you travel.
             </p>
@@ -46,10 +35,10 @@ export default function SiteFooter() {
             <p className="eyebrow mb-5">Explore</p>
             <ul className="space-y-3" role="list">
               {exploreLinks.map((l) => (
-                <li key={l.href}>
-                  <a href={l.href} className="text-sand text-[13px] hover:text-cream transition-colors focus:outline-none focus-visible:underline focus-visible:text-gold">
+                <li key={l.label}>
+                  <Link href={l.href} className="text-sand text-[13px] hover:text-cream transition-colors focus:outline-none focus-visible:underline focus-visible:text-gold">
                     {l.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -60,10 +49,10 @@ export default function SiteFooter() {
             <p className="eyebrow mb-5">Company</p>
             <ul className="space-y-3" role="list">
               {companyLinks.map((l) => (
-                <li key={l.href}>
-                  <a href={l.href} className="text-sand text-[13px] hover:text-cream transition-colors focus:outline-none focus-visible:underline focus-visible:text-gold">
+                <li key={l.label}>
+                  <Link href={l.href} className="text-sand text-[13px] hover:text-cream transition-colors focus:outline-none focus-visible:underline focus-visible:text-gold">
                     {l.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -79,26 +68,18 @@ export default function SiteFooter() {
           </div>
         </div>
 
-        {/* Extended Policy Links */}
-        <div className="flex flex-wrap justify-center gap-6 mb-8">
-          {policyLinks.map((link) => (
-            <a key={link.href} href={link.href} className="text-clay text-[12px] hover:text-sand transition-colors focus:outline-none focus-visible:underline">
-              {link.label}
-            </a>
-          ))}
-        </div>
-
         {/* Copyright row */}
         <div className="border-t border-line pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-clay text-[12px]">
             © {new Date().getFullYear()} African Genuine Tours &amp; Safaris Ltd. All rights reserved.
           </p>
           <div className="flex gap-6">
-            {['Privacy policy', 'Terms of use', 'Cookie settings'].map((t) => (
-              <a key={t} href="#" className="text-clay text-[12px] hover:text-sand transition-colors focus:outline-none focus-visible:underline">
-                {t}
-              </a>
-            ))}
+            <Link href="/about" className="text-clay text-[12px] hover:text-sand transition-colors focus:outline-none focus-visible:underline">
+              About us
+            </Link>
+            <Link href="/#enquiry" className="text-clay text-[12px] hover:text-sand transition-colors focus:outline-none focus-visible:underline">
+              Contact
+            </Link>
           </div>
         </div>
       </div>

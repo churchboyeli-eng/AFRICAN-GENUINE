@@ -15,10 +15,10 @@ export default function Destinations() {
               </h2>
             </div>
             <a
-              href="#"
+              href="/itineraries"
               className="hidden sm:inline-block font-body text-[13px] font-semibold text-gold hover:text-gold-bright transition-colors focus:outline-none focus-visible:underline"
             >
-              All destinations →
+              All itineraries →
             </a>
           </div>
         </FadeUp>
@@ -53,7 +53,7 @@ export default function Destinations() {
                 </h3>
               </div>
               <a
-                href={`#dest-${dest.name.toLowerCase().replace(' ', '-')}`}
+                href="/itineraries"
                 className="absolute inset-0 focus:outline-none"
                 aria-label={`Explore ${dest.name}, ${dest.count}`}
               />
