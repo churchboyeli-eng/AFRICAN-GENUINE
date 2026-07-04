@@ -34,8 +34,8 @@ const contactDetails = [
   },
   {
     label: 'Based in',
-    value: 'Moshi, Tanzania',
-    sub: 'At the foot of Kilimanjaro',
+    value: 'Arusha, Tanzania',
+    sub: 'Gateway to the northern safari circuit',
     href: null,
     icon: (
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
