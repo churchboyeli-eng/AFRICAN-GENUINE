@@ -5,6 +5,7 @@ const navLinks = [
   { label: 'Kilimanjaro', href: '/kilimanjaro' },
   { label: 'Honeymoon', href: '/itineraries' },
   { label: 'About', href: '/about' },
+  { label: 'Contact', href: '/contact' },
 ];
 
 export default function TopBar() {
