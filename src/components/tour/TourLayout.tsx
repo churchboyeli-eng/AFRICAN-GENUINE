@@ -83,7 +83,7 @@ export default function TourLayout({ tour }: Props) {
             {/* ── Right column: sticky booking / request card ── */}
             <div className="hidden lg:block">
               <div className="sticky top-6">
-                <BookingCard departures={tour.departures} />
+                <BookingCard departures={tour.departures} tourName={tour.name} />
               </div>
             </div>
           </div>
@@ -91,7 +91,7 @@ export default function TourLayout({ tour }: Props) {
 
         {/* Mobile booking card (below main content, above footer) */}
         <div id="book-mobile" className="lg:hidden shell mt-10">
-          <BookingCard departures={tour.departures} />
+          <BookingCard departures={tour.departures} tourName={tour.name} />
         </div>
 
         {/* Prev / Next nav */}

@@ -49,10 +49,29 @@ export default function ContactForm() {
     if (errors[key]) setErrors((e) => ({ ...e, [key]: undefined }));
   }
 
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const errs = validate(fields);
     if (Object.keys(errs).length > 0) { setErrors(errs); return; }
+
+    // Notify team via WhatsApp Cloud API (silent fail — doesn't block form)
+    const lines = [
+      '📋 New enquiry — African Genuine Tours & Safaris',
+      `Name: ${fields.name}`,
+      `Email: ${fields.email}`,
+      fields.phone ? `Phone: ${fields.phone}` : null,
+      `Trip type: ${fields.tripType}`,
+      fields.dates ? `Dates: ${fields.dates}` : null,
+      fields.guests ? `Guests: ${fields.guests}` : null,
+      fields.message ? `Message: ${fields.message}` : null,
+    ].filter(Boolean).join('\n');
+
+    fetch('/api/whatsapp/send', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ text: lines }),
+    }).catch(() => {/* silent */});
+
     setSubmitted(true);
   }
 

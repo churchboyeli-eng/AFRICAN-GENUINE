@@ -1,5 +1,6 @@
 import { display, body } from './fonts';
 import './globals.css';
+import WhatsAppFab from '@/components/WhatsAppFab';
 
 export const metadata = {
   title: 'African Genuine Tours & Safaris — Tailor-made Tanzania safaris & Kilimanjaro treks',
@@ -9,7 +10,10 @@ export const metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${display.variable} ${body.variable}`}>
-      <body className="bg-ink font-body text-cream antialiased">{children}</body>
+      <body className="bg-ink font-body text-cream antialiased">
+        {children}
+        <WhatsAppFab />
+      </body>
     </html>
   );
 }
