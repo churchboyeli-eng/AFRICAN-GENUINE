@@ -4,6 +4,7 @@ const navLinks = [
   { label: 'Itineraries', href: '/itineraries' },
   { label: 'Kilimanjaro', href: '/kilimanjaro' },
   { label: 'Honeymoon', href: '/honeymoon' },
+  { label: 'Day Trips', href: '/day-trips' },
   { label: 'About', href: '/about' },
   { label: 'Contact', href: '/contact' },
 ];
