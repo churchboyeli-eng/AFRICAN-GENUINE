@@ -3,7 +3,7 @@ import Link from 'next/link';
 const navLinks = [
   { label: 'Itineraries', href: '/itineraries' },
   { label: 'Kilimanjaro', href: '/kilimanjaro' },
-  { label: 'Honeymoon', href: '/itineraries' },
+  { label: 'Honeymoon', href: '/honeymoon' },
   { label: 'About', href: '/about' },
   { label: 'Contact', href: '/contact' },
 ];
