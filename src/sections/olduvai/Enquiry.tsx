@@ -58,7 +58,7 @@ export default function Enquiry() {
         <div
           className="relative min-h-[360px] lg:min-h-[640px] bg-ov-deep"
           style={{
-            backgroundImage: 'url(/img/dest/kilimanjaro.webp)',
+            backgroundImage: 'url(/img/dest/ngorongoro.webp)',
             backgroundSize: 'cover',
             backgroundPosition: 'center',
           }}

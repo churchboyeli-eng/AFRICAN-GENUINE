@@ -15,33 +15,8 @@
 }
 
 @layer utilities {
-  .h-display { @apply font-display font-extrabold tracking-tighter text-cream; }
   .no-scrollbar::-webkit-scrollbar { display: none; }
   .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-}
-
-/* ── Scroll reveal ───────────────────────────────────────────────────────── */
-.reveal {
-  opacity: 0;
-  transform: translateY(28px);
-  transition: opacity 0.8s cubic-bezier(.2,.7,.2,1), transform 0.8s cubic-bezier(.2,.7,.2,1);
-}
-.reveal.vis {
-  opacity: 1;
-  transform: none;
-}
-
-/* ── Ken-burns hero image ────────────────────────────────────────────────── */
-@media (prefers-reduced-motion: no-preference) {
-  @keyframes ken-burns {
-    from { transform: scale(1.08) translate(0, 0); }
-    to   { transform: scale(1.18) translate(-1.2%, 0.6%); }
-  }
-  .ken-burns {
-    animation: ken-burns 22s ease-out infinite alternate;
-    transform-origin: center center;
-    will-change: transform;
-  }
 }
 
 /* ── Olduvai scroll reveal ───────────────────────────────────────────────── */
@@ -69,6 +44,5 @@
 /* ── Reduced motion: show everything immediately ─────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
-  .reveal { opacity: 1; transform: none; }
   .ov-reveal { opacity: 1; transform: none; }
 }

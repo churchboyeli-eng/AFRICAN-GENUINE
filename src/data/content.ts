@@ -93,7 +93,6 @@ export const tours: Tour[] = [
   },
 ];
 
-export const tourFilters = ['All', 'Safari', 'Kilimanjaro', 'Honeymoon', 'Beach'] as const;
 
 export type Destination = { name: string; count: string; image: string };
 export const destinations: Destination[] = [
@@ -130,11 +129,6 @@ export const posts: Post[] = [
   { tag: 'HONEYMOON',   title: 'Bush-and-beach: building the perfect two-week escape', excerpt: 'Pairing the Serengeti with Zanzibar without spending your trip in transit.', image: '/img/journal/bush-beach.webp' },
 ];
 
-export const searchExperiences = [
-  { key: 'safari', label: 'Safari',      field: 'Serengeti & Ngorongoro' },
-  { key: 'kili',   label: 'Kilimanjaro', field: 'Lemosho Route' },
-  { key: 'honey',  label: 'Honeymoon',   field: 'Bush & Beach' },
-] as const;
 
 export const stats = [
   { value: '5',     label: 'Years on the ground' },
