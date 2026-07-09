@@ -6,6 +6,7 @@ import KilimanjaroRoutes from '@/sections/KilimanjaroRoutes';
 import Journal from '@/sections/Journal';
 import Enquiry from '@/sections/Enquiry';
 import SiteFooter from '@/sections/SiteFooter';
+import Reveal from '@/components/Reveal';
 
 export default function HomePage() {
   return (
@@ -13,11 +14,11 @@ export default function HomePage() {
       <TopBar />
       <main>
         <Hero />
-        <FeaturedTours />
-        <Destinations />
-        <KilimanjaroRoutes />
-        <Journal />
-        <Enquiry />
+        <Reveal><FeaturedTours /></Reveal>
+        <Reveal><Destinations /></Reveal>
+        <Reveal><KilimanjaroRoutes /></Reveal>
+        <Reveal><Journal /></Reveal>
+        <Reveal><Enquiry /></Reveal>
       </main>
       <SiteFooter />
     </>

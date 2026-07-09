@@ -1,10 +1,10 @@
 import Link from 'next/link';
 
 const navLinks = [
-  { label: 'Itineraries', href: '/itineraries' },
-  { label: 'Kilimanjaro', href: '/kilimanjaro' },
-  { label: 'Honeymoon', href: '/honeymoon' },
   { label: 'Day Trips', href: '/day-trips' },
+  { label: 'Itineraries', href: '/itineraries' },
+  { label: 'Honeymoon', href: '/honeymoon' },
+  { label: 'Kilimanjaro', href: '/kilimanjaro' },
   { label: 'About', href: '/about' },
   { label: 'Contact', href: '/contact' },
 ];

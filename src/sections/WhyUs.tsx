@@ -1,3 +1,6 @@
+'use client';
+
+import { useEffect, useRef, useState } from 'react';
 import FadeUp from '@/components/FadeUp';
 import { stats } from '@/data/content';
 
@@ -19,6 +22,109 @@ const values = [
   },
 ];
 
+interface ParsedStat {
+  prefix: string;
+  number: number;
+  decimals: number;
+  suffix: string;
+  raw: string;
+}
+
+function parseStat(value: string): ParsedStat {
+  // Strip commas for number parsing
+  const clean = value.replace(/,/g, '');
+  // Match optional prefix, number (with optional decimal), then any trailing suffix
+  const m = clean.match(/^([^0-9]*)([0-9]+(?:\.[0-9]+)?)(.*)$/);
+  if (!m) return { prefix: '', number: 0, decimals: 0, suffix: value, raw: value };
+  const numStr = m[2];
+  const decimals = numStr.includes('.') ? numStr.split('.')[1].length : 0;
+  return {
+    prefix: m[1],
+    number: parseFloat(numStr),
+    decimals,
+    suffix: m[3],
+    raw: value,
+  };
+}
+
+function formatNumber(n: number, parsed: ParsedStat): string {
+  if (parsed.decimals > 0) {
+    return n.toFixed(parsed.decimals);
+  }
+  // Comma-separate integers over 999
+  if (parsed.number >= 1000) {
+    return Math.round(n).toLocaleString('en-US');
+  }
+  return String(Math.round(n));
+}
+
+function CountStat({ value, label, delay = 0 }: { value: string; label: string; delay?: number }) {
+  const parsed = parseStat(value);
+  const [display, setDisplay] = useState(parsed.prefix + '0' + parsed.suffix);
+  const triggered = useRef(false);
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      setDisplay(parsed.raw);
+      return;
+    }
+
+    function runCountUp() {
+      if (triggered.current) return;
+      triggered.current = true;
+
+      const duration = 1400;
+      const startTime = performance.now();
+      const target = parsed.number;
+
+      function step(now: number) {
+        const elapsed = now - startTime - delay * 1000;
+        if (elapsed < 0) { requestAnimationFrame(step); return; }
+        const t = Math.min(elapsed / duration, 1);
+        // ease-out cubic
+        const eased = 1 - Math.pow(1 - t, 3);
+        const current = eased * target;
+        setDisplay(parsed.prefix + formatNumber(current, parsed) + parsed.suffix);
+        if (t < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    }
+
+    const el = ref.current;
+    if (!el) return;
+
+    let observer: IntersectionObserver | undefined;
+    if (typeof IntersectionObserver !== 'undefined') {
+      observer = new IntersectionObserver(
+        (entries) => { if (entries[0]?.isIntersecting) runCountUp(); },
+        { rootMargin: '0px 0px -10% 0px', threshold: 0 },
+      );
+      observer.observe(el);
+    }
+
+    function onScroll() {
+      if (el && el.getBoundingClientRect().top < window.innerHeight * 0.9) runCountUp();
+    }
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+
+    return () => {
+      observer?.disconnect();
+      window.removeEventListener('scroll', onScroll);
+    };
+  }, []);
+
+  return (
+    <div ref={ref} className="flex flex-col gap-1.5">
+      <dt className="font-display text-[44px] font-extrabold tracking-tightest text-gold leading-none tabular-nums">
+        {display}
+      </dt>
+      <dd className="font-body text-[13px] text-sand">{label}</dd>
+    </div>
+  );
+}
+
 export default function WhyUs() {
   return (
     <section id="why-us" className="py-[70px]" aria-label="Why choose African Genuine Tours & Safaris">
@@ -26,14 +132,7 @@ export default function WhyUs() {
       <div className="shell">
         <dl className="grid grid-cols-2 gap-y-10 lg:grid-cols-4 mb-20">
           {stats.map((stat, i) => (
-            <FadeUp key={stat.label} delay={i * 0.08}>
-              <div className="flex flex-col gap-1.5">
-                <dt className="font-display text-[44px] font-extrabold tracking-tightest text-gold leading-none">
-                  {stat.value}
-                </dt>
-                <dd className="font-body text-[13px] text-sand">{stat.label}</dd>
-              </div>
-            </FadeUp>
+            <CountStat key={stat.label} value={stat.value} label={stat.label} delay={i * 0.12} />
           ))}
         </dl>
 
