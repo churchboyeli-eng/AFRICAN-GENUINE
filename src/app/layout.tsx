@@ -1,4 +1,4 @@
-import { display, body } from './fonts';
+import { display, body, cormorant, jost } from './fonts';
 import './globals.css';
 import WhatsAppFab from '@/components/WhatsAppFab';
 
@@ -9,7 +9,7 @@ export const metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${display.variable} ${body.variable}`}>
+    <html lang="en" className={`${display.variable} ${body.variable} ${cormorant.variable} ${jost.variable}`}>
       <body className="bg-ink font-body text-cream antialiased">
         {children}
         <WhatsAppFab />
