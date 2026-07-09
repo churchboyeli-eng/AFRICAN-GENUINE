@@ -77,13 +77,13 @@ function Modal({ trip, onClose }: { trip: DayTrip; onClose: () => void }) {
         animate={{ y: 0, opacity: 1 }}
         exit={{ y: 40, opacity: 0 }}
         transition={{ duration: 0.25, ease: [0.4, 0, 0.1, 1] }}
-        className="relative w-full sm:max-w-2xl max-h-[96dvh] overflow-y-auto rounded-t-[20px] sm:rounded-[20px] bg-[#111009] border border-line flex flex-col"
+        className="relative w-full sm:max-w-2xl max-h-[96dvh] overflow-y-auto rounded-t-[20px] sm:rounded-[20px] bg-ov-bg border border-line flex flex-col"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Hero image */}
         <div className="relative h-48 sm:h-60 shrink-0 overflow-hidden rounded-t-[20px] sm:rounded-t-[20px]">
           <Image src={trip.img} alt={trip.name} fill className="object-cover" sizes="672px" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#111009]/80 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#150f08]/80 to-transparent" />
 
           {/* Pills on image */}
           <div className="absolute bottom-4 left-4 flex gap-2 flex-wrap">
@@ -187,7 +187,7 @@ function TripCard({ trip, onClick }: { trip: DayTrip; onClick: () => void }) {
       animate={{ opacity: 1, scale: 1 }}
       exit={{ opacity: 0, scale: 0.97 }}
       transition={{ duration: 0.25, ease: [0.4, 0, 0.1, 1] }}
-      className="group flex flex-col rounded-[16px] border border-line bg-[#0f0d0a] overflow-hidden cursor-pointer hover:border-gold/40 transition-all duration-300 hover:-translate-y-1 focus-within:ring-2 focus-within:ring-gold"
+      className="group flex flex-col rounded-[16px] border border-line bg-ov-bg overflow-hidden cursor-pointer hover:border-gold/40 transition-all duration-300 hover:-translate-y-1 focus-within:ring-2 focus-within:ring-gold"
     >
       {/* Image */}
       <div className="relative h-48 overflow-hidden shrink-0">
@@ -198,7 +198,7 @@ function TripCard({ trip, onClick }: { trip: DayTrip; onClick: () => void }) {
           className="object-cover transition-transform duration-500 group-hover:scale-105"
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0f0d0a]/60 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#150f08]/60 to-transparent" />
 
         {/* Pills */}
         <div className="absolute top-3 left-3">

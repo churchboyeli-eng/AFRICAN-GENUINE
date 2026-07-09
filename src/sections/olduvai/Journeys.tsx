@@ -18,21 +18,21 @@ export default function Journeys() {
   }
 
   return (
-    <section className="ov-reveal bg-ovl-bg py-24" ref={sectionRef} aria-label="Signature journeys">
+    <section className="ov-reveal bg-ov-bg py-24" ref={sectionRef} aria-label="Signature journeys">
       {/* Heading row */}
       <div className="flex items-end justify-between px-14 mb-12">
         <div>
-          <span className="font-jost text-[10px] uppercase tracking-[.36em] text-ovl-faint block mb-3">
+          <span className="font-jost text-[10px] uppercase tracking-[.36em] text-ov-faint block mb-3">
             Signature journeys
           </span>
-          <h2 className="font-cormorant text-[42px] font-light leading-[1.1] tracking-[-0.02em] text-ovl-text">
+          <h2 className="font-cormorant text-[42px] font-light leading-[1.1] tracking-[-0.02em] text-ov-ivory">
             Crafted for the curious
           </h2>
         </div>
         <div className="flex items-center gap-6">
           <a
             href="/itineraries"
-            className="hidden sm:block font-jost text-[11px] uppercase tracking-[.2em] text-ovl-body hover:text-ovl-accent transition-colors duration-300"
+            className="hidden sm:block font-jost text-[11px] uppercase tracking-[.2em] text-ov-muted hover:text-ov-brass transition-colors duration-300"
           >
             All 21 itineraries →
           </a>
@@ -42,7 +42,7 @@ export default function Journeys() {
                 key={arrow}
                 onClick={() => scroll(i === 0 ? -1 : 1)}
                 aria-label={i === 0 ? 'Previous journey' : 'Next journey'}
-                className="w-11 h-11 border border-[rgba(33,29,26,0.22)] text-ovl-body font-jost text-[16px] flex items-center justify-center transition-all duration-300 hover:border-ovl-accent hover:text-ovl-accent"
+                className="w-11 h-11 border border-[rgba(200,165,92,0.2)] text-ov-muted font-jost text-[16px] flex items-center justify-center transition-all duration-300 hover:border-ov-brass hover:text-ov-brass"
               >
                 {arrow}
               </button>
@@ -59,7 +59,7 @@ export default function Journeys() {
         {tours.map((tour, i) => (
           <article
             key={tour.id}
-            className="snap-start shrink-0 w-[340px] flex flex-col border border-[rgba(33,29,26,0.12)] group bg-ovl-bg"
+            className="snap-start shrink-0 w-[340px] flex flex-col border border-[rgba(200,165,92,0.12)] group bg-ov-bg"
           >
             {/* Image */}
             <a
@@ -86,31 +86,31 @@ export default function Journeys() {
 
             {/* Card body */}
             <div className="flex flex-col flex-1 p-7 gap-4">
-              <p className="font-jost text-[10px] uppercase tracking-[.28em] text-ovl-faint">
+              <p className="font-jost text-[10px] uppercase tracking-[.28em] text-ov-faint">
                 {tour.category} · {tour.days}
               </p>
-              <h3 className="font-cormorant text-[24px] font-light leading-[1.2] tracking-[-0.01em] text-ovl-text">
+              <h3 className="font-cormorant text-[24px] font-light leading-[1.2] tracking-[-0.01em] text-ov-ivory">
                 {tour.name}
               </h3>
-              <p className="font-jost text-[13px] font-light text-ovl-body leading-relaxed flex-1">
+              <p className="font-jost text-[13px] font-light text-ov-muted leading-relaxed flex-1">
                 {tour.blurb}
               </p>
 
               <ul className="flex flex-col gap-1">
                 {tour.highlights.slice(0, 2).map((h) => (
-                  <li key={h} className="font-jost text-[11px] font-light text-ovl-body/70 flex items-start gap-2">
-                    <span className="text-ovl-faint mt-0.5">✦</span>{h}
+                  <li key={h} className="font-jost text-[11px] font-light text-ov-muted/70 flex items-start gap-2">
+                    <span className="text-ov-faint mt-0.5">✦</span>{h}
                   </li>
                 ))}
               </ul>
 
-              <div className="flex items-center justify-between pt-4 border-t border-[rgba(33,29,26,0.12)]">
-                <span className="font-jost text-[12px] font-light text-ovl-accent">
+              <div className="flex items-center justify-between pt-4 border-t border-[rgba(200,165,92,0.12)]">
+                <span className="font-jost text-[12px] font-light text-ov-brass">
                   {tour.price}
                 </span>
                 <a
                   href={tour.href}
-                  className="font-jost text-[11px] uppercase tracking-[.16em] text-ovl-body hover:text-ovl-accent transition-colors duration-300"
+                  className="font-jost text-[11px] uppercase tracking-[.16em] text-ov-muted hover:text-ov-brass transition-colors duration-300"
                 >
                   Discover →
                 </a>

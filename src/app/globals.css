@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base { body { background: #0c0a07; } }
+@layer base { body { background: #150f08; } }
 
 @layer components {
   .eyebrow      { @apply font-mono text-[10px] uppercase tracking-label text-gold; }

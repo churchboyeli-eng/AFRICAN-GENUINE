@@ -5,7 +5,7 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        ink: '#0c0a07', 'ink-deep': '#070504',
+        ink: '#150f08', 'ink-deep': '#150f08',
         ov: {
           bg:       '#150f08',
           deep:     '#150f08',

@@ -25,23 +25,23 @@ export default function Experiences() {
 
   return (
     <section
-      className="ov-reveal bg-ovl-bg py-28 px-14"
+      className="ov-reveal bg-ov-bg py-28 px-14"
       ref={ref}
       aria-label="The Genius difference"
     >
       <div className="mx-auto max-w-[1280px]">
         {/* Heading */}
         <div className="text-center mb-20">
-          <span className="font-jost text-[10px] uppercase tracking-[.36em] text-ovl-faint block mb-3">
+          <span className="font-jost text-[10px] uppercase tracking-[.36em] text-ov-faint block mb-3">
             The Genius difference
           </span>
-          <h2 className="font-cormorant text-[42px] font-light leading-[1.1] tracking-[-0.02em] text-ovl-text">
+          <h2 className="font-cormorant text-[42px] font-light leading-[1.1] tracking-[-0.02em] text-ov-ivory">
             Why it matters who you travel with
           </h2>
         </div>
 
         {/* 3-col grid — dark ink cards on light background */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-[rgba(33,29,26,0.1)]">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-[rgba(200,165,92,0.1)]">
           {ITEMS.map((item) => (
             <div key={item.numeral} className="flex flex-col gap-6 px-10 py-10 bg-[#171009]">
               <span className="font-cormorant text-[64px] font-light leading-none text-[#e0a83f]/20 tracking-[-0.02em]">

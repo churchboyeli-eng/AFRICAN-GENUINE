@@ -8,12 +8,12 @@ const ITEMS = [
 
 export default function TrustBar() {
   return (
-    <div className="bg-ovl-bg border-y border-[rgba(33,29,26,0.22)] py-5 px-14">
+    <div className="bg-ov-bg border-y border-[rgba(200,165,92,0.16)] py-5 px-14">
       <ul className="flex flex-wrap items-center justify-center gap-x-10 gap-y-3">
         {ITEMS.map((item) => (
           <li
             key={item}
-            className="font-jost text-[10px] uppercase tracking-[.28em] text-ovl-faint"
+            className="font-jost text-[10px] uppercase tracking-[.28em] text-ov-faint"
           >
             {item}
           </li>
