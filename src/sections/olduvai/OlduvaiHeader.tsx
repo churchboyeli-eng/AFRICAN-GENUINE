@@ -7,8 +7,9 @@ import { useScrollRaf } from '@/hooks/useScrollRaf';
 const NAV = [
   { label: 'Day Trips',   href: '/day-trips' },
   { label: 'Safaris',     href: '/itineraries' },
-  { label: 'Kilimanjaro', href: '/kilimanjaro' },
+  { label: 'Itineraries', href: '/itineraries' },
   { label: 'Honeymoon',   href: '/honeymoon' },
+  { label: 'Kilimanjaro', href: '/kilimanjaro' },
   { label: 'About',       href: '/about' },
   { label: 'Contact',     href: '/contact' },
 ];

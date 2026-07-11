@@ -1,12 +1,13 @@
 import Link from 'next/link';
 
 const navLinks = [
-  { label: 'Day Trips', href: '/day-trips' },
+  { label: 'Day Trips',   href: '/day-trips' },
+  { label: 'Safaris',     href: '/itineraries' },
   { label: 'Itineraries', href: '/itineraries' },
-  { label: 'Honeymoon', href: '/honeymoon' },
+  { label: 'Honeymoon',   href: '/honeymoon' },
   { label: 'Kilimanjaro', href: '/kilimanjaro' },
-  { label: 'About', href: '/about' },
-  { label: 'Contact', href: '/contact' },
+  { label: 'About',       href: '/about' },
+  { label: 'Contact',     href: '/contact' },
 ];
 
 export default function TopBar() {
