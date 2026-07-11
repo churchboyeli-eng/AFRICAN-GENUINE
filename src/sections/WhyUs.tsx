@@ -117,17 +117,17 @@ function CountStat({ value, label, delay = 0 }: { value: string; label: string; 
 
   return (
     <div ref={ref} className="flex flex-col gap-1.5">
-      <dt className="font-display text-[44px] font-extrabold tracking-tightest text-gold leading-none tabular-nums">
+      <dt className="font-display text-[44px] font-extrabold tracking-tightest text-ovl-accent leading-none tabular-nums">
         {display}
       </dt>
-      <dd className="font-body text-[13px] text-sand">{label}</dd>
+      <dd className="font-body text-[13px] text-[#5c5750]">{label}</dd>
     </div>
   );
 }
 
 export default function WhyUs() {
   return (
-    <section id="why-us" className="py-[70px]" aria-label="Why choose African Genuine Tours & Safaris">
+    <section id="why-us" className="py-[70px] bg-ovl-bg" aria-label="Why choose African Genuine Tours & Safaris">
       {/* Stat band */}
       <div className="shell">
         <dl className="grid grid-cols-2 gap-y-10 lg:grid-cols-4 mb-20">
@@ -137,7 +137,7 @@ export default function WhyUs() {
         </dl>
 
         {/* Divider */}
-        <div className="mb-16 h-px w-full bg-line" />
+        <div className="mb-16 h-px w-full bg-[rgba(33,29,26,0.22)]" />
 
         {/* Value props */}
         <div className="grid gap-6 md:grid-cols-3">
@@ -145,10 +145,10 @@ export default function WhyUs() {
             <FadeUp key={v.title} delay={i * 0.1}>
               <div className="card-surface p-8 h-full">
                 <span className="mb-5 block text-2xl" aria-hidden="true">{v.icon}</span>
-                <h3 className="font-display text-[20px] font-bold tracking-tighter text-cream mb-3">
+                <h3 className="font-display text-[20px] font-bold tracking-tighter text-[#211d1a] mb-3">
                   {v.title}
                 </h3>
-                <p className="text-sand text-[14px] leading-relaxed">{v.body}</p>
+                <p className="text-[#5c5750] text-[14px] leading-relaxed">{v.body}</p>
               </div>
             </FadeUp>
           ))}

@@ -33,7 +33,7 @@ export default function SiteFooter() {
 
           {/* Explore */}
           <nav aria-label="Explore links">
-            <p className="eyebrow mb-5">Explore</p>
+            <p className="eyebrow mb-5 !text-gold">Explore</p>
             <ul className="space-y-3" role="list">
               {exploreLinks.map((l) => (
                 <li key={l.label}>
@@ -47,7 +47,7 @@ export default function SiteFooter() {
 
           {/* Company */}
           <nav aria-label="Company links">
-            <p className="eyebrow mb-5">Company</p>
+            <p className="eyebrow mb-5 !text-gold">Company</p>
             <ul className="space-y-3" role="list">
               {companyLinks.map((l) => (
                 <li key={l.label}>
@@ -61,7 +61,7 @@ export default function SiteFooter() {
 
           {/* Newsletter */}
           <div>
-            <p className="eyebrow mb-5">Stay inspired</p>
+            <p className="eyebrow mb-5 !text-gold">Stay inspired</p>
             <p className="text-sand text-[13px] leading-relaxed mb-4">
               Migration timing, summit guides, and quiet corners of Tanzania — monthly.
             </p>

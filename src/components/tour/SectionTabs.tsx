@@ -42,10 +42,10 @@ function OverviewPanel({
     return (
       <div className="card-surface p-8 lg:p-10">
         <p className="eyebrow text-clay mb-3">Trip overview</p>
-        <h2 className="font-display text-[22px] font-bold tracking-tighter text-cream mb-4">
+        <h2 className="font-display text-[22px] font-bold tracking-tighter text-[#211d1a] mb-4">
           Full details on request
         </h2>
-        <p className="text-sand text-[15px] leading-relaxed mb-6 max-w-lg">
+        <p className="text-[#5c5750] text-[15px] leading-relaxed mb-6 max-w-lg">
           Detailed trip notes — park briefings, daily highlights, and accommodation recommendations — are included in your personalised itinerary proposal.
         </p>
         <a href="/contact" className="btn-gold inline-flex items-center justify-center">
@@ -61,7 +61,7 @@ function OverviewPanel({
       {overviewText && overviewText.length > 0 && (
         <div className="space-y-4">
           {overviewText.map((p, i) => (
-            <p key={i} className="text-sand text-[15px] leading-[1.8]">{p}</p>
+            <p key={i} className="text-[#5c5750] text-[15px] leading-[1.8]">{p}</p>
           ))}
         </div>
       )}
@@ -74,14 +74,14 @@ function OverviewPanel({
           <div className="grid sm:grid-cols-2 gap-5">
             {highlights.map((h) => (
               <div key={h.num} className="card-surface p-6 flex gap-5">
-                <span className="font-mono text-[28px] font-bold text-gold/30 leading-none shrink-0 pt-0.5">
+                <span className="font-mono text-[28px] font-bold text-[#d24d2e]/30 leading-none shrink-0 pt-0.5">
                   {h.num}
                 </span>
                 <div>
-                  <h3 className="font-display text-[17px] font-bold tracking-tighter text-cream mb-2 leading-snug">
+                  <h3 className="font-display text-[17px] font-bold tracking-tighter text-[#211d1a] mb-2 leading-snug">
                     {h.title}
                   </h3>
-                  <p className="text-sand text-[13px] leading-relaxed">{h.desc}</p>
+                  <p className="text-[#5c5750] text-[13px] leading-relaxed">{h.desc}</p>
                 </div>
               </div>
             ))}
@@ -92,12 +92,12 @@ function OverviewPanel({
       {/* Starting locations */}
       {startingLocations && startingLocations.length > 0 && (
         <div>
-          <h2 className="font-display text-[22px] font-bold tracking-tighter text-cream mb-6">Starting Locations</h2>
+          <h2 className="font-display text-[22px] font-bold tracking-tighter text-[#211d1a] mb-6">Starting Locations</h2>
           <div className="grid gap-5 sm:grid-cols-2">
             {startingLocations.map((loc, i) => (
               <div key={i} className="card-surface p-6">
-                <h3 className="font-display text-[17px] font-bold text-gold mb-3">{loc.title}</h3>
-                <p className="text-sand text-[14px] leading-relaxed">{loc.description}</p>
+                <h3 className="font-display text-[17px] font-bold text-ovl-accent mb-3">{loc.title}</h3>
+                <p className="text-[#5c5750] text-[14px] leading-relaxed">{loc.description}</p>
               </div>
             ))}
           </div>
@@ -107,23 +107,23 @@ function OverviewPanel({
       {/* Parks & Wildlife */}
       {parksAndWildlife && parksAndWildlife.length > 0 && (
         <div>
-          <h2 className="font-display text-[22px] font-bold tracking-tighter text-cream mb-6">
+          <h2 className="font-display text-[22px] font-bold tracking-tighter text-[#211d1a] mb-6">
             Parks &amp; Wildlife
           </h2>
           <div className="space-y-8">
             {parksAndWildlife.map((park, i) => (
               <div key={i}>
-                <h3 className="font-display text-[19px] font-bold text-cream mb-3">{park.name}</h3>
+                <h3 className="font-display text-[19px] font-bold text-[#211d1a] mb-3">{park.name}</h3>
                 <div className="mb-3 space-y-2">
                   {park.description.map((desc, idx) => (
-                    <p key={idx} className="text-sand text-[14px] leading-relaxed">{desc}</p>
+                    <p key={idx} className="text-[#5c5750] text-[14px] leading-relaxed">{desc}</p>
                   ))}
                 </div>
                 <ul className="space-y-2">
                   {park.highlights.map((hl, idx) => (
                     <li key={idx} className="flex items-start gap-3">
-                      <span className="text-gold mt-1 shrink-0 text-[10px]">✦</span>
-                      <span className="text-clay text-[14px] leading-relaxed">{hl}</span>
+                      <span className="text-ovl-accent mt-1 shrink-0 text-[10px]">✦</span>
+                      <span className="text-[#7a746c] text-[14px] leading-relaxed">{hl}</span>
                     </li>
                   ))}
                 </ul>
@@ -136,15 +136,15 @@ function OverviewPanel({
       {/* Best time */}
       {bestTime && bestTime.length > 0 && (
         <div>
-          <h2 className="font-display text-[22px] font-bold tracking-tighter text-cream mb-6">
+          <h2 className="font-display text-[22px] font-bold tracking-tighter text-[#211d1a] mb-6">
             Best Time to Visit
           </h2>
           <div className="space-y-6">
             {bestTime.map((time, i) => (
-              <div key={i} className="border-l-2 border-gold/30 pl-6">
-                <h3 className="font-display text-[17px] font-bold text-gold mb-2">{time.period}</h3>
+              <div key={i} className="border-l-2 border-[#d24d2e]/30 pl-6">
+                <h3 className="font-display text-[17px] font-bold text-ovl-accent mb-2">{time.period}</h3>
                 {time.subtitle && (
-                  <p className="font-body text-[13px] text-sand italic mb-2">{time.subtitle}</p>
+                  <p className="font-body text-[13px] text-[#5c5750] italic mb-2">{time.subtitle}</p>
                 )}
                 <div className="mb-3 space-y-2">
                   {time.description.map((desc, idx) => (
@@ -154,8 +154,8 @@ function OverviewPanel({
                 <ul className="space-y-2">
                   {time.highlights.map((hl, idx) => (
                     <li key={idx} className="flex items-start gap-3">
-                      <span className="text-gold mt-1 shrink-0 text-[10px]">✦</span>
-                      <span className="text-clay text-[14px] leading-relaxed">{hl}</span>
+                      <span className="text-ovl-accent mt-1 shrink-0 text-[10px]">✦</span>
+                      <span className="text-[#7a746c] text-[14px] leading-relaxed">{hl}</span>
                     </li>
                   ))}
                 </ul>
@@ -168,16 +168,16 @@ function OverviewPanel({
       {/* Why book */}
       {whyBook && whyBook.length > 0 && (
         <div>
-          <h2 className="font-display text-[22px] font-bold tracking-tighter text-cream mb-5">
+          <h2 className="font-display text-[22px] font-bold tracking-tighter text-[#211d1a] mb-5">
             Why Book This Safari With Us
           </h2>
           <ul className="space-y-4">
             {whyBook.map((reason, i) => (
               <li key={i} className="flex items-start gap-4">
-                <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-gold/20 text-gold text-[12px]">
+                <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#d24d2e]/10 text-[#d24d2e] text-[12px]">
                   ✓
                 </div>
-                <span className="text-sand text-[15px] leading-relaxed">{reason}</span>
+                <span className="text-[#5c5750] text-[15px] leading-relaxed">{reason}</span>
               </li>
             ))}
           </ul>
@@ -200,23 +200,23 @@ function AccordionItem({
   const hasDetails = day.stay || day.meals;
 
   return (
-    <li className="border-b border-line last:border-none">
+    <li className="border-b border-[rgba(33,29,26,0.22)] last:border-none">
       <button
         onClick={onToggle}
         aria-expanded={isOpen}
         className="w-full flex items-start gap-4 py-5 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-inset group"
       >
-        <span className="shrink-0 flex flex-col items-center justify-center rounded-card border border-gold/30 bg-gold/8 w-12 h-12 gap-0">
-          <span className="font-mono text-[8px] uppercase tracking-label text-clay leading-none">Day</span>
-          <span className="font-display text-[18px] font-bold tracking-tighter text-gold leading-none">{day.n}</span>
+        <span className="shrink-0 flex flex-col items-center justify-center rounded-card border border-[#d24d2e]/30 bg-[#d24d2e]/5 w-12 h-12 gap-0">
+          <span className="font-mono text-[8px] uppercase tracking-label text-[#7a746c] leading-none">Day</span>
+          <span className="font-display text-[18px] font-bold tracking-tighter text-ovl-accent leading-none">{day.n}</span>
         </span>
 
         <div className="flex-1 min-w-0">
-          <p className="font-display text-[17px] font-bold tracking-tighter text-cream leading-snug group-hover:text-gold-bright transition-colors">
+          <p className="font-display text-[17px] font-bold tracking-tighter text-[#211d1a] leading-snug group-hover:text-[#a83a20] transition-colors">
             {day.title}
           </p>
           {(day.place || day.travel) && (
-            <p className="font-mono text-[10px] uppercase tracking-label text-clay mt-1">
+            <p className="font-mono text-[10px] uppercase tracking-label text-[#7a746c] mt-1">
               {[day.place, day.travel].filter(Boolean).join(' · ')}
             </p>
           )}
@@ -225,7 +225,7 @@ function AccordionItem({
         <motion.span
           animate={{ rotate: isOpen ? 180 : 0 }}
           transition={{ duration: 0.25, ease: 'easeInOut' }}
-          className="shrink-0 text-gold mt-1 text-[14px]"
+          className="shrink-0 text-ovl-accent mt-1 text-[14px]"
           aria-hidden="true"
         >
           ▾
@@ -243,19 +243,19 @@ function AccordionItem({
             style={{ overflow: 'hidden' }}
           >
             <div className="pb-6 pl-16 pr-2">
-              <p className="text-sand text-[14px] leading-[1.8] mb-5">{day.desc}</p>
+              <p className="text-[#5c5750] text-[14px] leading-[1.8] mb-5">{day.desc}</p>
               {hasDetails && (
                 <div className="flex flex-wrap gap-x-8 gap-y-2">
                   {day.stay && (
                     <div>
-                      <span className="eyebrow text-clay">Stay</span>
-                      <p className="font-body text-[13px] text-cream mt-1">{day.stay}</p>
+                      <span className="eyebrow text-ovl-faint">Stay</span>
+                      <p className="font-body text-[13px] text-[#211d1a] mt-1">{day.stay}</p>
                     </div>
                   )}
                   {day.meals && (
                     <div>
-                      <span className="eyebrow text-clay">Meals</span>
-                      <p className="font-body text-[13px] text-cream mt-1">{day.meals}</p>
+                      <span className="eyebrow text-ovl-faint">Meals</span>
+                      <p className="font-body text-[13px] text-[#211d1a] mt-1">{day.meals}</p>
                     </div>
                   )}
                 </div>
@@ -330,30 +330,30 @@ function ItineraryPanel({
         {(routeStops || routeLabel) && (
           <div className="hidden lg:block sticky top-[100px]">
             <div className="card-surface overflow-hidden">
-              <div className="relative min-h-[200px] flex items-center justify-center bg-gold/[.03] p-6">
+              <div className="relative min-h-[200px] flex items-center justify-center bg-[rgba(33,29,26,0.03)] p-6">
                 <div className="text-center w-full">
                   {routeLabel && (
                     <>
                       <span className="eyebrow block mb-2">Route overview</span>
-                      <p className="font-display text-[15px] font-bold tracking-tighter text-cream mb-4">{routeLabel}</p>
+                      <p className="font-display text-[15px] font-bold tracking-tighter text-[#211d1a] mb-4">{routeLabel}</p>
                     </>
                   )}
                   {routeStops && (
                     <div className="space-y-2">
                       {routeStops.map((s) => (
-                        <p key={s} className="font-mono text-[10px] uppercase tracking-label text-clay">{s}</p>
+                        <p key={s} className="font-mono text-[10px] uppercase tracking-label text-[#7a746c]">{s}</p>
                       ))}
                     </div>
                   )}
                 </div>
               </div>
               {(routeDistance || routeNote) && (
-                <div className="p-5 border-t border-line">
+                <div className="p-5 border-t border-[rgba(33,29,26,0.22)]">
                   {routeDistance && (
-                    <p className="font-display text-[22px] font-bold tracking-tighter text-gold">{routeDistance}</p>
+                    <p className="font-display text-[22px] font-bold tracking-tighter text-ovl-accent">{routeDistance}</p>
                   )}
                   {routeNote && (
-                    <p className="font-body text-[12px] text-sand mt-0.5">{routeNote}</p>
+                    <p className="font-body text-[12px] text-[#5c5750] mt-0.5">{routeNote}</p>
                   )}
                 </div>
               )}
@@ -365,14 +365,14 @@ function ItineraryPanel({
       {/* Notes */}
       {notes && notes.length > 0 && (
         <div className="mt-10 card-surface p-6 lg:p-8">
-          <h3 className="font-display text-[18px] font-bold tracking-tighter text-cream mb-5">
+          <h3 className="font-display text-[18px] font-bold tracking-tighter text-[#211d1a] mb-5">
             Flexible by design
           </h3>
           <ul className="space-y-3">
             {notes.map((note) => (
               <li key={note} className="flex items-start gap-3">
-                <span className="text-gold mt-0.5 shrink-0 text-[12px]">✦</span>
-                <span className="text-sand text-[14px] leading-relaxed">{note}</span>
+                <span className="text-ovl-accent mt-0.5 shrink-0 text-[12px]">✦</span>
+                <span className="text-[#5c5750] text-[14px] leading-relaxed">{note}</span>
               </li>
             ))}
           </ul>
@@ -395,7 +395,7 @@ function InclusionsPanel({ included, excluded }: { included?: string[]; excluded
               {included.map((item) => (
                 <li key={item} className="flex items-start gap-3">
                   <span className="shrink-0 mt-0.5 text-[14px]" style={{ color: '#a9d0a0' }}>✓</span>
-                  <span className="font-body text-[14px] text-cream leading-snug">{item}</span>
+                  <span className="font-body text-[14px] text-[#211d1a] leading-snug">{item}</span>
                 </li>
               ))}
             </ul>
@@ -409,7 +409,7 @@ function InclusionsPanel({ included, excluded }: { included?: string[]; excluded
               {excluded.map((item) => (
                 <li key={item} className="flex items-start gap-3">
                   <span className="text-clay shrink-0 mt-0.5 text-[14px]">✕</span>
-                  <span className="font-body text-[14px] text-sand leading-snug">{item}</span>
+                  <span className="font-body text-[14px] text-[#5c5750] leading-snug">{item}</span>
                 </li>
               ))}
             </ul>
@@ -441,18 +441,18 @@ function AccommodationPanel({ lodges }: { lodges: TourLodge[] }) {
             <div className="p-6">
               <div className="flex items-start justify-between gap-4 mb-3">
                 <div>
-                  <p className="eyebrow text-clay mb-1">{lodge.nights}</p>
-                  <h3 className="font-display text-[19px] font-bold tracking-tighter text-cream">
+                  <p className="eyebrow text-ovl-faint mb-1">{lodge.nights}</p>
+                  <h3 className="font-display text-[19px] font-bold tracking-tighter text-[#211d1a]">
                     {lodge.name}
                   </h3>
                 </div>
                 {lodge.stars && (
-                  <span className="shrink-0 font-mono text-[10px] uppercase tracking-label text-gold border border-gold/30 rounded-pill px-3 py-1 whitespace-nowrap">
+                  <span className="shrink-0 font-mono text-[10px] uppercase tracking-label text-ovl-accent border border-[#d24d2e]/30 rounded-pill px-3 py-1 whitespace-nowrap">
                     {lodge.stars}
                   </span>
                 )}
               </div>
-              <p className="text-sand text-[14px] leading-relaxed">{lodge.desc}</p>
+              <p className="text-[#5c5750] text-[14px] leading-relaxed">{lodge.desc}</p>
             </div>
           </div>
         ))}
@@ -544,7 +544,7 @@ export default function SectionTabs({
     <div>
       {/* Tab bar — active pill switches INSTANTLY (no transition on active state) */}
       <div
-        className="sticky top-0 z-30 bg-ink border-b border-line mb-8"
+        className="sticky top-0 z-30 bg-ovl-bg border-b border-[rgba(33,29,26,0.22)] mb-8"
         role="tablist"
         aria-label="Tour section tabs"
       >
@@ -557,8 +557,8 @@ export default function SectionTabs({
               onClick={() => setActive(tab)}
               className={`rounded-pill px-5 py-2.5 font-body text-[12px] font-bold whitespace-nowrap focus:outline-none focus-visible:ring-2 focus-visible:ring-gold ${
                 active === tab
-                  ? 'bg-gold text-[#1a1206]'
-                  : 'border border-line text-sand hover:text-cream hover:border-gold/50 transition-colors'
+                  ? 'bg-[#d24d2e] text-white'
+                  : 'border border-[rgba(33,29,26,0.22)] text-[#5c5750] hover:text-[#211d1a] hover:border-[#d24d2e]/50 transition-colors'
               }`}
             >
               {tab}

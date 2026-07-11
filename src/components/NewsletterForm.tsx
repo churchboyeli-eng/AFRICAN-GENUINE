@@ -13,10 +13,10 @@ export default function NewsletterForm() {
         type="email"
         required
         placeholder="your@email.com"
-        className="flex-1 rounded-pill border border-line bg-white/5 px-4 py-2.5 font-body text-[13px] text-cream placeholder:text-clay focus:outline-none focus:border-gold"
+        className="flex-1 rounded-pill border border-line bg-white/5 px-4 py-2.5 font-body text-[13px] text-cream placeholder:text-clay focus:outline-none focus:border-gold/60"
         aria-label="Email address for newsletter"
       />
-      <button type="submit" className="btn-gold !py-2.5 !px-5 text-[12px] shrink-0">
+      <button type="submit" className="rounded-pill bg-[#e0a83f] px-5 py-2.5 font-body text-[12px] font-bold text-[#150f08] transition hover:bg-[#d19c35] shrink-0">
         Join
       </button>
     </form>

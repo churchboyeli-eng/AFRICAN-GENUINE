@@ -77,7 +77,7 @@ function Modal({ trip, onClose }: { trip: DayTrip; onClose: () => void }) {
         animate={{ y: 0, opacity: 1 }}
         exit={{ y: 40, opacity: 0 }}
         transition={{ duration: 0.25, ease: [0.4, 0, 0.1, 1] }}
-        className="relative w-full sm:max-w-2xl max-h-[96dvh] overflow-y-auto rounded-t-[20px] sm:rounded-[20px] bg-ov-bg border border-line flex flex-col"
+        className="relative w-full sm:max-w-2xl max-h-[96dvh] overflow-y-auto rounded-t-[20px] sm:rounded-[20px] bg-ovl-bg border border-[rgba(33,29,26,0.22)] flex flex-col"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Hero image */}
@@ -116,22 +116,22 @@ function Modal({ trip, onClose }: { trip: DayTrip; onClose: () => void }) {
               <span aria-hidden="true">📍</span>
               {trip.location}
             </p>
-            <h2 className="font-display text-[clamp(22px,4vw,30px)] font-extrabold tracking-tighter text-cream leading-tight mb-3">
+            <h2 className="font-display text-[clamp(22px,4vw,30px)] font-extrabold tracking-tighter text-[#211d1a] leading-tight mb-3">
               {trip.name}
             </h2>
-            <p className="text-sand text-[15px] leading-relaxed">{trip.desc}</p>
+            <p className="text-[#5c5750] text-[15px] leading-relaxed">{trip.desc}</p>
           </div>
 
           {/* 3-up stat strip */}
-          <div className="grid grid-cols-3 divide-x divide-line border border-line rounded-card overflow-hidden">
+          <div className="grid grid-cols-3 divide-x divide-[rgba(33,29,26,0.22)] border border-[rgba(33,29,26,0.22)] rounded-card overflow-hidden">
             {[
               { label: 'Duration', value: trip.duration },
               { label: 'From',     value: trip.price },
               { label: 'Best for', value: trip.bestFor },
             ].map(({ label, value }) => (
-              <div key={label} className="py-4 px-3 sm:px-5 flex flex-col items-center text-center gap-1 bg-ink">
-                <span className="font-mono text-[9px] uppercase tracking-label text-clay">{label}</span>
-                <span className="font-display text-[15px] sm:text-[17px] font-bold tracking-tighter text-gold leading-tight">{value}</span>
+              <div key={label} className="py-4 px-3 sm:px-5 flex flex-col items-center text-center gap-1 bg-white/40">
+                <span className="font-mono text-[9px] uppercase tracking-label text-[#7a746c]">{label}</span>
+                <span className="font-display text-[15px] sm:text-[17px] font-bold tracking-tighter text-ovl-accent leading-tight">{value}</span>
               </div>
             ))}
           </div>
@@ -149,12 +149,12 @@ function Modal({ trip, onClose }: { trip: DayTrip; onClose: () => void }) {
                 ))}
               </ul>
             </div>
-            <div className="rounded-card border border-line bg-white/[.03] p-5">
-              <p className="eyebrow mb-3 text-clay">✕ Not included</p>
+            <div className="rounded-card border border-[rgba(33,29,26,0.22)] bg-white/10 p-5">
+              <p className="eyebrow mb-3 text-ovl-faint">✕ Not included</p>
               <ul className="space-y-2">
                 {trip.excluded.map((item) => (
-                  <li key={item} className="flex items-start gap-2 text-[13px] text-sand">
-                    <span className="text-clay shrink-0 mt-0.5">✕</span>
+                  <li key={item} className="flex items-start gap-2 text-[13px] text-[#5c5750]">
+                    <span className="text-[#7a746c] shrink-0 mt-0.5">✕</span>
                     {item}
                   </li>
                 ))}
@@ -187,7 +187,7 @@ function TripCard({ trip, onClick }: { trip: DayTrip; onClick: () => void }) {
       animate={{ opacity: 1, scale: 1 }}
       exit={{ opacity: 0, scale: 0.97 }}
       transition={{ duration: 0.25, ease: [0.4, 0, 0.1, 1] }}
-      className="group flex flex-col rounded-[16px] border border-line bg-ov-bg overflow-hidden cursor-pointer hover:border-gold/40 transition-all duration-300 hover:-translate-y-1 focus-within:ring-2 focus-within:ring-gold"
+      className="group flex flex-col rounded-[16px] border border-[rgba(33,29,26,0.22)] bg-ovl-bg overflow-hidden cursor-pointer hover:border-[#d24d2e]/40 transition-all duration-300 hover:-translate-y-1 focus-within:ring-2 focus-within:ring-[#d24d2e]"
     >
       {/* Image */}
       <div className="relative h-48 overflow-hidden shrink-0">
@@ -215,26 +215,26 @@ function TripCard({ trip, onClick }: { trip: DayTrip; onClick: () => void }) {
 
       {/* Content */}
       <div className="p-5 flex flex-col flex-1">
-        <p className="eyebrow mb-2 flex items-center gap-1.5 text-clay">
+        <p className="eyebrow mb-2 flex items-center gap-1.5 text-ovl-faint">
           <span aria-hidden="true">📍</span>
           {trip.location}
         </p>
-        <h3 className="font-display text-[18px] font-bold tracking-tighter text-cream leading-snug mb-1.5">
+        <h3 className="font-display text-[18px] font-bold tracking-tighter text-[#211d1a] leading-snug mb-1.5">
           {trip.name}
         </h3>
-        <p className="text-[13px] text-sand leading-relaxed line-clamp-2 mb-4 flex-1">
+        <p className="text-[13px] text-[#5c5750] leading-relaxed line-clamp-2 mb-4 flex-1">
           {trip.tagline}
         </p>
 
         {/* Footer row */}
-        <div className="flex items-center justify-between pt-4 border-t border-line">
-          <span className="font-body text-[12px] text-clay">
-            from <span className="text-gold font-semibold">{trip.price}</span>
+        <div className="flex items-center justify-between pt-4 border-t border-[rgba(33,29,26,0.22)]">
+          <span className="font-body text-[12px] text-[#7a746c]">
+            from <span className="text-ovl-accent font-semibold">{trip.price}</span>
           </span>
           <button
             onClick={onClick}
             aria-label={`View details: ${trip.name}`}
-            className="font-body text-[12px] font-semibold text-gold hover:text-gold-bright transition-colors focus:outline-none focus-visible:underline"
+            className="font-body text-[12px] font-semibold text-ovl-accent hover:text-[#a83a20] transition-colors focus:outline-none focus-visible:underline"
           >
             View details →
           </button>
@@ -258,7 +258,7 @@ export default function DayTripsPage() {
     <>
       <TopBar />
 
-      <main>
+      <main className="bg-ovl-bg">
         {/* ── Hero ──────────────────────────────────────────────── */}
         <section className="pt-16 pb-20 border-b border-line overflow-hidden" aria-label="Day trips header">
           <div className="shell">
@@ -299,14 +299,14 @@ export default function DayTripsPage() {
                   aria-pressed={filter === f}
                   className={`rounded-pill px-5 py-2.5 font-body text-[12px] font-bold transition-colors duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold ${
                     filter === f
-                      ? 'bg-gold text-[#1a1206]'
-                      : 'border border-line text-sand hover:text-cream hover:border-gold/50'
+                      ? 'bg-[#d24d2e] text-white'
+                      : 'border border-[rgba(33,29,26,0.22)] text-[#5c5750] hover:text-[#211d1a] hover:border-[#d24d2e]/50'
                   }`}
                 >
                   {f}
                 </button>
               ))}
-              <span className="ml-auto font-mono text-[10px] text-clay shrink-0">
+              <span className="ml-auto font-mono text-[10px] text-[#7a746c] shrink-0">
                 {visible.length} experience{visible.length === 1 ? '' : 's'}
               </span>
             </div>
@@ -333,13 +333,13 @@ export default function DayTripsPage() {
         {/* ── Combine strip ─────────────────────────────────────── */}
         <section className="pb-[70px]" aria-label="Build your day">
           <div className="shell">
-            <div className="rounded-[20px] border border-gold/30 bg-gold/[.04] px-8 py-10 sm:px-12 flex flex-col sm:flex-row items-start sm:items-center gap-8 justify-between">
+            <div className="rounded-[20px] border border-[rgba(33,29,26,0.22)] bg-[rgba(33,29,26,0.03)] px-8 py-10 sm:px-12 flex flex-col sm:flex-row items-start sm:items-center gap-8 justify-between">
               <div className="max-w-lg">
                 <p className="eyebrow mb-3">Mix &amp; match</p>
-                <h2 className="font-display text-[clamp(22px,3vw,30px)] font-extrabold tracking-tighter text-cream leading-tight mb-3">
+                <h2 className="font-display text-[clamp(22px,3vw,30px)] font-extrabold tracking-tighter text-[#211d1a] leading-tight mb-3">
                   Build a day, or a whole week
                 </h2>
-                <p className="text-sand text-[14px] leading-relaxed">
+                <p className="text-[#5c5750] text-[14px] leading-relaxed">
                   Combine any of these experiences around your safari or Kilimanjaro climb — or string two or three together into a short Tanzania break. Tell us which ones appeal and we&rsquo;ll design the transfers, timing and logistics around you.
                 </p>
               </div>

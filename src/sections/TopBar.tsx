@@ -42,7 +42,7 @@ export default function TopBar() {
         </ul>
 
         {/* CTA */}
-        <a href="/contact" className="btn-gold hidden sm:inline-flex items-center">
+        <a href="/contact" className="rounded-pill bg-[#e0a83f] px-7 py-4 font-body text-[13px] font-bold text-[#150f08] transition hover:bg-[#d19c35] hidden sm:inline-flex items-center">
           Plan My Safari
         </a>
 

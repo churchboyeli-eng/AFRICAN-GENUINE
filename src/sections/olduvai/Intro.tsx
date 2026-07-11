@@ -28,7 +28,7 @@ function StatItem({ raw }: { raw: string }) {
   return (
     <span
       ref={ref as React.RefObject<HTMLElement>}
-      className="font-cormorant text-[52px] font-light leading-none text-ov-brass tabular-nums"
+      className="font-cormorant text-[52px] font-light leading-none text-ovl-accent tabular-nums"
     >
       {parsed.prefix}{display}{parsed.suffix}
     </span>
@@ -39,28 +39,28 @@ export default function Intro() {
   const ref = useReveal();
 
   return (
-    <section className="ov-reveal bg-ov-bg py-28 px-14" ref={ref} aria-label="About us">
+    <section className="ov-reveal bg-ovl-bg py-28 px-14" ref={ref} aria-label="About us">
       <div className="mx-auto max-w-[1280px] grid grid-cols-1 md:grid-cols-2 gap-20 items-start">
         {/* Left */}
         <div className="flex flex-col gap-3">
-          <span className="font-jost text-[10px] uppercase tracking-[.36em] text-ov-faint leading-loose">
+          <span className="font-jost text-[10px] uppercase tracking-[.36em] text-ovl-faint leading-loose">
             A house of<br />Tanzanian guides
           </span>
         </div>
 
         {/* Right */}
         <div className="flex flex-col gap-12">
-          <p className="font-cormorant text-[34px] font-light leading-[1.25] tracking-[-0.01em] text-ov-ivory">
+          <p className="font-cormorant text-[34px] font-light leading-[1.25] tracking-[-0.01em] text-ovl-text">
             We are not brokers. We are the guides, the trackers, the camp managers — Tanzanians who have spent our lives reading these landscapes, so you can arrive and simply be present.
           </p>
 
-          <div className="h-px w-full bg-[rgba(200,165,92,0.16)]" />
+          <div className="h-px w-full bg-[rgba(33,29,26,0.22)]" />
 
           <dl className="grid grid-cols-2 sm:grid-cols-4 gap-10">
             {stats.map((stat) => (
               <div key={stat.label} className="flex flex-col gap-2">
                 <dt><StatItem raw={stat.value} /></dt>
-                <dd className="font-jost text-[10px] uppercase tracking-[.24em] text-ov-faint">
+                <dd className="font-jost text-[10px] uppercase tracking-[.24em] text-ovl-faint">
                   {stat.label}
                 </dd>
               </div>

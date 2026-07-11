@@ -15,7 +15,7 @@ export default function OurPurpose() {
 
       <div className="relative shell text-center">
         <FadeUp>
-          <p className="eyebrow mb-6 tracking-wider2">Our purpose</p>
+          <p className="eyebrow mb-6 tracking-wider2 !text-[#e0a83f]">Our purpose</p>
           <h2 className="font-display text-[clamp(30px,5vw,62px)] font-extrabold tracking-tighter text-cream leading-tight max-w-3xl mx-auto mb-8">
             To connect people with Africa as it truly is.
           </h2>

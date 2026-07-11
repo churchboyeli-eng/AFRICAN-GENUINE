@@ -25,7 +25,7 @@ const AWARDS = [
 
 export default function Awards() {
   return (
-    <section className="py-24 border-b border-line" aria-label="Awards and recognition">
+    <section className="py-24 border-b border-[rgba(33,29,26,0.22)] bg-ovl-bg" aria-label="Awards and recognition">
       <div className="shell">
         <FadeUp>
           <p className="eyebrow mb-4 text-center">Recognition</p>
@@ -36,13 +36,13 @@ export default function Awards() {
             <FadeUp key={award.title} delay={i * 0.08}>
               <div className="card-surface p-8 h-full flex flex-col gap-6">
                 <div className="flex items-center justify-between">
-                  <span className="eyebrow text-clay">{award.year}</span>
-                  <span className="text-gold text-[18px]">✦</span>
+                  <span className="eyebrow text-ovl-faint">{award.year}</span>
+                  <span className="text-ovl-accent text-[18px]">✦</span>
                 </div>
-                <h3 className="font-display text-[19px] font-bold tracking-tighter text-cream leading-snug flex-1">
+                <h3 className="font-display text-[19px] font-bold tracking-tighter text-[#211d1a] leading-snug flex-1">
                   {award.title}
                 </h3>
-                <p className="font-mono text-[10px] uppercase tracking-label text-clay leading-snug">
+                <p className="font-mono text-[10px] uppercase tracking-label text-ovl-faint leading-snug">
                   {award.body}
                 </p>
               </div>

@@ -23,7 +23,7 @@ export default function TourLayout({ tour }: Props) {
     <>
       <TopBar />
       {/* pb-24 reserves space for the mobile sticky bottom bar */}
-      <main className="pb-24 lg:pb-0">
+      <main className="pb-24 lg:pb-0 bg-ovl-bg">
         {tour.breadcrumb && (
           <TourBreadcrumb crumbs={tour.breadcrumb} current={tour.name} />
         )}
@@ -96,15 +96,15 @@ export default function TourLayout({ tour }: Props) {
 
         {/* Prev / Next nav */}
         {(tour.prev || tour.next) && (
-          <nav className="border-t border-line" aria-label="Navigate between itineraries">
+          <nav className="border-t border-[rgba(33,29,26,0.22)]" aria-label="Navigate between itineraries">
             <div className="shell py-8 flex justify-between gap-4">
               {tour.prev ? (
                 <Link
                   href={`${base}/${tour.prev.slug}`}
                   className="group flex flex-col max-w-xs focus:outline-none focus-visible:ring-2 focus-visible:ring-gold rounded"
                 >
-                  <span className="font-mono text-[9px] uppercase tracking-label text-clay mb-1">← Previous</span>
-                  <span className="font-display text-[15px] font-bold tracking-tighter text-sand group-hover:text-cream transition-colors">
+                  <span className="font-mono text-[9px] uppercase tracking-label text-[#7a746c] mb-1">← Previous</span>
+                  <span className="font-display text-[15px] font-bold tracking-tighter text-[#5c5750] group-hover:text-[#211d1a] transition-colors">
                     {tour.prev.title}
                   </span>
                 </Link>
@@ -116,8 +116,8 @@ export default function TourLayout({ tour }: Props) {
                   href={`${base}/${tour.next.slug}`}
                   className="group flex flex-col items-end max-w-xs text-right focus:outline-none focus-visible:ring-2 focus-visible:ring-gold rounded"
                 >
-                  <span className="font-mono text-[9px] uppercase tracking-label text-clay mb-1">Next →</span>
-                  <span className="font-display text-[15px] font-bold tracking-tighter text-sand group-hover:text-cream transition-colors">
+                  <span className="font-mono text-[9px] uppercase tracking-label text-[#7a746c] mb-1">Next →</span>
+                  <span className="font-display text-[15px] font-bold tracking-tighter text-[#5c5750] group-hover:text-[#211d1a] transition-colors">
                     {tour.next.title}
                   </span>
                 </Link>

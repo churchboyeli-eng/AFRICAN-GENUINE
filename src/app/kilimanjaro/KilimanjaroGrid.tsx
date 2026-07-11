@@ -42,14 +42,14 @@ export default function KilimanjaroGrid() {
               aria-pressed={duration === f}
               className={`rounded-pill px-5 py-2.5 font-body text-[12px] font-bold transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold ${
                 duration === f
-                  ? 'bg-gold text-[#1a1206]'
-                  : 'border border-line text-sand hover:text-cream hover:border-gold/50'
+                  ? 'bg-[#d24d2e] text-white'
+                  : 'border border-[rgba(33,29,26,0.22)] text-[#5c5750] hover:text-[#211d1a] hover:border-[#d24d2e]/50'
               }`}
             >
               {f}
             </button>
           ))}
-          <span className="ml-auto self-center font-mono text-[10px] text-clay">
+          <span className="ml-auto self-center font-mono text-[10px] text-[#7a746c]">
             {visible.length} route{visible.length === 1 ? '' : 's'}
           </span>
         </div>
@@ -77,18 +77,18 @@ export default function KilimanjaroGrid() {
                     <div className="p-6 flex flex-col flex-1">
                       {/* Days badge */}
                       <div className="flex items-center justify-between mb-4">
-                        <span className="rounded-pill bg-gold/10 border border-gold/30 px-3 py-1 font-mono text-[10px] uppercase tracking-label text-gold">
+                        <span className="rounded-pill bg-[#d24d2e]/10 border border-[#d24d2e]/30 px-3 py-1 font-mono text-[10px] uppercase tracking-label text-[#d24d2e]">
                           {days} {days === 1 ? 'Day' : 'Days'}
                         </span>
                       </div>
 
                       {/* Title */}
-                      <h3 className="font-display text-[19px] font-bold tracking-tighter text-cream leading-snug mb-2">
+                      <h3 className="font-display text-[19px] font-bold tracking-tighter text-[#211d1a] leading-snug mb-2">
                         {climb.name}
                       </h3>
 
                       {/* Subhead */}
-                      <p className="text-[13px] text-gold-bright font-body italic mb-4 leading-snug line-clamp-2">
+                      <p className="text-[13px] text-[#5c5750] font-body italic mb-4 leading-snug line-clamp-2">
                         {climb.subhead}
                       </p>
 
@@ -97,7 +97,7 @@ export default function KilimanjaroGrid() {
                         {[sleepType, grade].map((tag) => (
                           <span
                             key={tag}
-                            className="rounded-pill border border-line px-2.5 py-0.5 font-mono text-[9px] uppercase tracking-label text-sand"
+                            className="rounded-pill border border-[rgba(33,29,26,0.22)] px-2.5 py-0.5 font-mono text-[9px] uppercase tracking-label text-[#7a746c]"
                           >
                             {tag}
                           </span>
@@ -107,7 +107,7 @@ export default function KilimanjaroGrid() {
                       {/* CTA */}
                       <Link
                         href={`/kilimanjaro/${climb.slug}`}
-                        className="font-body text-[12px] font-semibold text-gold hover:text-gold-bright transition-colors focus:outline-none focus-visible:underline"
+                        className="font-body text-[12px] font-semibold text-ovl-accent hover:text-[#a83a20] transition-colors focus:outline-none focus-visible:underline"
                         aria-label={`View route: ${climb.name}, ${days} days`}
                       >
                         View route →

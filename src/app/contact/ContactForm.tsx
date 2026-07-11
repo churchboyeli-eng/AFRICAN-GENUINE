@@ -35,7 +35,7 @@ function validate(fields: Fields): Errors {
 }
 
 const inputClass =
-  'w-full rounded-card border bg-white/5 px-4 py-3.5 font-body text-[14px] text-cream placeholder:text-clay focus:outline-none transition border-line focus:border-gold';
+  'w-full rounded-card border bg-white/40 px-4 py-3.5 font-body text-[14px] text-[#211d1a] placeholder:text-[#7a746c] focus:outline-none transition border-[rgba(33,29,26,0.22)] focus:border-[#d24d2e]';
 
 export default function ContactForm() {
   const [fields, setFields] = useState<Fields>({
@@ -78,11 +78,11 @@ export default function ContactForm() {
   if (submitted) {
     return (
       <div className="text-center py-16">
-        <span className="font-display text-[48px] text-gold block mb-6" aria-hidden="true">✦</span>
-        <h2 className="font-display text-[30px] font-extrabold tracking-tighter text-cream mb-4">
+        <span className="font-display text-[48px] text-ovl-accent block mb-6" aria-hidden="true">✦</span>
+        <h2 className="font-display text-[30px] font-extrabold tracking-tighter text-[#211d1a] mb-4">
           We&rsquo;ll be in touch very soon.
         </h2>
-        <p className="text-sand text-[15px] leading-relaxed max-w-md mx-auto">
+        <p className="text-[#5c5750] text-[15px] leading-relaxed max-w-md mx-auto">
           Thank you, {fields.name}. A member of our team will reach out within one working day to start designing your Tanzania experience — no pressure, no generic quotes.
         </p>
       </div>
@@ -141,7 +141,7 @@ export default function ContactForm() {
             value={fields.tripType} onChange={(e) => set('tripType', e.target.value)}
             aria-describedby={errors.tripType ? 'err-c-trip' : undefined}
             aria-invalid={!!errors.tripType}
-            className="w-full rounded-card border bg-[#1a160d] px-4 py-3.5 font-body text-[14px] text-cream focus:outline-none transition border-line focus:border-gold appearance-none"
+            className="w-full rounded-card border bg-ovl-bg px-4 py-3.5 font-body text-[14px] text-[#211d1a] focus:outline-none transition border-[rgba(33,29,26,0.22)] focus:border-[#d24d2e] appearance-none"
           >
             <option value="" disabled>Select…</option>
             {tripOptions.map((o) => <option key={o} value={o}>{o}</option>)}
@@ -196,7 +196,7 @@ export default function ContactForm() {
         Send my enquiry
       </button>
 
-      <p className="text-center text-clay text-[12px]">
+      <p className="text-center text-[#7a746c] text-[12px]">
         We respond within one working day — no pressure, no generic quotes.
       </p>
     </form>

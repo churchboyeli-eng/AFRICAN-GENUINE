@@ -25,7 +25,7 @@ export default function AboutPage() {
   return (
     <>
       <TopBar />
-      <main>
+      <main className="bg-ovl-bg">
         <AboutHero />
         <AboutMission />
         <BrandLineBand />

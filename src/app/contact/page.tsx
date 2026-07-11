@@ -62,15 +62,15 @@ export default function ContactPage() {
   return (
     <>
       <TopBar />
-      <main>
+      <main className="bg-ovl-bg">
         {/* Hero band */}
-        <section className="py-20 border-b border-line" aria-label="Contact page header">
+        <section className="py-20 border-b border-[rgba(33,29,26,0.22)]" aria-label="Contact page header">
           <div className="shell text-center max-w-2xl mx-auto">
             <p className="eyebrow mb-4">Get in touch</p>
-            <h1 className="font-display text-[clamp(36px,5vw,60px)] font-extrabold tracking-tighter text-cream leading-tight mb-5">
+            <h1 className="font-display text-[clamp(36px,5vw,60px)] font-extrabold tracking-tighter text-[#211d1a] leading-tight mb-5">
               Start planning your Tanzania
             </h1>
-            <p className="text-sand text-[17px] leading-relaxed">
+            <p className="text-[#5c5750] text-[17px] leading-relaxed">
               Tell us what you&rsquo;re dreaming of — we&rsquo;ll come back with ideas within one working day. No pressure, no generic quotes, no group departures.
             </p>
           </div>
@@ -83,10 +83,10 @@ export default function ContactPage() {
 
               {/* ── Left: form ────────────────────────────────── */}
               <div className="card-surface p-8 lg:p-12">
-                <h2 className="font-display text-[26px] font-bold tracking-tighter text-cream mb-2">
+                <h2 className="font-display text-[26px] font-bold tracking-tighter text-[#211d1a] mb-2">
                   Send us an enquiry
                 </h2>
-                <p className="text-sand text-[14px] leading-relaxed mb-8">
+                <p className="text-[#5c5750] text-[14px] leading-relaxed mb-8">
                   Fill in what you know — we&rsquo;ll handle the rest. Every itinerary is designed from scratch around you.
                 </p>
                 <ContactForm />
@@ -96,13 +96,13 @@ export default function ContactPage() {
               <div className="space-y-6">
                 {contactDetails.map((item) => (
                   <div key={item.label} className="card-surface p-6 flex items-start gap-5">
-                    <span className="text-gold mt-0.5 shrink-0">{item.icon}</span>
+                    <span className="text-ovl-accent mt-0.5 shrink-0">{item.icon}</span>
                     <div>
                       <p className="eyebrow mb-1">{item.label}</p>
                       {item.href ? (
                         <a
                           href={item.href}
-                          className="font-display text-[17px] font-bold tracking-tighter text-cream hover:text-gold transition-colors focus:outline-none focus-visible:underline"
+                          className="font-display text-[17px] font-bold tracking-tighter text-[#211d1a] hover:text-ovl-accent transition-colors focus:outline-none focus-visible:underline"
                         >
                           {item.value}
                         </a>
@@ -111,13 +111,13 @@ export default function ContactPage() {
                           {item.value}
                         </p>
                       )}
-                      <p className="text-clay text-[12px] mt-0.5">{item.sub}</p>
+                      <p className="text-[#7a746c] text-[12px] mt-0.5">{item.sub}</p>
                     </div>
                   </div>
                 ))}
 
                 {/* Promise card */}
-                <div className="card-surface p-6 border-l-2 border-gold">
+                <div className="card-surface p-6 border-l-2 border-ovl-accent">
                   <p className="eyebrow mb-3">Our promise</p>
                   <ul className="space-y-2.5">
                     {[
@@ -126,8 +126,8 @@ export default function ContactPage() {
                       'Free date and itinerary changes',
                       'Tanzanian-owned and operated',
                     ].map((p) => (
-                      <li key={p} className="flex items-start gap-2.5 text-[13px] text-sand">
-                        <span className="text-gold text-[10px] mt-0.5 shrink-0">✦</span>
+                      <li key={p} className="flex items-start gap-2.5 text-[13px] text-[#5c5750]">
+                        <span className="text-ovl-accent text-[10px] mt-0.5 shrink-0">✦</span>
                         {p}
                       </li>
                     ))}

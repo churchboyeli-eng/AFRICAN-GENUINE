@@ -70,37 +70,37 @@ export default function Enquiry() {
         </div>
 
         {/* Right — form */}
-        <div className="flex flex-col justify-center px-14 py-20 bg-ov-bg">
-          <span className="font-jost text-[10px] uppercase tracking-[.36em] text-ov-faint mb-6 block">
+        <div className="flex flex-col justify-center px-14 py-20 bg-ovl-bg">
+          <span className="font-jost text-[10px] uppercase tracking-[.36em] text-ovl-faint mb-6 block">
             Start planning
           </span>
-          <h2 className="font-cormorant text-[clamp(28px,3vw,42px)] font-light leading-[1.15] tracking-[-0.02em] text-ov-ivory mb-4">
+          <h2 className="font-cormorant text-[clamp(28px,3vw,42px)] font-light leading-[1.15] tracking-[-0.02em] text-ovl-text mb-4">
             Let us compose your Tanzania
           </h2>
-          <p className="font-jost text-[14px] font-light text-ov-muted mb-10 leading-relaxed max-w-sm">
+          <p className="font-jost text-[14px] font-light text-ovl-body mb-10 leading-relaxed max-w-sm">
             Tell us a little about your trip and we&apos;ll come back with ideas within one working day — no pressure, no generic quotes.
           </p>
 
           {sent ? (
-            <div className="border border-[rgba(224,168,63,0.3)] px-8 py-12 text-center">
-              <span className="block text-ov-brass text-2xl mb-5">✦</span>
-              <p className="font-cormorant text-[30px] font-light text-ov-ivory mb-3">
+            <div className="border border-[rgba(33,29,26,0.22)] px-8 py-12 text-center">
+              <span className="block text-ovl-accent text-2xl mb-5">✦</span>
+              <p className="font-cormorant text-[30px] font-light text-ovl-text mb-3">
                 We&apos;ll be in touch very soon.
               </p>
-              <p className="font-jost text-[13px] font-light text-ov-muted leading-relaxed max-w-xs mx-auto">
+              <p className="font-jost text-[13px] font-light text-ovl-body leading-relaxed max-w-xs mx-auto">
                 Thank you, {fields.name}. A member of our team will reach out within one working day to start designing your Tanzania.
               </p>
             </div>
           ) : (
             <form onSubmit={handleSubmit} noValidate aria-label="Safari enquiry form" className="flex flex-col gap-0">
-              <p className="font-jost text-[11px] text-ov-faint mb-8 tracking-[.04em]">
+              <p className="font-jost text-[11px] text-ovl-faint mb-8 tracking-[.04em]">
                 ✦ 4 fields, 60 seconds — we&apos;ll ask the rest by email
               </p>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6">
                 {/* Full name */}
                 <div className="flex flex-col gap-2 mb-8">
-                  <label htmlFor="enq-name" className="font-jost text-[10px] uppercase tracking-[.28em] text-ov-faint">
+                  <label htmlFor="enq-name" className="font-jost text-[10px] uppercase tracking-[.28em] text-ovl-faint">
                     Full name
                   </label>
                   <input
@@ -113,16 +113,16 @@ export default function Enquiry() {
                     onChange={(e) => set('name', e.target.value)}
                     aria-describedby={errors.name ? 'err-name' : undefined}
                     aria-invalid={!!errors.name}
-                    className="bg-transparent border-b border-[rgba(176,141,87,0.3)] pb-3 font-jost text-[14px] font-light text-ov-ivory placeholder:text-ov-muted/40 focus:outline-none focus:border-ov-brass transition-colors duration-300"
+                    className="bg-transparent border-b border-[rgba(33,29,26,0.22)] pb-3 font-jost text-[14px] font-light text-ovl-text placeholder:text-ovl-faint/50 focus:outline-none focus:border-ovl-accent transition-colors duration-300"
                   />
                   {errors.name && (
-                    <p id="err-name" role="alert" className="font-jost text-[11px] text-red-400 mt-1">{errors.name}</p>
+                    <p id="err-name" role="alert" className="font-jost text-[11px] text-red-500 mt-1">{errors.name}</p>
                   )}
                 </div>
 
                 {/* Email */}
                 <div className="flex flex-col gap-2 mb-8">
-                  <label htmlFor="enq-email" className="font-jost text-[10px] uppercase tracking-[.28em] text-ov-faint">
+                  <label htmlFor="enq-email" className="font-jost text-[10px] uppercase tracking-[.28em] text-ovl-faint">
                     Email
                   </label>
                   <input
@@ -135,16 +135,16 @@ export default function Enquiry() {
                     onChange={(e) => set('email', e.target.value)}
                     aria-describedby={errors.email ? 'err-email' : undefined}
                     aria-invalid={!!errors.email}
-                    className="bg-transparent border-b border-[rgba(176,141,87,0.3)] pb-3 font-jost text-[14px] font-light text-ov-ivory placeholder:text-ov-muted/40 focus:outline-none focus:border-ov-brass transition-colors duration-300"
+                    className="bg-transparent border-b border-[rgba(33,29,26,0.22)] pb-3 font-jost text-[14px] font-light text-ovl-text placeholder:text-ovl-faint/50 focus:outline-none focus:border-ovl-accent transition-colors duration-300"
                   />
                   {errors.email && (
-                    <p id="err-email" role="alert" className="font-jost text-[11px] text-red-400 mt-1">{errors.email}</p>
+                    <p id="err-email" role="alert" className="font-jost text-[11px] text-red-500 mt-1">{errors.email}</p>
                   )}
                 </div>
 
                 {/* Trip type */}
                 <div className="flex flex-col gap-2 mb-8">
-                  <label htmlFor="enq-trip" className="font-jost text-[10px] uppercase tracking-[.28em] text-ov-faint">
+                  <label htmlFor="enq-trip" className="font-jost text-[10px] uppercase tracking-[.28em] text-ovl-faint">
                     Trip type
                   </label>
                   <select
@@ -154,22 +154,22 @@ export default function Enquiry() {
                     onChange={(e) => set('tripType', e.target.value)}
                     aria-describedby={errors.tripType ? 'err-trip' : undefined}
                     aria-invalid={!!errors.tripType}
-                    className="bg-ov-bg border-b border-[rgba(176,141,87,0.3)] pb-3 font-jost text-[14px] font-light text-ov-ivory focus:outline-none focus:border-ov-brass transition-colors duration-300 appearance-none cursor-pointer"
+                    className="bg-ovl-bg border-b border-[rgba(33,29,26,0.22)] pb-3 font-jost text-[14px] font-light text-ovl-text focus:outline-none focus:border-ovl-accent transition-colors duration-300 appearance-none cursor-pointer"
                   >
                     <option value="" disabled>Select…</option>
                     {TRIP_OPTIONS.map((o) => (
-                      <option key={o} value={o} className="bg-ov-bg">{o}</option>
+                      <option key={o} value={o} className="bg-ovl-bg text-ovl-text">{o}</option>
                     ))}
                   </select>
                   {errors.tripType && (
-                    <p id="err-trip" role="alert" className="font-jost text-[11px] text-red-400 mt-1">{errors.tripType}</p>
+                    <p id="err-trip" role="alert" className="font-jost text-[11px] text-red-500 mt-1">{errors.tripType}</p>
                   )}
                 </div>
 
                 {/* Travel dates */}
                 <div className="flex flex-col gap-2 mb-8">
-                  <label htmlFor="enq-dates" className="font-jost text-[10px] uppercase tracking-[.28em] text-ov-faint">
-                    Travel dates <span className="normal-case tracking-normal font-light text-ov-faint/70">(optional)</span>
+                  <label htmlFor="enq-dates" className="font-jost text-[10px] uppercase tracking-[.28em] text-ovl-faint">
+                    Travel dates <span className="normal-case tracking-normal font-light text-ovl-faint/70">(optional)</span>
                   </label>
                   <input
                     id="enq-dates"
@@ -177,19 +177,19 @@ export default function Enquiry() {
                     placeholder="e.g. July – August 2026"
                     value={fields.dates}
                     onChange={(e) => set('dates', e.target.value)}
-                    className="bg-transparent border-b border-[rgba(176,141,87,0.3)] pb-3 font-jost text-[14px] font-light text-ov-ivory placeholder:text-ov-muted/40 focus:outline-none focus:border-ov-brass transition-colors duration-300"
+                    className="bg-transparent border-b border-[rgba(33,29,26,0.22)] pb-3 font-jost text-[14px] font-light text-ovl-text placeholder:text-ovl-faint/50 focus:outline-none focus:border-ovl-accent transition-colors duration-300"
                   />
                 </div>
               </div>
 
               <button
                 type="submit"
-                className="mt-2 self-start font-jost text-[12px] uppercase tracking-[.16em] text-ov-ivory border border-[rgba(176,141,87,0.4)] px-8 py-4 transition-all duration-300 hover:border-ov-brass hover:bg-ov-brass hover:text-ov-bg"
+                className="mt-2 self-start font-jost text-[12px] uppercase tracking-[.16em] text-[#211d1a] border border-[rgba(33,29,26,0.4)] px-8 py-4 transition-all duration-300 hover:border-ovl-accent hover:bg-ovl-accent hover:text-white"
               >
                 Send my enquiry
               </button>
 
-              <p className="mt-6 font-jost text-[11px] font-light text-ov-faint tracking-[.02em]">
+              <p className="mt-6 font-jost text-[11px] font-light text-ovl-faint tracking-[.02em]">
                 ✦ No spam, ever. Your details are shared only with the guide assigned to your trip.
               </p>
             </form>

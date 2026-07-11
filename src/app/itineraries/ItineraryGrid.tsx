@@ -97,14 +97,14 @@ export default function ItineraryGrid() {
               aria-pressed={duration === f}
               className={`rounded-pill px-5 py-2.5 font-body text-[12px] font-bold transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold ${
                 duration === f
-                  ? 'bg-gold text-[#1a1206]'
-                  : 'border border-line text-sand hover:text-cream hover:border-gold/50'
+                  ? 'bg-[#d24d2e] text-white'
+                  : 'border border-[rgba(33,29,26,0.22)] text-[#5c5750] hover:text-[#211d1a] hover:border-[#d24d2e]/50'
               }`}
             >
               {f}
             </button>
           ))}
-          <span className="ml-auto self-center font-mono text-[10px] text-clay">
+          <span className="ml-auto self-center font-mono text-[10px] text-[#7a746c]">
             {visible.length} itinerar{visible.length === 1 ? 'y' : 'ies'}
           </span>
         </div>
