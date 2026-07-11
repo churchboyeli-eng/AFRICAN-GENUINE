@@ -48,7 +48,7 @@ export default function OlduvaiHeader() {
           <nav aria-label="Main navigation">
             <ul className="flex items-baseline gap-10">
               {NAV.map((n) => (
-                <li key={n.href}>
+                <li key={n.label}>
                   <a
                     href={n.href}
                     className="ov-link font-jost text-[13px] font-light tracking-[.04em] text-ov-muted hover:text-ov-ivory transition-colors duration-300"

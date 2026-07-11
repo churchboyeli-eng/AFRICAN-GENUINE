@@ -31,7 +31,7 @@ export default function TopBar() {
         {/* Desktop nav links */}
         <ul className="hidden lg:flex items-center gap-8" role="list">
           {navLinks.map((link) => (
-            <li key={link.href}>
+            <li key={link.label}>
               <a
                 href={link.href}
                 className="font-body text-[13px] font-semibold text-sand transition-colors hover:text-cream focus:outline-none focus-visible:underline focus-visible:text-gold"
