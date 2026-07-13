@@ -31,11 +31,12 @@ export default function OlduvaiHero() {
         muted
         loop
         playsInline
+        preload="metadata"
+        poster="/img/hero/hero-poster.jpg"
         className="absolute inset-0 w-full h-full object-cover"
         aria-hidden="true"
       >
-        {/* swap src for real asset */}
-        <source src="" type="video/mp4" />
+        <source src="/video/hero.mp4" type="video/mp4" />
       </video>
 
       {/* ── Gradient overlay ── */}

@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 const navLinks = [
   { label: 'Day Trips',   href: '/day-trips' },
@@ -19,13 +20,15 @@ export default function TopBar() {
         aria-label="Main navigation"
       >
         {/* Wordmark */}
-        <Link href="/" className="flex items-baseline gap-2.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold rounded" aria-label="African Genuine Tours & Safaris home">
-          <span className="font-display text-[22px] font-extrabold tracking-tighter text-cream">
-            AFRICAN GENUINE
-          </span>
-          <span className="font-mono text-[9px] uppercase tracking-wider2 text-gold">
-            TOURS &amp; SAFARIS
-          </span>
+        <Link href="/" className="focus:outline-none focus-visible:ring-2 focus-visible:ring-gold rounded" aria-label="African Genuine Travel home">
+          <Image
+            src="/img/logo/logo-dark.png"
+            alt="African Genuine Travel"
+            width={110}
+            height={64}
+            priority
+            className="h-11 w-auto"
+          />
         </Link>
 
         {/* Desktop nav links */}

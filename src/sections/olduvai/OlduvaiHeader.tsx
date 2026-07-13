@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState, useCallback } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useScrollRaf } from '@/hooks/useScrollRaf';
 
 const NAV = [
@@ -41,8 +42,15 @@ export default function OlduvaiHeader() {
 
         {/* Main nav row */}
         <div className="flex items-baseline justify-between py-5">
-          <Link href="/" className="font-cormorant text-[30px] font-light tracking-[-0.01em] text-ov-ivory leading-none">
-            Genius Safaris
+          <Link href="/" aria-label="African Genuine Travel — home">
+            <Image
+              src="/img/logo/logo-dark.png"
+              alt="African Genuine Travel"
+              width={110}
+              height={64}
+              priority
+              className="h-11 w-auto"
+            />
           </Link>
 
           <nav aria-label="Main navigation">
@@ -72,8 +80,14 @@ export default function OlduvaiHeader() {
         }}
       >
         <div className="flex items-center justify-between px-14 py-4">
-          <Link href="/" className="font-cormorant text-[20px] font-light tracking-[-0.01em] text-ov-ivory leading-none">
-            Genius Safaris
+          <Link href="/" aria-label="African Genuine Travel — home">
+            <Image
+              src="/img/logo/logo-dark.png"
+              alt="African Genuine Travel"
+              width={88}
+              height={51}
+              className="h-9 w-auto"
+            />
           </Link>
 
           <div className="flex items-center gap-6">
