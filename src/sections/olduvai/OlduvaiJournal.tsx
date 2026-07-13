@@ -9,18 +9,18 @@ export default function OlduvaiJournal() {
 
   return (
     <section
-      className="ov-reveal py-24 px-14"
+      className="ov-reveal py-14 px-6 md:py-24 md:px-14"
       ref={ref}
       id="journal"
       aria-label="Journal"
     >
       <div className="mx-auto max-w-[1280px]">
-        <div className="flex items-end justify-between mb-14">
+        <div className="flex items-end justify-between mb-8 md:mb-14">
           <div>
             <span className="font-jost text-[10px] uppercase tracking-[.36em] text-ov-brass block mb-3">
               Stories from the field
             </span>
-            <h2 className="font-cormorant text-[42px] font-light leading-[1.1] tracking-[-0.02em] text-ov-ivory">
+            <h2 className="font-cormorant text-[28px] md:text-[42px] font-light leading-[1.1] tracking-[-0.02em] text-ov-ivory">
               The African Genuine Journal
             </h2>
           </div>

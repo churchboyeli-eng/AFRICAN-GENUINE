@@ -20,12 +20,12 @@ export default function Journeys() {
   return (
     <section className="ov-reveal bg-ovl-bg py-24" ref={sectionRef} aria-label="Signature journeys">
       {/* Heading row */}
-      <div className="flex items-end justify-between px-14 mb-12">
+      <div className="flex items-end justify-between px-6 md:px-14 mb-8 md:mb-12 gap-4">
         <div>
           <span className="font-jost text-[10px] uppercase tracking-[.36em] text-ovl-faint block mb-3">
             Signature journeys
           </span>
-          <h2 className="font-cormorant text-[42px] font-light leading-[1.1] tracking-[-0.02em] text-ovl-text">
+          <h2 className="font-cormorant text-[28px] md:text-[42px] font-light leading-[1.1] tracking-[-0.02em] text-ovl-text">
             Crafted for the curious
           </h2>
         </div>
@@ -42,7 +42,7 @@ export default function Journeys() {
                 key={arrow}
                 onClick={() => scroll(i === 0 ? -1 : 1)}
                 aria-label={i === 0 ? 'Previous journey' : 'Next journey'}
-                className="w-11 h-11 border border-[rgba(33,29,26,0.22)] text-ovl-faint font-jost text-[16px] flex items-center justify-center transition-all duration-300 hover:border-ovl-accent hover:text-ovl-accent"
+                className="w-11 h-11 border border-[rgba(33,29,26,0.22)] text-ovl-faint font-jost text-[16px] flex items-center justify-center transition-all duration-300 hover:border-ovl-accent hover:text-ovl-accent shrink-0"
               >
                 {arrow}
               </button>
@@ -54,7 +54,7 @@ export default function Journeys() {
       {/* Carousel track */}
       <div
         ref={trackRef}
-        className="flex gap-6 overflow-x-auto no-scrollbar pl-14 pr-14 pb-2 snap-x snap-mandatory"
+        className="flex gap-6 overflow-x-auto no-scrollbar pl-6 pr-6 md:pl-14 md:pr-14 pb-2 snap-x snap-mandatory"
       >
         {tours.map((tour, i) => (
           <article

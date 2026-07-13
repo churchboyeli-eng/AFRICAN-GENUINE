@@ -555,7 +555,7 @@ export default function SectionTabs({
               role="tab"
               aria-selected={active === tab}
               onClick={() => setActive(tab)}
-              className={`rounded-pill px-5 py-2.5 font-body text-[12px] font-bold whitespace-nowrap focus:outline-none focus-visible:ring-2 focus-visible:ring-gold ${
+              className={`rounded-pill px-5 py-3.5 md:py-2.5 font-body text-[12px] font-bold whitespace-nowrap focus:outline-none focus-visible:ring-2 focus-visible:ring-gold ${
                 active === tab
                   ? 'bg-[#d24d2e] text-white'
                   : 'border border-[rgba(33,29,26,0.22)] text-[#5c5750] hover:text-[#211d1a] hover:border-[#d24d2e]/50 transition-colors'

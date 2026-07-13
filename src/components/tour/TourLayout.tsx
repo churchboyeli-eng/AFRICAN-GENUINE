@@ -137,6 +137,9 @@ export default function TourLayout({ tour }: Props) {
       )}
 
       <SiteFooter />
+
+      {/* Reserves scroll space so the mobile sticky booking bar doesn't cover the footer */}
+      <div className="h-24 lg:h-0" aria-hidden="true" />
     </>
   );
 }

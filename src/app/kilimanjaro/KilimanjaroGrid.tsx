@@ -40,7 +40,7 @@ export default function KilimanjaroGrid() {
               key={f}
               onClick={() => setDuration(f)}
               aria-pressed={duration === f}
-              className={`rounded-pill px-5 py-2.5 font-body text-[12px] font-bold transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold ${
+              className={`rounded-pill px-5 py-3.5 md:py-2.5 font-body text-[12px] font-bold transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold ${
                 duration === f
                   ? 'bg-[#d24d2e] text-white'
                   : 'border border-[rgba(33,29,26,0.22)] text-[#5c5750] hover:text-[#211d1a] hover:border-[#d24d2e]/50'

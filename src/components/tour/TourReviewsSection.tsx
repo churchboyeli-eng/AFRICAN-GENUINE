@@ -9,11 +9,11 @@ interface Props {
 export default function TourReviewsSection({ reviews, score = '4.96', count = '214' }: Props) {
   return (
     <section aria-label="Guest reviews" className="mt-10">
-      <div className="flex items-baseline justify-between mb-6 gap-4">
+      <div className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-6 gap-2 sm:gap-4">
         <h2 className="section-title">What guests say</h2>
-        <div className="shrink-0 text-right">
+        <div className="shrink-0 sm:text-right">
           <span className="font-display text-[20px] font-bold tracking-tighter text-ovl-accent">{score}</span>
-          <span className="font-mono text-[10px] uppercase tracking-label text-[#7a746c] ml-2 block sm:inline">
+          <span className="font-mono text-[10px] uppercase tracking-label text-[#7a746c] ml-2">
             from {count} trips
           </span>
         </div>

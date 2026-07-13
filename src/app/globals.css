@@ -2,11 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base { body { background: #150f08; } }
+@layer base {
+  body { background: #150f08; }
+  html, body { overflow-x: hidden; max-width: 100%; }
+  img, video { max-width: 100%; height: auto; }
+}
 
 @layer components {
   .eyebrow      { @apply font-mono text-[10px] uppercase tracking-label text-[#7a746c]; }
-  .shell        { @apply mx-auto max-w-shell px-[46px]; }
+  .shell        { @apply mx-auto max-w-shell px-6 sm:px-8 md:px-[46px]; }
   .btn-gold     { @apply rounded-pill bg-[#d24d2e] px-7 py-4 font-body text-[13px] font-bold text-white transition hover:bg-[#a83a20]; }
   .btn-ghost    { @apply rounded-pill border border-[rgba(33,29,26,0.22)] px-6 py-3.5 font-body text-[12px] font-bold text-[#5c5750] transition hover:border-[#d24d2e] hover:text-[#d24d2e]; }
   .card-surface { @apply rounded-card border border-[rgba(33,29,26,0.22)] bg-transparent; }

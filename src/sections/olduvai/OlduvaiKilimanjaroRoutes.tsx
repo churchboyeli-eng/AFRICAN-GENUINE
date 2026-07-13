@@ -12,7 +12,7 @@ export default function OlduvaiKilimanjaroRoutes() {
 
   return (
     <section
-      className="ov-reveal py-24 px-14"
+      className="ov-reveal py-14 px-6 md:py-24 md:px-14"
       ref={ref}
       id="kilimanjaro"
       aria-label="Kilimanjaro routes"
@@ -24,7 +24,7 @@ export default function OlduvaiKilimanjaroRoutes() {
           <span className="font-jost text-[10px] uppercase tracking-[.36em] text-ov-brass block mb-3">
             Climb Kilimanjaro
           </span>
-          <h2 className="font-cormorant text-[42px] font-light leading-[1.1] tracking-[-0.02em] text-ov-ivory max-w-xl">
+          <h2 className="font-cormorant text-[28px] md:text-[42px] font-light leading-[1.1] tracking-[-0.02em] text-ov-ivory max-w-xl">
             Choose the right route for you
           </h2>
         </div>
@@ -33,7 +33,7 @@ export default function OlduvaiKilimanjaroRoutes() {
         <div
           role="radiogroup"
           aria-label="Select a Kilimanjaro route"
-          className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 mb-10"
+          className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 mb-8 md:mb-10"
         >
           {routes.map((route) => {
             const isActive = selected === route.key;
@@ -81,12 +81,12 @@ export default function OlduvaiKilimanjaroRoutes() {
         {/* Detail panel */}
         <div
           key={detail.key}
-          className="border border-[rgba(224,168,63,0.2)] p-10 lg:p-12"
+          className="border border-[rgba(224,168,63,0.2)] p-6 lg:p-12"
         >
           <div className="flex flex-col lg:flex-row lg:items-start lg:gap-16">
             <div className="flex-1 mb-8 lg:mb-0">
-              <div className="flex items-center gap-4 mb-3">
-                <h3 className="font-cormorant text-[32px] font-light tracking-[-0.01em] text-ov-ivory">
+              <div className="flex flex-wrap items-center gap-3 md:gap-4 mb-3">
+                <h3 className="font-cormorant text-[24px] md:text-[32px] font-light tracking-[-0.01em] text-ov-ivory">
                   {detail.name} Route
                 </h3>
                 <span className="font-jost text-[9px] uppercase tracking-[.2em] text-ov-brass border border-[rgba(224,168,63,0.4)] px-3 py-1">
@@ -107,7 +107,7 @@ export default function OlduvaiKilimanjaroRoutes() {
 
             <div className="flex flex-col items-start gap-5 lg:items-end lg:text-right shrink-0">
               <div>
-                <p className="font-cormorant text-[56px] font-light text-ov-brass leading-none">{detail.success}</p>
+                <p className="font-cormorant text-[40px] lg:text-[56px] font-light text-ov-brass leading-none">{detail.success}</p>
                 <p className="font-jost text-[11px] uppercase tracking-[.16em] text-ov-muted mt-1">Summit success rate</p>
               </div>
               <a

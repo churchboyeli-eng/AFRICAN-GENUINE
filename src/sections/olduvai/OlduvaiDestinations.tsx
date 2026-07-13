@@ -15,12 +15,12 @@ export default function OlduvaiDestinations() {
       aria-label="Destinations"
     >
       {/* Heading */}
-      <div className="px-14 mb-10">
+      <div className="px-6 md:px-14 mb-10">
         <span className="font-jost text-[10px] uppercase tracking-[.36em] text-ov-brass block mb-3">
           Explore Tanzania
         </span>
         <div className="flex items-end justify-between">
-          <h2 className="font-cormorant text-[42px] font-light leading-[1.1] tracking-[-0.02em] text-ov-ivory">
+          <h2 className="font-cormorant text-[28px] md:text-[42px] font-light leading-[1.1] tracking-[-0.02em] text-ov-ivory">
             Pick your wilderness
           </h2>
           <a
@@ -36,7 +36,7 @@ export default function OlduvaiDestinations() {
       <div
         role="list"
         aria-label="Destination cards, scroll horizontally"
-        className="flex gap-4 overflow-x-auto no-scrollbar pl-14 pr-14 pb-2"
+        className="flex gap-4 overflow-x-auto no-scrollbar pl-6 pr-6 md:pl-14 md:pr-14 pb-2"
         style={{ scrollSnapType: 'x mandatory' }}
       >
         {destinations.map((dest) => (

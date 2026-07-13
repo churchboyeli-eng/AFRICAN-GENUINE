@@ -89,7 +89,7 @@ export default function Reviews() {
         <div className="mt-8 flex items-center justify-center gap-6">
           <button
             onClick={() => go(index - 1)}
-            className="rounded-pill border border-[rgba(33,29,26,0.22)] p-2.5 text-[#5c5750] hover:text-[#211d1a] hover:border-[#d24d2e]/50 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#d24d2e]"
+            className="rounded-pill border border-[rgba(33,29,26,0.22)] p-3 text-[#5c5750] hover:text-[#211d1a] hover:border-[#d24d2e]/50 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#d24d2e]"
             aria-label="Previous review"
           >
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
@@ -98,7 +98,7 @@ export default function Reviews() {
           </button>
 
           {/* Dots */}
-          <div role="tablist" aria-label="Review navigation" className="flex items-center gap-2">
+          <div role="tablist" aria-label="Review navigation" className="flex items-center">
             {reviews.map((r, i) => (
               <button
                 key={r.author}
@@ -106,20 +106,25 @@ export default function Reviews() {
                 aria-selected={i === index}
                 aria-label={`Go to review ${i + 1}: ${r.author}`}
                 onClick={() => go(i)}
-                className="focus:outline-none focus-visible:ring-2 focus-visible:ring-gold rounded-full transition-all duration-300"
-                style={{
-                  width: i === index ? 24 : 8,
-                  height: 8,
-                  borderRadius: 4,
-                  background: i === index ? '#d24d2e' : 'rgba(33,29,26,0.2)',
-                }}
-              />
+                className="flex items-center justify-center w-11 h-11 -mx-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold rounded-full"
+              >
+                <span
+                  aria-hidden="true"
+                  className="rounded-full transition-all duration-300"
+                  style={{
+                    width: i === index ? 24 : 8,
+                    height: 8,
+                    borderRadius: 4,
+                    background: i === index ? '#d24d2e' : 'rgba(33,29,26,0.2)',
+                  }}
+                />
+              </button>
             ))}
           </div>
 
           <button
             onClick={() => go(index + 1)}
-            className="rounded-pill border border-[rgba(33,29,26,0.22)] p-2.5 text-[#5c5750] hover:text-[#211d1a] hover:border-[#d24d2e]/50 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#d24d2e]"
+            className="rounded-pill border border-[rgba(33,29,26,0.22)] p-3 text-[#5c5750] hover:text-[#211d1a] hover:border-[#d24d2e]/50 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#d24d2e]"
             aria-label="Next review"
           >
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">

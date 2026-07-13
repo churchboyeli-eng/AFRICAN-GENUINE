@@ -35,48 +35,50 @@ export default function PricingTable({ departures }: Props) {
     <section id="departures" aria-label="Departure dates and pricing" className="mt-10">
       <h2 className="section-title mb-6">Departures &amp; pricing</h2>
       <div className="card-surface overflow-hidden">
-        <table className="w-full text-left border-collapse">
-          <thead>
-            <tr className="border-b border-[rgba(33,29,26,0.22)]">
-              <th className="eyebrow text-ovl-faint px-6 py-4 font-medium">Departure window</th>
-              <th className="eyebrow text-clay px-6 py-4 font-medium hidden sm:table-cell">Note</th>
-              <th className="eyebrow text-ovl-faint px-6 py-4 font-medium">Availability</th>
-              <th className="eyebrow text-clay px-6 py-4 font-medium text-right">Price pp</th>
-              <th className="px-4 py-4 hidden md:table-cell" />
-            </tr>
-          </thead>
-          <tbody>
-            {departures.map((d, i) => (
-              <tr key={i} className="border-b border-[rgba(33,29,26,0.22)] last:border-none hover:bg-[rgba(33,29,26,0.02)] transition-colors">
-                <td className="px-6 py-4 font-body text-[14px] font-semibold text-[#211d1a]">{d.window}</td>
-                <td className="px-6 py-4 font-body text-[13px] text-[#5c5750] hidden sm:table-cell">{d.note}</td>
-                <td className="px-6 py-4">
-                  <span
-                    className="rounded-pill px-3 py-1 font-mono text-[10px] uppercase tracking-label"
-                    style={{
-                      color: d.availColor,
-                      border: `1px solid ${d.availColor}33`,
-                      background: `${d.availColor}11`,
-                    }}
-                  >
-                    {d.avail}
-                  </span>
-                </td>
-                <td className="px-6 py-4 text-right font-display text-[18px] font-bold tracking-tighter text-ovl-accent">
-                  {d.price}
-                </td>
-                <td className="px-4 py-4 hidden md:table-cell">
-                  <a
-                    href="/contact"
-                    className="rounded-pill border border-[#d24d2e]/40 px-4 py-2 font-body text-[11px] font-bold text-[#d24d2e] hover:bg-[#d24d2e]/10 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#d24d2e] whitespace-nowrap"
-                  >
-                    Reserve
-                  </a>
-                </td>
+        <div className="overflow-x-auto">
+          <table className="w-full text-left border-collapse">
+            <thead>
+              <tr className="border-b border-[rgba(33,29,26,0.22)]">
+                <th className="eyebrow text-ovl-faint px-3 py-4 sm:px-6 font-medium">Departure window</th>
+                <th className="eyebrow text-clay px-6 py-4 font-medium hidden sm:table-cell">Note</th>
+                <th className="eyebrow text-ovl-faint px-3 py-4 sm:px-6 font-medium">Availability</th>
+                <th className="eyebrow text-clay px-3 py-4 sm:px-6 font-medium text-right">Price pp</th>
+                <th className="px-4 py-4 hidden md:table-cell" />
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {departures.map((d, i) => (
+                <tr key={i} className="border-b border-[rgba(33,29,26,0.22)] last:border-none hover:bg-[rgba(33,29,26,0.02)] transition-colors">
+                  <td className="px-3 py-4 sm:px-6 font-body text-[14px] font-semibold text-[#211d1a]">{d.window}</td>
+                  <td className="px-6 py-4 font-body text-[13px] text-[#5c5750] hidden sm:table-cell">{d.note}</td>
+                  <td className="px-3 py-4 sm:px-6">
+                    <span
+                      className="inline-block rounded-pill px-3 py-1 font-mono text-[10px] uppercase tracking-label whitespace-nowrap"
+                      style={{
+                        color: d.availColor,
+                        border: `1px solid ${d.availColor}33`,
+                        background: `${d.availColor}11`,
+                      }}
+                    >
+                      {d.avail}
+                    </span>
+                  </td>
+                  <td className="px-3 py-4 sm:px-6 text-right font-display text-[18px] font-bold tracking-tighter text-ovl-accent">
+                    {d.price}
+                  </td>
+                  <td className="px-4 py-4 hidden md:table-cell">
+                    <a
+                      href="/contact"
+                      className="rounded-pill border border-[#d24d2e]/40 px-4 py-2 font-body text-[11px] font-bold text-[#d24d2e] hover:bg-[#d24d2e]/10 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#d24d2e] whitespace-nowrap"
+                    >
+                      Reserve
+                    </a>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
     </section>
   );

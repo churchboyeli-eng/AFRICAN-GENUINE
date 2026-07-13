@@ -47,7 +47,7 @@ export default function ParallaxQuote() {
       />
 
       {/* Content */}
-      <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-14 gap-8">
+      <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-6 md:px-14 gap-6 md:gap-8">
         <blockquote className="max-w-2xl">
           <p className="font-cormorant text-[clamp(26px,3.5vw,40px)] font-light italic leading-[1.35] text-ov-ivory/90">
             &ldquo;We came for the migration. We stayed for the silence, the guides, the feeling that Tanzania was revealing herself just to us.&rdquo;

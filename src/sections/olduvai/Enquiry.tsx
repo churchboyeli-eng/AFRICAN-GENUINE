@@ -70,7 +70,7 @@ export default function Enquiry() {
         </div>
 
         {/* Right — form */}
-        <div className="flex flex-col justify-center px-14 py-20 bg-ovl-bg">
+        <div className="flex flex-col justify-center px-6 py-12 md:px-14 md:py-20 bg-ovl-bg">
           <span className="font-jost text-[10px] uppercase tracking-[.36em] text-ovl-faint mb-6 block">
             Start planning
           </span>
@@ -184,7 +184,7 @@ export default function Enquiry() {
 
               <button
                 type="submit"
-                className="mt-2 self-start font-jost text-[12px] uppercase tracking-[.16em] text-[#211d1a] border border-[rgba(33,29,26,0.4)] px-8 py-4 transition-all duration-300 hover:border-ovl-accent hover:bg-ovl-accent hover:text-white"
+                className="mt-2 w-full sm:w-auto sm:self-start text-center font-jost text-[12px] uppercase tracking-[.16em] text-[#211d1a] border border-[rgba(33,29,26,0.4)] px-8 py-4 transition-all duration-300 hover:border-ovl-accent hover:bg-ovl-accent hover:text-white"
               >
                 Send my enquiry
               </button>

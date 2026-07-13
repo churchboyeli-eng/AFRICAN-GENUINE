@@ -10,7 +10,7 @@ const GUIDES = [
 
 function GuideCard({ name, role, credential, initials }: typeof GUIDES[0]) {
   return (
-    <div className="flex flex-col items-center text-center gap-5 px-8">
+    <div className="flex flex-col items-center text-center gap-5 px-6 py-8 md:px-8 md:py-0">
       <div className="w-24 h-24 rounded-full border border-[rgba(33,29,26,0.22)] bg-[rgba(33,29,26,0.04)] flex items-center justify-center shrink-0">
         <span className="font-cormorant text-[22px] font-light text-ovl-body">{initials}</span>
       </div>
@@ -30,16 +30,16 @@ export default function Credentials() {
 
   return (
     <section
-      className="ov-reveal bg-ovl-bg py-24 px-14 border-y border-[rgba(33,29,26,0.22)]"
+      className="ov-reveal bg-ovl-bg py-14 px-6 md:py-24 md:px-14 border-y border-[rgba(33,29,26,0.22)]"
       ref={ref}
       aria-label="Our guides"
     >
       <div className="mx-auto max-w-[1280px]">
-        <div className="text-center mb-14">
+        <div className="text-center mb-8 md:mb-14">
           <span className="font-jost text-[10px] uppercase tracking-[.36em] text-ovl-faint block mb-3">
             The team behind your journey
           </span>
-          <h2 className="font-cormorant text-[38px] font-light tracking-[-0.02em] text-ovl-text">
+          <h2 className="font-cormorant text-[28px] md:text-[38px] font-light tracking-[-0.02em] text-ovl-text">
             Guides, not intermediaries
           </h2>
         </div>

@@ -10,8 +10,7 @@ export default function OlduvaiHero() {
 
   return (
     <section
-      className="relative flex min-h-[720px] items-center justify-center overflow-hidden -mt-[1px]"
-      style={{ paddingTop: 140 }}
+      className="relative flex min-h-[720px] items-center justify-center overflow-hidden -mt-[1px] pt-[110px] md:pt-[140px] pb-24 md:pb-0"
       aria-label="Hero"
     >
       {/* ── Ken-burns fallback image ── */}
@@ -52,16 +51,16 @@ export default function OlduvaiHero() {
       />
 
       {/* ── Content ── */}
-      <div className="relative z-10 text-center px-14 max-w-4xl mx-auto">
+      <div className="relative z-10 text-center px-6 md:px-14 max-w-4xl mx-auto">
         <p
-          className="font-jost text-[10px] uppercase tracking-[.44em] text-ov-brass mb-10"
+          className="font-jost text-[10px] uppercase tracking-[.28em] md:tracking-[.44em] text-ov-brass mb-6 md:mb-10"
           style={{ animation: 'ov-rise 1s cubic-bezier(.19,.7,.2,1) .15s both' }}
         >
           Tailor-made · Est. 2009
         </p>
 
         <h1
-          className="font-cormorant font-light text-[clamp(56px,8vw,96px)] leading-[1.0] tracking-[-0.02em] text-ov-ivory mb-7"
+          className="font-cormorant font-light text-[40px] leading-[1.05] md:text-[clamp(56px,8vw,96px)] md:leading-[1.0] tracking-[-0.02em] text-ov-ivory mb-5 md:mb-7"
           style={{ animation: 'ov-rise 1.1s cubic-bezier(.19,.7,.2,1) .30s both' }}
         >
           The plains remember<br />
@@ -69,14 +68,14 @@ export default function OlduvaiHero() {
         </h1>
 
         <p
-          className="font-jost text-[16px] font-light text-ov-muted max-w-md mx-auto mb-12 leading-relaxed"
+          className="font-jost text-[15px] md:text-[16px] font-light text-ov-muted max-w-md mx-auto mb-8 md:mb-12 leading-relaxed"
           style={{ animation: 'ov-rise 1.1s cubic-bezier(.19,.7,.2,1) .50s both' }}
         >
           Private expeditions across Tanzania&apos;s most storied landscapes — built around you, guided by those who live here.
         </p>
 
         <div
-          className="flex items-center justify-center gap-7"
+          className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-7"
           style={{ animation: 'ov-rise 1.1s cubic-bezier(.19,.7,.2,1) .72s both' }}
         >
           <a
@@ -96,13 +95,13 @@ export default function OlduvaiHero() {
 
       {/* ── Bottom corners ── */}
       <div
-        className="absolute bottom-10 inset-x-14 flex justify-between items-end pointer-events-none"
+        className="absolute bottom-6 md:bottom-10 inset-x-6 md:inset-x-14 flex justify-between items-end pointer-events-none"
         style={{ animation: 'ov-rise 1.1s cubic-bezier(.19,.7,.2,1) .92s both' }}
       >
-        <p className="font-jost text-[10px] uppercase tracking-[.24em] text-ov-brass/70 leading-loose">
+        <p className="font-jost text-[9px] md:text-[10px] uppercase tracking-[.16em] md:tracking-[.24em] text-ov-brass/70 leading-loose">
           Serengeti · Ngorongoro<br />Kilimanjaro · Zanzibar<br />Selous · Tarangire
         </p>
-        <p className="font-jost text-[10px] uppercase tracking-[.24em] text-ov-brass/70">
+        <p className="font-jost text-[9px] md:text-[10px] uppercase tracking-[.16em] md:tracking-[.24em] text-ov-brass/70">
           Scroll ↓
         </p>
       </div>
