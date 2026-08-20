@@ -421,45 +421,104 @@ function InclusionsPanel({ included, excluded }: { included?: string[]; excluded
 }
 
 /* ─── Accommodation panel ─────────────────────────────────── */
+type AccommodationTier = 'Mid-range' | 'Luxury' | 'Tailored stay';
+
+function accommodationTier(lodge: TourLodge): AccommodationTier {
+  if (lodge.stars === 'Mid-range') return 'Mid-range';
+  if (lodge.stars === 'Luxury') return 'Luxury';
+  return 'Tailored stay';
+}
+
 function AccommodationPanel({ lodges }: { lodges: TourLodge[] }) {
+  const [selectedName, setSelectedName] = useState<string | null>(null);
+  const selectedLodge = lodges.find((lodge) => lodge.name === selectedName);
+  const tiers: AccommodationTier[] = ['Mid-range', 'Luxury', 'Tailored stay'];
+
   return (
     <div>
       <h2 className="section-title mb-6">Where you&rsquo;ll stay</h2>
       <p className="mb-6 font-body text-[14px] leading-relaxed text-[#5c5750]">
         Illustrative mid-range and luxury options for this route. Your final camp or lodge is selected for your dates and confirmed with your quote.
       </p>
-      <div className="space-y-5">
-        {lodges.map((lodge, i) => (
-          <div key={i} className="card-surface overflow-hidden">
-            <div className="relative aspect-[16/7] overflow-hidden">
-              <Image
-                src={lodge.image}
-                alt={lodge.name}
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw, 70vw"
-              />
-              <div className="absolute inset-0 bg-card-veil" aria-hidden="true" />
-            </div>
-            <div className="p-6">
-              <div className="flex items-start justify-between gap-4 mb-3">
-                <div>
-                  <p className="eyebrow text-ovl-faint mb-1">{lodge.nights}</p>
-                  <h3 className="font-display text-[19px] font-bold tracking-tighter text-[#211d1a]">
-                    {lodge.name}
-                  </h3>
-                </div>
-                {lodge.stars && (
-                  <span className="shrink-0 font-mono text-[10px] uppercase tracking-label text-ovl-accent border border-[#c4472a]/30 rounded-pill px-3 py-1 whitespace-nowrap">
-                    {lodge.stars}
-                  </span>
-                )}
+      <p className="mb-8 font-mono text-[10px] uppercase tracking-label text-ovl-faint">
+        Choose a stay to discuss it with your safari specialist
+      </p>
+
+      <div className="space-y-10">
+        {tiers.map((tier) => {
+          const tierLodges = lodges.filter((lodge) => accommodationTier(lodge) === tier);
+          if (tierLodges.length === 0) return null;
+
+          return (
+            <section key={tier} aria-labelledby={`accommodation-tier-${tier.replaceAll(' ', '-').toLowerCase()}`}>
+              <div className="mb-4 flex items-center gap-4">
+                <h3
+                  id={`accommodation-tier-${tier.replaceAll(' ', '-').toLowerCase()}`}
+                  className="font-display text-[22px] font-bold tracking-tighter text-[#211d1a]"
+                >
+                  {tier}
+                </h3>
+                <span className="h-px flex-1 bg-[rgba(33,29,26,0.22)]" aria-hidden="true" />
               </div>
-              <p className="text-[#5c5750] text-[14px] leading-relaxed">{lodge.desc}</p>
-            </div>
-          </div>
-        ))}
+              <div className="grid gap-5 md:grid-cols-2">
+                {tierLodges.map((lodge) => {
+                  const isSelected = lodge.name === selectedName;
+                  return (
+                    <button
+                      key={`${lodge.name}-${lodge.nights}`}
+                      type="button"
+                      aria-pressed={isSelected}
+                      onClick={() => setSelectedName(isSelected ? null : lodge.name)}
+                      className={`group overflow-hidden rounded-card border text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-gold ${
+                        isSelected
+                          ? 'border-ovl-accent bg-[#d24d2e]/[.06]'
+                          : 'border-[rgba(33,29,26,0.22)] bg-transparent hover:border-ovl-accent'
+                      }`}
+                    >
+                      <div className="relative aspect-[16/8] overflow-hidden">
+                        <Image
+                          src={lodge.image}
+                          alt=""
+                          fill
+                          className="object-cover transition-transform duration-300 group-hover:scale-[1.03]"
+                          sizes="(max-width: 768px) 100vw, 35vw"
+                        />
+                        <div className="absolute inset-0 bg-card-veil" aria-hidden="true" />
+                        <span className="absolute left-4 top-4 rounded-pill border border-[#f7f5f1]/40 bg-[#150f08]/85 px-3 py-1 font-mono text-[10px] uppercase tracking-label text-[#f5ecd8]">
+                          {lodge.stars ?? tier}
+                        </span>
+                      </div>
+                      <div className="p-5">
+                        <p className="eyebrow text-ovl-faint mb-2">{lodge.nights}</p>
+                        <h4 className="font-display text-[19px] font-bold tracking-tighter text-[#211d1a]">
+                          {lodge.name}
+                        </h4>
+                        <p className="mt-3 text-[14px] leading-relaxed text-[#5c5750]">{lodge.desc}</p>
+                        <span className="mt-4 inline-flex font-mono text-[10px] uppercase tracking-label text-ovl-accent">
+                          {isSelected ? 'Selected for discussion' : 'View this stay'}
+                        </span>
+                      </div>
+                    </button>
+                  );
+                })}
+              </div>
+            </section>
+          );
+        })}
       </div>
+
+      {selectedLodge && (
+        <div className="mt-8 rounded-card border border-ovl-accent bg-[#d24d2e]/[.06] p-6" aria-live="polite">
+          <p className="eyebrow text-ovl-accent mb-2">Selected stay</p>
+          <h3 className="font-display text-[24px] font-bold tracking-tighter text-[#211d1a]">{selectedLodge.name}</h3>
+          <p className="mt-3 max-w-2xl text-[14px] leading-relaxed text-[#5c5750]">
+            Tell us your preferred travel dates and we&rsquo;ll confirm whether this option fits your route, then offer suitable alternatives if needed.
+          </p>
+          <a href="/contact" className="btn-gold mt-5 inline-flex items-center justify-center">
+            Ask about this stay
+          </a>
+        </div>
+      )}
     </div>
   );
 }
