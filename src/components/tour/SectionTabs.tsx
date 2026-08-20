@@ -425,6 +425,9 @@ function AccommodationPanel({ lodges }: { lodges: TourLodge[] }) {
   return (
     <div>
       <h2 className="section-title mb-6">Where you&rsquo;ll stay</h2>
+      <p className="mb-6 font-body text-[14px] leading-relaxed text-[#5c5750]">
+        Illustrative mid-range and luxury options for this route. Your final camp or lodge is selected for your dates and confirmed with your quote.
+      </p>
       <div className="space-y-5">
         {lodges.map((lodge, i) => (
           <div key={i} className="card-surface overflow-hidden">
