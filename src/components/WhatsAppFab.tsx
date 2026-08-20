@@ -43,7 +43,7 @@ export default function WhatsAppFab({ message }: Props) {
           <button
             onClick={dismiss}
             aria-label="Dismiss WhatsApp prompt"
-            className="text-clay hover:text-cream transition-colors text-[18px] leading-none -mt-px"
+            className="text-ov-faint hover:text-cream transition-colors text-[18px] leading-none -mt-px"
           >
             ×
           </button>

@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { Menu, X } from 'lucide-react';
 
 const navLinks = [
   { label: 'Day Trips',   href: '/day-trips' },
@@ -65,17 +66,7 @@ export default function TopBar() {
           aria-controls="mobile-menu"
         >
           <span className="sr-only">{open ? 'Close menu' : 'Open menu'}</span>
-          <svg width="18" height="14" viewBox="0 0 18 14" fill="none" aria-hidden="true">
-            {open ? (
-              <path d="M1 1L17 13M17 1L1 13" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
-            ) : (
-              <>
-                <path d="M0 1H18" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
-                <path d="M0 7H18" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
-                <path d="M0 13H18" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
-              </>
-            )}
-          </svg>
+          {open ? <X size={18} strokeWidth={1.6} aria-hidden="true" /> : <Menu size={18} strokeWidth={1.6} aria-hidden="true" />}
         </button>
       </nav>
 

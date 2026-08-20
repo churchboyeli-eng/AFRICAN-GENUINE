@@ -39,16 +39,16 @@ export default function HoneymoonGrid() {
               key={f}
               onClick={() => setFilter(f)}
               aria-pressed={filter === f}
-              className={`rounded-pill px-5 py-3.5 md:py-2.5 font-body text-[12px] font-bold transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold ${
+              className={`rounded-pill px-5 py-3.5 md:py-2.5 font-body text-[12px] font-bold transition-[background-color,border-color,color,transform] duration-150 active:scale-[0.96] focus:outline-none focus-visible:ring-2 focus-visible:ring-gold ${
                 filter === f
-                  ? 'bg-[#d24d2e] text-white'
-                  : 'border border-[rgba(33,29,26,0.22)] text-[#5c5750] hover:text-[#211d1a] hover:border-[#d24d2e]/50'
+                  ? 'bg-[#c4472a] text-white'
+                  : 'control-light'
               }`}
             >
               {f}
             </button>
           ))}
-          <span className="ml-auto self-center font-mono text-[10px] text-[#7a746c]">
+          <span className="ml-auto self-center font-mono text-[10px] text-[#756f67]">
             {visible.length} itinerar{visible.length === 1 ? 'y' : 'ies'}
           </span>
         </div>
@@ -74,7 +74,7 @@ export default function HoneymoonGrid() {
                     <div className="p-6 flex flex-col flex-1">
                       {/* Duration badge */}
                       <div className="flex items-center justify-between mb-4">
-                        <span className="rounded-pill bg-[#d24d2e]/10 border border-[#d24d2e]/30 px-3 py-1 font-mono text-[10px] uppercase tracking-label text-[#d24d2e]">
+                        <span className="rounded-pill bg-[#c4472a]/10 border border-[#c4472a]/30 px-3 py-1 font-mono text-[10px] uppercase tracking-label text-[#c4472a]">
                           {days} Days
                         </span>
                         {tour.reviewScore && (
@@ -99,7 +99,7 @@ export default function HoneymoonGrid() {
                         {[route, season].filter(Boolean).map((tag) => (
                           <span
                             key={tag}
-                            className="rounded-pill border border-[rgba(33,29,26,0.22)] px-2.5 py-0.5 font-mono text-[9px] uppercase tracking-label text-[#7a746c]"
+                            className="rounded-pill border border-[rgba(33,29,26,0.22)] px-2.5 py-0.5 font-mono text-[9px] uppercase tracking-label text-[#756f67]"
                           >
                             {tag}
                           </span>
@@ -109,7 +109,7 @@ export default function HoneymoonGrid() {
                       {/* CTA */}
                       <Link
                         href={`/honeymoon/${tour.slug}`}
-                        className="font-body text-[12px] font-semibold text-ovl-accent hover:text-[#a83a20] transition-colors focus:outline-none focus-visible:underline"
+                        className="font-body text-[12px] font-semibold text-ovl-accent hover:text-[#963620] transition-colors focus:outline-none focus-visible:underline"
                         aria-label={`View itinerary: ${tour.name}`}
                       >
                         View itinerary →

@@ -14,12 +14,14 @@ import GeniusFamily from '@/sections/about/GeniusFamily';
 import PlanCTA from '@/sections/about/PlanCTA';
 import NewsletterSignup from '@/sections/about/NewsletterSignup';
 import Reviews from '@/sections/Reviews';
+import { buildMetadata } from '@/lib/metadata';
 
-export const metadata = {
+export const metadata = buildMetadata({
   title: 'About Us — African Genuine Tours & Safaris',
   description:
     'African Genuine Tours & Safaris is a proudly Tanzanian operator dedicated to honest, locally guided wildlife experiences across East Africa.',
-};
+  path: '/about',
+});
 
 export default function AboutPage() {
   return (

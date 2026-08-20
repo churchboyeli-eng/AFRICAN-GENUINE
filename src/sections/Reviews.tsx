@@ -3,6 +3,7 @@
 import { useState, useCallback } from 'react';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { reviews } from '@/data/content';
 
 const STARS = '★★★★★';
@@ -78,7 +79,7 @@ export default function Reviews() {
                 />
                 <div className="text-left">
                   <p className="font-body text-[14px] font-semibold text-[#211d1a]">{review.author}</p>
-                  <p className="font-mono text-[9px] uppercase tracking-label text-[#7a746c]">{review.trip}</p>
+                  <p className="font-mono text-[9px] uppercase tracking-label text-[#756f67]">{review.trip}</p>
                 </div>
               </div>
             </motion.div>
@@ -89,12 +90,10 @@ export default function Reviews() {
         <div className="mt-8 flex items-center justify-center gap-6">
           <button
             onClick={() => go(index - 1)}
-            className="rounded-pill border border-[rgba(33,29,26,0.22)] p-3 text-[#5c5750] hover:text-[#211d1a] hover:border-[#d24d2e]/50 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#d24d2e]"
+            className="control-light rounded-pill p-3 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#c4472a]"
             aria-label="Previous review"
           >
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-              <path d="M12.5 15L7.5 10L12.5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
+            <ChevronLeft size={20} strokeWidth={1.6} aria-hidden="true" />
           </button>
 
           {/* Dots */}
@@ -115,7 +114,7 @@ export default function Reviews() {
                     width: i === index ? 24 : 8,
                     height: 8,
                     borderRadius: 4,
-                    background: i === index ? '#d24d2e' : 'rgba(33,29,26,0.2)',
+                    background: i === index ? '#c4472a' : 'rgba(33,29,26,0.2)',
                   }}
                 />
               </button>
@@ -124,12 +123,10 @@ export default function Reviews() {
 
           <button
             onClick={() => go(index + 1)}
-            className="rounded-pill border border-[rgba(33,29,26,0.22)] p-3 text-[#5c5750] hover:text-[#211d1a] hover:border-[#d24d2e]/50 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#d24d2e]"
+            className="control-light rounded-pill p-3 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#c4472a]"
             aria-label="Next review"
           >
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-              <path d="M7.5 5L12.5 10L7.5 15" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
+            <ChevronRight size={20} strokeWidth={1.6} aria-hidden="true" />
           </button>
         </div>
       </div>

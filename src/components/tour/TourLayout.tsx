@@ -10,17 +10,22 @@ import PricingTable from './PricingTable';
 import Gallery from './Gallery';
 import TourReviewsSection from './TourReviewsSection';
 import RelatedTours from './RelatedTours';
+import TouristTripJsonLd from '@/components/TouristTripJsonLd';
 import type { Tour } from '@/data/tours/types';
 
 interface Props {
   tour: Tour;
+  /** Overrides the default `${basePath}/${slug}` URL — for routes that don't follow that pattern */
+  path?: string;
 }
 
-export default function TourLayout({ tour }: Props) {
+export default function TourLayout({ tour, path }: Props) {
   const base = tour.basePath ?? '/itineraries';
   const isKili = base === '/kilimanjaro';
+  const canonicalPath = path ?? `${base}/${tour.slug}`;
   return (
     <>
+      <TouristTripJsonLd tour={tour} path={canonicalPath} />
       <TopBar />
       {/* pb-24 reserves space for the mobile sticky bottom bar */}
       <main className="pb-24 lg:pb-0 bg-ovl-bg">
@@ -103,7 +108,7 @@ export default function TourLayout({ tour }: Props) {
                   href={`${base}/${tour.prev.slug}`}
                   className="group flex flex-col max-w-xs focus:outline-none focus-visible:ring-2 focus-visible:ring-gold rounded"
                 >
-                  <span className="font-mono text-[9px] uppercase tracking-label text-[#7a746c] mb-1">← Previous</span>
+                  <span className="font-mono text-[9px] uppercase tracking-label text-[#756f67] mb-1">← Previous</span>
                   <span className="font-display text-[15px] font-bold tracking-tighter text-[#5c5750] group-hover:text-[#211d1a] transition-colors">
                     {tour.prev.title}
                   </span>
@@ -116,7 +121,7 @@ export default function TourLayout({ tour }: Props) {
                   href={`${base}/${tour.next.slug}`}
                   className="group flex flex-col items-end max-w-xs text-right focus:outline-none focus-visible:ring-2 focus-visible:ring-gold rounded"
                 >
-                  <span className="font-mono text-[9px] uppercase tracking-label text-[#7a746c] mb-1">Next →</span>
+                  <span className="font-mono text-[9px] uppercase tracking-label text-[#756f67] mb-1">Next →</span>
                   <span className="font-display text-[15px] font-bold tracking-tighter text-[#5c5750] group-hover:text-[#211d1a] transition-colors">
                     {tour.next.title}
                   </span>

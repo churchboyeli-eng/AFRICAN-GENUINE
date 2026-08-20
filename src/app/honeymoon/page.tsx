@@ -1,12 +1,14 @@
 import TopBar from '@/sections/TopBar';
 import SiteFooter from '@/sections/SiteFooter';
 import HoneymoonGrid from './HoneymoonGrid';
+import { buildMetadata } from '@/lib/metadata';
 
-export const metadata = {
+export const metadata = buildMetadata({
   title: 'Honeymoon Safaris — African Genuine Tours & Safaris',
   description:
     '2 tailor-made Tanzania honeymoon itineraries — fly-in safari from Zanzibar or the complete bush-and-beach experience. Private guides, no group tours.',
-};
+  path: '/honeymoon',
+});
 
 const notes = [
   'Every itinerary is private — your guide, your 4×4, your pace',

@@ -1,12 +1,14 @@
 import TopBar from '@/sections/TopBar';
 import SiteFooter from '@/sections/SiteFooter';
 import KilimanjaroGrid from './KilimanjaroGrid';
+import { buildMetadata } from '@/lib/metadata';
 
-export const metadata = {
+export const metadata = buildMetadata({
   title: 'Kilimanjaro Climbs — African Genuine Tours & Safaris',
   description:
     '6 Kilimanjaro routes — Machame, Lemosho, Rongai, Northern Circuit, Umbwe and Marangu. Private climbs with Tanzanian guides, all park fees, tents, meals and Moshi hotel included.',
-};
+  path: '/kilimanjaro',
+});
 
 const kiliNotes = [
   'All climbs are private — your group only, your pace',

@@ -2,12 +2,14 @@ import TopBar from '@/sections/TopBar';
 import SiteFooter from '@/sections/SiteFooter';
 import ItineraryGrid from './ItineraryGrid';
 import { itineraryNotes } from '@/data/itineraries';
+import { buildMetadata } from '@/lib/metadata';
 
-export const metadata = {
+export const metadata = buildMetadata({
   title: 'All Itineraries — African Genuine Tours & Safaris',
   description:
     '21 original Tanzania safari itineraries from 1 to 14 days — fly-in day trips, river safaris, migration crossings, honeymoons and more.',
-};
+  path: '/itineraries',
+});
 
 export default function ItinerariesPage() {
   return (

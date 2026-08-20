@@ -75,26 +75,26 @@ export default function Enquiry() {
             Start planning
           </span>
           <h2 className="font-cormorant text-[clamp(28px,3vw,42px)] font-light leading-[1.15] tracking-[-0.02em] text-ovl-text mb-4">
-            Let us compose your Tanzania
+            Plan your Tanzania trip
           </h2>
           <p className="font-jost text-[14px] font-light text-ovl-body mb-10 leading-relaxed max-w-sm">
-            Tell us a little about your trip and we&apos;ll come back with ideas within one working day — no pressure, no generic quotes.
+            Tell us where you would like to go and when. We will reply within one working day with practical options for your trip.
           </p>
 
           {sent ? (
             <div className="border border-[rgba(33,29,26,0.22)] px-8 py-12 text-center">
               <span className="block text-ovl-accent text-2xl mb-5">✦</span>
               <p className="font-cormorant text-[30px] font-light text-ovl-text mb-3">
-                We&apos;ll be in touch very soon.
+                We&apos;ll be in touch soon.
               </p>
               <p className="font-jost text-[13px] font-light text-ovl-body leading-relaxed max-w-xs mx-auto">
-                Thank you, {fields.name}. A member of our team will reach out within one working day to start designing your Tanzania.
+                Thank you, {fields.name}. A member of our team will reply within one working day with the next steps.
               </p>
             </div>
           ) : (
             <form onSubmit={handleSubmit} noValidate aria-label="Safari enquiry form" className="flex flex-col gap-0">
               <p className="font-jost text-[11px] text-ovl-faint mb-8 tracking-[.04em]">
-                ✦ 4 fields, 60 seconds — we&apos;ll ask the rest by email
+                ✦ Four fields. We&apos;ll ask for the remaining details by email.
               </p>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6">

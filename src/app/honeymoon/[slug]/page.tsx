@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation';
 import { honeymoonTours, honeymoonBySlug } from '@/data/honeymoon';
 import TourLayout from '@/components/tour/TourLayout';
+import { buildMetadata } from '@/lib/metadata';
 
 export function generateStaticParams() {
   return honeymoonTours.map((t) => ({ slug: t.slug }));
@@ -9,7 +10,11 @@ export function generateStaticParams() {
 export function generateMetadata({ params }: { params: { slug: string } }) {
   const tour = honeymoonBySlug[params.slug];
   if (!tour) return {};
-  return { title: tour.meta.title, description: tour.meta.description };
+  return buildMetadata({
+    title: tour.meta.title,
+    description: tour.meta.description,
+    path: `/honeymoon/${params.slug}`,
+  });
 }
 
 export default function HoneymoonDetailPage({ params }: { params: { slug: string } }) {

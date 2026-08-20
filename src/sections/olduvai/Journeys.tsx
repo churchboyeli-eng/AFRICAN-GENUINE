@@ -2,6 +2,7 @@
 
 import { useRef, useState } from 'react';
 import Image from 'next/image';
+import { ArrowLeft, ArrowRight } from 'lucide-react';
 import { useReveal } from '@/hooks/useReveal';
 import { tours } from '@/data/content';
 
@@ -26,7 +27,7 @@ export default function Journeys() {
             Signature journeys
           </span>
           <h2 className="font-cormorant text-[28px] md:text-[42px] font-light leading-[1.1] tracking-[-0.02em] text-ovl-text">
-            Crafted for the curious
+            Journeys with time to look around
           </h2>
         </div>
         <div className="flex items-center gap-6">
@@ -37,14 +38,14 @@ export default function Journeys() {
             All 21 itineraries →
           </a>
           <div className="flex gap-3">
-            {(['←', '→'] as const).map((arrow, i) => (
+            {([ArrowLeft, ArrowRight] as const).map((Icon, i) => (
               <button
-                key={arrow}
+                key={i}
                 onClick={() => scroll(i === 0 ? -1 : 1)}
                 aria-label={i === 0 ? 'Previous journey' : 'Next journey'}
-                className="w-11 h-11 border border-[rgba(33,29,26,0.22)] text-ovl-faint font-jost text-[16px] flex items-center justify-center transition-all duration-300 hover:border-ovl-accent hover:text-ovl-accent shrink-0"
+                className="control-light w-11 h-11 font-jost text-[16px] flex items-center justify-center shrink-0"
               >
-                {arrow}
+                <Icon size={18} strokeWidth={1.6} aria-hidden="true" />
               </button>
             ))}
           </div>
@@ -112,7 +113,7 @@ export default function Journeys() {
                   href={tour.href}
                   className="font-jost text-[11px] uppercase tracking-[.16em] text-ovl-body hover:text-ovl-accent transition-colors duration-300"
                 >
-                  Discover →
+                  View trip →
                 </a>
               </div>
             </div>

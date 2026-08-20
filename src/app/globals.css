@@ -3,16 +3,24 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    --button-outline-bg: #f7f5f1;
+    --button-outline-bg-hover: #f1ede5;
+  }
+
   body { background: #150f08; }
   html, body { overflow-x: hidden; max-width: 100%; }
   img, video { max-width: 100%; height: auto; }
 }
 
 @layer components {
-  .eyebrow      { @apply font-mono text-[10px] uppercase tracking-label text-[#7a746c]; }
+  .eyebrow      { @apply font-mono text-[10px] uppercase tracking-label text-[#756f67]; }
   .shell        { @apply mx-auto max-w-shell px-6 sm:px-8 md:px-[46px]; }
-  .btn-gold     { @apply rounded-pill bg-[#d24d2e] px-7 py-4 font-body text-[13px] font-bold text-white transition hover:bg-[#a83a20]; }
-  .btn-ghost    { @apply rounded-pill border border-[rgba(33,29,26,0.22)] px-6 py-3.5 font-body text-[12px] font-bold text-[#5c5750] transition hover:border-[#d24d2e] hover:text-[#d24d2e]; }
+  .btn-gold     { @apply rounded-pill bg-[#c4472a] px-7 py-4 font-body text-[13px] font-bold text-white transition-colors duration-150 hover:bg-[#963620] active:scale-[0.96]; }
+  .btn-ghost,
+  .btn-outline  { @apply rounded-pill border border-[rgba(33,29,26,0.22)] bg-[var(--button-outline-bg)] px-6 py-3.5 font-body text-[12px] font-bold text-[#5c5750] transition-[background-color,border-color,color,transform] duration-150 hover:border-[#c4472a] hover:bg-[var(--button-outline-bg-hover)] hover:text-[#c4472a] active:scale-[0.96]; }
+  .control-light { @apply border border-[rgba(33,29,26,0.22)] bg-[#f7f5f1] text-[#5c5750] transition-[background-color,border-color,color,transform] duration-150 hover:border-[#c4472a] hover:bg-[#f1ede5] hover:text-[#c4472a] active:scale-[0.96]; }
+  .control-dark  { @apply border border-[rgba(224,168,63,0.4)] bg-[#150f08] text-ov-brass transition-[background-color,border-color,color,transform] duration-150 hover:bg-[#2a1d10] hover:text-ov-ivory active:scale-[0.96]; }
   .card-surface { @apply rounded-card border border-[rgba(33,29,26,0.22)] bg-transparent; }
   .gold-rule    { @apply h-[3px] w-full bg-gold-line; }
   .section-title{ @apply font-display text-[32px] font-bold leading-[1.1] tracking-tighter text-[#211d1a]; }

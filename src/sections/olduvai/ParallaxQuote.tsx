@@ -49,11 +49,11 @@ export default function ParallaxQuote() {
       {/* Content */}
       <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-6 md:px-14 gap-6 md:gap-8">
         <blockquote className="max-w-2xl">
-          <p className="font-cormorant text-[clamp(26px,3.5vw,40px)] font-light italic leading-[1.35] text-ov-ivory/90">
-            &ldquo;We came for the migration. We stayed for the silence, the guides, the feeling that Tanzania was revealing herself just to us.&rdquo;
+          <p className="font-accent text-[clamp(26px,3.5vw,40px)] italic leading-[1.35] text-ov-ivory/90">
+            &ldquo;We came for the migration. The mornings with our guide and the quiet evenings at camp are what we still talk about.&rdquo;
           </p>
           <footer className="mt-6 font-jost text-[11px] uppercase tracking-[.28em] text-ov-brass">
-            — Sarah &amp; Tom, [PLACEHOLDER NAME] · July 2025
+            Guest testimonial · July 2025
           </footer>
         </blockquote>
 

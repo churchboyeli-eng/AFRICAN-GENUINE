@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation';
 import { climbs, climbsBySlug } from '@/data/climbs';
 import TourLayout from '@/components/tour/TourLayout';
+import { buildMetadata } from '@/lib/metadata';
 
 export function generateStaticParams() {
   return climbs.map((c) => ({ slug: c.slug }));
@@ -9,7 +10,11 @@ export function generateStaticParams() {
 export function generateMetadata({ params }: { params: { slug: string } }) {
   const climb = climbsBySlug[params.slug];
   if (!climb) return {};
-  return { title: climb.meta.title, description: climb.meta.description };
+  return buildMetadata({
+    title: climb.meta.title,
+    description: climb.meta.description,
+    path: `/kilimanjaro/${params.slug}`,
+  });
 }
 
 export default function KilimanjaroDetailPage({ params }: { params: { slug: string } }) {

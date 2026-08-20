@@ -41,7 +41,7 @@ export default function NewsletterSignup() {
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 autoComplete="given-name"
-                className="flex-1 rounded-pill border border-[rgba(33,29,26,0.22)] bg-white/40 px-5 py-4 font-body text-[14px] text-[#211d1a] placeholder:text-[#7a746c] focus:outline-none focus:border-ovl-accent/60 transition-colors"
+                className="flex-1 rounded-pill border border-[rgba(33,29,26,0.22)] bg-white/40 px-5 py-4 font-body text-[14px] text-[#211d1a] placeholder:text-[#756f67] focus:outline-none focus:border-ovl-accent/60 transition-colors"
               />
               <input
                 type="email"
@@ -50,7 +50,7 @@ export default function NewsletterSignup() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 autoComplete="email"
-                className="flex-1 rounded-pill border border-[rgba(33,29,26,0.22)] bg-white/40 px-5 py-4 font-body text-[14px] text-[#211d1a] placeholder:text-[#7a746c] focus:outline-none focus:border-ovl-accent/60 transition-colors"
+                className="flex-1 rounded-pill border border-[rgba(33,29,26,0.22)] bg-white/40 px-5 py-4 font-body text-[14px] text-[#211d1a] placeholder:text-[#756f67] focus:outline-none focus:border-ovl-accent/60 transition-colors"
               />
               <button
                 type="submit"

@@ -35,7 +35,7 @@ function validate(fields: Fields): Errors {
 }
 
 const inputClass =
-  'w-full rounded-card border bg-white/40 px-4 py-3.5 font-body text-[14px] text-[#211d1a] placeholder:text-[#7a746c] focus:outline-none transition border-[rgba(33,29,26,0.22)] focus:border-[#d24d2e]';
+  'w-full rounded-card border bg-white/40 px-4 py-3.5 font-body text-[14px] text-[#211d1a] placeholder:text-[#756f67] focus:outline-none transition border-[rgba(33,29,26,0.22)] focus:border-[#c4472a]';
 
 export default function ContactForm() {
   const [fields, setFields] = useState<Fields>({
@@ -141,7 +141,7 @@ export default function ContactForm() {
             value={fields.tripType} onChange={(e) => set('tripType', e.target.value)}
             aria-describedby={errors.tripType ? 'err-c-trip' : undefined}
             aria-invalid={!!errors.tripType}
-            className="w-full rounded-card border bg-ovl-bg px-4 py-3.5 font-body text-[14px] text-[#211d1a] focus:outline-none transition border-[rgba(33,29,26,0.22)] focus:border-[#d24d2e] appearance-none"
+            className="w-full rounded-card border bg-ovl-bg px-4 py-3.5 font-body text-[14px] text-[#211d1a] focus:outline-none transition border-[rgba(33,29,26,0.22)] focus:border-[#c4472a] appearance-none"
           >
             <option value="" disabled>Select…</option>
             {tripOptions.map((o) => <option key={o} value={o}>{o}</option>)}
@@ -196,7 +196,7 @@ export default function ContactForm() {
         Send my enquiry
       </button>
 
-      <p className="text-center text-[#7a746c] text-[12px]">
+      <p className="text-center text-[#756f67] text-[12px]">
         We respond within one working day — no pressure, no generic quotes.
       </p>
     </form>

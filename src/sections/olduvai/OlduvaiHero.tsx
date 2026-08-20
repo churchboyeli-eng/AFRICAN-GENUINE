@@ -1,12 +1,37 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { Pause, Play } from 'lucide-react';
 
 export default function OlduvaiHero() {
-  const reduced = useRef(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [isVideoPaused, setIsVideoPaused] = useState(false);
+
   useEffect(() => {
-    reduced.current = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const pauseForReducedMotion = () => {
+      if (!mediaQuery.matches) return;
+      videoRef.current?.pause();
+      setIsVideoPaused(true);
+    };
+
+    pauseForReducedMotion();
+    mediaQuery.addEventListener('change', pauseForReducedMotion);
+    return () => mediaQuery.removeEventListener('change', pauseForReducedMotion);
   }, []);
+
+  function toggleVideo() {
+    const video = videoRef.current;
+    if (!video) return;
+
+    if (video.paused) {
+      video.play().then(() => setIsVideoPaused(false)).catch(() => setIsVideoPaused(true));
+      return;
+    }
+
+    video.pause();
+    setIsVideoPaused(true);
+  }
 
   return (
     <section
@@ -26,6 +51,7 @@ export default function OlduvaiHero() {
 
       {/* ── Video layer (muted, autoplay, no controls) ── */}
       <video
+        ref={videoRef}
         autoPlay
         muted
         loop
@@ -37,6 +63,16 @@ export default function OlduvaiHero() {
       >
         <source src="/video/hero.mp4" type="video/mp4" />
       </video>
+
+      <button
+        type="button"
+        onClick={toggleVideo}
+        aria-label={isVideoPaused ? 'Play hero video' : 'Pause hero video'}
+        aria-pressed={!isVideoPaused}
+        className="control-dark absolute right-6 top-[116px] z-20 flex h-11 w-11 items-center justify-center rounded-full focus:outline-none focus-visible:ring-2 focus-visible:ring-ov-ivory md:right-14 md:top-36"
+      >
+        {isVideoPaused ? <Play size={18} strokeWidth={1.6} aria-hidden="true" /> : <Pause size={18} strokeWidth={1.6} aria-hidden="true" />}
+      </button>
 
       {/* ── Gradient overlay ── */}
       <div
@@ -64,14 +100,14 @@ export default function OlduvaiHero() {
           style={{ animation: 'ov-rise 1.1s cubic-bezier(.19,.7,.2,1) .30s both' }}
         >
           The plains remember<br />
-          <em className="italic">every arrival</em>
+          <em className="font-accent italic">every arrival</em>
         </h1>
 
         <p
           className="font-jost text-[15px] md:text-[16px] font-light text-ov-muted max-w-md mx-auto mb-8 md:mb-12 leading-relaxed"
           style={{ animation: 'ov-rise 1.1s cubic-bezier(.19,.7,.2,1) .50s both' }}
         >
-          Private expeditions across Tanzania&apos;s most storied landscapes — built around you, guided by those who live here.
+          Private safaris and treks across Tanzania, planned around your dates and led by a team based in Arusha.
         </p>
 
         <div

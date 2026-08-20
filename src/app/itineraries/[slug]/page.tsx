@@ -3,6 +3,7 @@ import { itineraries } from '@/data/itineraries';
 import { itineraryToTour } from '@/data/tours/adapter';
 import { richTours } from '@/data/tours/richTours';
 import TourLayout from '@/components/tour/TourLayout';
+import { buildMetadata } from '@/lib/metadata';
 
 export function generateStaticParams() {
   const richSlugs = Object.keys(richTours).map((slug) => ({ slug }));
@@ -13,14 +14,19 @@ export function generateStaticParams() {
 export function generateMetadata({ params }: { params: { slug: string } }) {
   const rich = richTours[params.slug];
   if (rich) {
-    return { title: rich.meta.title, description: rich.meta.description };
+    return buildMetadata({
+      title: rich.meta.title,
+      description: rich.meta.description,
+      path: `/itineraries/${params.slug}`,
+    });
   }
   const itin = itineraries.find((it) => it.slug === params.slug);
   if (!itin) return {};
-  return {
+  return buildMetadata({
     title: `${itin.title} — ${itin.days}-Day Tanzania Safari | African Genuine Tours & Safaris`,
     description: `${itin.title}: ${itin.days} days across ${itin.parks.join(', ')}. Best for: ${itin.best_for}.`,
-  };
+    path: `/itineraries/${params.slug}`,
+  });
 }
 
 export default function ItineraryDetailPage({ params }: { params: { slug: string } }) {

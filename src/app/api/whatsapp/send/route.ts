@@ -1,10 +1,15 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { sendWhatsAppText } from '@/lib/whatsapp-api';
 
-// Simple in-memory rate limiter — resets on cold start
+// Simple in-memory rate limiter — resets on cold start.
+// Defense-in-depth only: the real safeguard is that `to` is never
+// client-controlled (see below), so this endpoint cannot be used as
+// an open relay regardless of rate-limit bypass.
 const callLog = new Map<string, number[]>();
 const WINDOW_MS = 60_000;
 const MAX_PER_WINDOW = 5;
+
+const MAX_TEXT_LENGTH = 1000;
 
 function isRateLimited(ip: string): boolean {
   const now = Date.now();
@@ -12,6 +17,11 @@ function isRateLimited(ip: string): boolean {
   if (calls.length >= MAX_PER_WINDOW) return true;
   callLog.set(ip, [...calls, now]);
   return false;
+}
+
+// Strip control characters (except newline/tab) that have no place in a chat message
+function sanitizeText(raw: string): string {
+  return raw.replace(/[\x00-\x08\x0B\x0C\x0E-\x1F\x7F]/g, '');
 }
 
 export async function POST(req: NextRequest) {
@@ -27,17 +37,18 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: 'Invalid JSON' }, { status: 400 });
   }
 
-  const text = typeof body.text === 'string' ? body.text.trim() : '';
-  if (!text) {
+  const rawText = typeof body.text === 'string' ? body.text.trim() : '';
+  if (!rawText) {
     return NextResponse.json({ error: 'text is required' }, { status: 400 });
   }
+  if (rawText.length > MAX_TEXT_LENGTH) {
+    return NextResponse.json({ error: 'text is too long' }, { status: 400 });
+  }
+  const text = sanitizeText(rawText);
 
-  // `to` defaults to the server-configured team number
-  const to =
-    typeof body.to === 'string' && body.to.trim()
-      ? body.to.trim()
-      : (process.env.WHATSAPP_TEAM_NUMBER ?? '');
-
+  // Recipient is always the server-configured team number — never client input.
+  // (This endpoint must never become an open relay to arbitrary numbers.)
+  const to = process.env.WHATSAPP_TEAM_NUMBER ?? '';
   if (!to) {
     return NextResponse.json({ error: 'No recipient configured' }, { status: 500 });
   }

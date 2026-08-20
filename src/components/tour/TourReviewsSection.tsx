@@ -13,7 +13,7 @@ export default function TourReviewsSection({ reviews, score = '4.96', count = '2
         <h2 className="section-title">What guests say</h2>
         <div className="shrink-0 sm:text-right">
           <span className="font-display text-[20px] font-bold tracking-tighter text-ovl-accent">{score}</span>
-          <span className="font-mono text-[10px] uppercase tracking-label text-[#7a746c] ml-2">
+          <span className="font-mono text-[10px] uppercase tracking-label text-[#756f67] ml-2">
             from {count} trips
           </span>
         </div>
@@ -32,17 +32,17 @@ export default function TourReviewsSection({ reviews, score = '4.96', count = '2
             </p>
             <footer className="flex items-center gap-3 border-t border-[rgba(33,29,26,0.22)] pt-4">
               <div
-                className="h-9 w-9 rounded-full bg-[#d24d2e]/10 border border-[#d24d2e]/30 shrink-0 flex items-center justify-center"
+                className="h-9 w-9 rounded-full bg-[#c4472a]/10 border border-[#c4472a]/30 shrink-0 flex items-center justify-center"
                 aria-hidden="true"
               >
-                <span className="font-display text-[13px] font-bold text-[#d24d2e]">
+                <span className="font-display text-[13px] font-bold text-[#c4472a]">
                   {r.author[0]}
                 </span>
               </div>
               <div>
                 <p className="font-body text-[13px] font-semibold text-[#211d1a] leading-none">{r.author}</p>
                 {r.date && (
-                  <p className="font-mono text-[10px] uppercase tracking-label text-[#7a746c] mt-1">{r.date}</p>
+                  <p className="font-mono text-[10px] uppercase tracking-label text-[#756f67] mt-1">{r.date}</p>
                 )}
               </div>
             </footer>

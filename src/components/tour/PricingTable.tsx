@@ -69,7 +69,7 @@ export default function PricingTable({ departures }: Props) {
                   <td className="px-4 py-4 hidden md:table-cell">
                     <a
                       href="/contact"
-                      className="rounded-pill border border-[#d24d2e]/40 px-4 py-2 font-body text-[11px] font-bold text-[#d24d2e] hover:bg-[#d24d2e]/10 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#d24d2e] whitespace-nowrap"
+                      className="rounded-pill border border-[#c4472a]/40 px-4 py-2 font-body text-[11px] font-bold text-[#c4472a] hover:bg-[#c4472a]/10 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#c4472a] whitespace-nowrap"
                     >
                       Reserve
                     </a>

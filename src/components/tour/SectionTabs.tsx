@@ -74,7 +74,7 @@ function OverviewPanel({
           <div className="grid sm:grid-cols-2 gap-5">
             {highlights.map((h) => (
               <div key={h.num} className="card-surface p-6 flex gap-5">
-                <span className="font-mono text-[28px] font-bold text-[#d24d2e]/30 leading-none shrink-0 pt-0.5">
+                <span className="font-mono text-[28px] font-bold text-[#c4472a]/30 leading-none shrink-0 pt-0.5">
                   {h.num}
                 </span>
                 <div>
@@ -123,7 +123,7 @@ function OverviewPanel({
                   {park.highlights.map((hl, idx) => (
                     <li key={idx} className="flex items-start gap-3">
                       <span className="text-ovl-accent mt-1 shrink-0 text-[10px]">✦</span>
-                      <span className="text-[#7a746c] text-[14px] leading-relaxed">{hl}</span>
+                      <span className="text-[#756f67] text-[14px] leading-relaxed">{hl}</span>
                     </li>
                   ))}
                 </ul>
@@ -141,7 +141,7 @@ function OverviewPanel({
           </h2>
           <div className="space-y-6">
             {bestTime.map((time, i) => (
-              <div key={i} className="border-l-2 border-[#d24d2e]/30 pl-6">
+              <div key={i} className="border-l-2 border-[#c4472a]/30 pl-6">
                 <h3 className="font-display text-[17px] font-bold text-ovl-accent mb-2">{time.period}</h3>
                 {time.subtitle && (
                   <p className="font-body text-[13px] text-[#5c5750] italic mb-2">{time.subtitle}</p>
@@ -155,7 +155,7 @@ function OverviewPanel({
                   {time.highlights.map((hl, idx) => (
                     <li key={idx} className="flex items-start gap-3">
                       <span className="text-ovl-accent mt-1 shrink-0 text-[10px]">✦</span>
-                      <span className="text-[#7a746c] text-[14px] leading-relaxed">{hl}</span>
+                      <span className="text-[#756f67] text-[14px] leading-relaxed">{hl}</span>
                     </li>
                   ))}
                 </ul>
@@ -174,7 +174,7 @@ function OverviewPanel({
           <ul className="space-y-4">
             {whyBook.map((reason, i) => (
               <li key={i} className="flex items-start gap-4">
-                <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#d24d2e]/10 text-[#d24d2e] text-[12px]">
+                <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#c4472a]/10 text-[#c4472a] text-[12px]">
                   ✓
                 </div>
                 <span className="text-[#5c5750] text-[15px] leading-relaxed">{reason}</span>
@@ -204,19 +204,19 @@ function AccordionItem({
       <button
         onClick={onToggle}
         aria-expanded={isOpen}
-        className="w-full flex items-start gap-4 py-5 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-inset group"
+        className="w-full flex items-start gap-4 rounded-card bg-[#fbfaf7] px-3 py-5 text-left transition-[background-color,transform] duration-150 hover:bg-[#f1ede5] active:scale-[0.96] focus:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-inset group"
       >
-        <span className="shrink-0 flex flex-col items-center justify-center rounded-card border border-[#d24d2e]/30 bg-[#d24d2e]/5 w-12 h-12 gap-0">
-          <span className="font-mono text-[8px] uppercase tracking-label text-[#7a746c] leading-none">Day</span>
+        <span className="shrink-0 flex flex-col items-center justify-center rounded-card border border-[#c4472a]/30 bg-[#c4472a]/5 w-12 h-12 gap-0">
+          <span className="font-mono text-[8px] uppercase tracking-label text-[#756f67] leading-none">Day</span>
           <span className="font-display text-[18px] font-bold tracking-tighter text-ovl-accent leading-none">{day.n}</span>
         </span>
 
         <div className="flex-1 min-w-0">
-          <p className="font-display text-[17px] font-bold tracking-tighter text-[#211d1a] leading-snug group-hover:text-[#a83a20] transition-colors">
+          <p className="font-display text-[17px] font-bold tracking-tighter text-[#211d1a] leading-snug group-hover:text-[#963620] transition-colors">
             {day.title}
           </p>
           {(day.place || day.travel) && (
-            <p className="font-mono text-[10px] uppercase tracking-label text-[#7a746c] mt-1">
+            <p className="font-mono text-[10px] uppercase tracking-label text-[#756f67] mt-1">
               {[day.place, day.travel].filter(Boolean).join(' · ')}
             </p>
           )}
@@ -308,7 +308,7 @@ function ItineraryPanel({
         <h2 className="section-title">Day by day</h2>
         <button
           onClick={toggleAll}
-          className="font-body text-[12px] font-semibold text-gold hover:text-gold-bright transition-colors focus:outline-none focus-visible:underline shrink-0"
+          className="control-light rounded-pill px-3 py-2 font-body text-[12px] font-semibold shrink-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#c4472a]"
         >
           {allOpen ? 'Collapse all' : 'Expand all'}
         </button>
@@ -341,7 +341,7 @@ function ItineraryPanel({
                   {routeStops && (
                     <div className="space-y-2">
                       {routeStops.map((s) => (
-                        <p key={s} className="font-mono text-[10px] uppercase tracking-label text-[#7a746c]">{s}</p>
+                        <p key={s} className="font-mono text-[10px] uppercase tracking-label text-[#756f67]">{s}</p>
                       ))}
                     </div>
                   )}
@@ -447,7 +447,7 @@ function AccommodationPanel({ lodges }: { lodges: TourLodge[] }) {
                   </h3>
                 </div>
                 {lodge.stars && (
-                  <span className="shrink-0 font-mono text-[10px] uppercase tracking-label text-ovl-accent border border-[#d24d2e]/30 rounded-pill px-3 py-1 whitespace-nowrap">
+                  <span className="shrink-0 font-mono text-[10px] uppercase tracking-label text-ovl-accent border border-[#c4472a]/30 rounded-pill px-3 py-1 whitespace-nowrap">
                     {lodge.stars}
                   </span>
                 )}
@@ -555,10 +555,10 @@ export default function SectionTabs({
               role="tab"
               aria-selected={active === tab}
               onClick={() => setActive(tab)}
-              className={`rounded-pill px-5 py-3.5 md:py-2.5 font-body text-[12px] font-bold whitespace-nowrap focus:outline-none focus-visible:ring-2 focus-visible:ring-gold ${
+              className={`rounded-pill px-5 py-3.5 md:py-2.5 font-body text-[12px] font-bold whitespace-nowrap active:scale-[0.96] focus:outline-none focus-visible:ring-2 focus-visible:ring-gold ${
                 active === tab
-                  ? 'bg-[#d24d2e] text-white'
-                  : 'border border-[rgba(33,29,26,0.22)] text-[#5c5750] hover:text-[#211d1a] hover:border-[#d24d2e]/50 transition-colors'
+                  ? 'bg-[#c4472a] text-white'
+                  : 'control-light'
               }`}
             >
               {tab}

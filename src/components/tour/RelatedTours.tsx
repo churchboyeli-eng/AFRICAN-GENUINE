@@ -25,7 +25,7 @@ export default function RelatedTours({
           </div>
           <Link
             href={allHref}
-            className="hidden sm:block font-body text-[13px] font-semibold text-ovl-accent hover:text-[#a83a20] transition-colors focus:outline-none focus-visible:underline"
+            className="hidden sm:block font-body text-[13px] font-semibold text-ovl-accent hover:text-[#963620] transition-colors focus:outline-none focus-visible:underline"
           >
             {allLabel}
           </Link>
@@ -35,7 +35,7 @@ export default function RelatedTours({
           {tours.map((t) => (
             <article
               key={t.href}
-              className="card-surface group overflow-hidden flex flex-col transition-transform duration-300 hover:-translate-y-1 focus-within:ring-2 focus-within:ring-[#d24d2e]"
+              className="card-surface group overflow-hidden flex flex-col transition-transform duration-300 hover:-translate-y-1 focus-within:ring-2 focus-within:ring-[#c4472a]"
             >
               <div className="relative h-48 overflow-hidden flex-shrink-0">
                 <Image
@@ -63,7 +63,7 @@ export default function RelatedTours({
                 <p className="text-[#5c5750] text-[13px] leading-relaxed mb-4 flex-1">{t.blurb}</p>
                 <Link
                   href={t.href}
-                  className="font-body text-[12px] font-semibold text-ovl-accent hover:text-[#a83a20] transition-colors focus:outline-none focus-visible:underline"
+                  className="font-body text-[12px] font-semibold text-ovl-accent hover:text-[#963620] transition-colors focus:outline-none focus-visible:underline"
                   aria-label={`View itinerary for ${t.name}`}
                 >
                   View itinerary →

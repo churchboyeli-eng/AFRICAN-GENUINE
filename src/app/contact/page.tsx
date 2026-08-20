@@ -1,12 +1,14 @@
 import TopBar from '@/sections/TopBar';
 import SiteFooter from '@/sections/SiteFooter';
 import ContactForm from './ContactForm';
+import { buildMetadata } from '@/lib/metadata';
 
-export const metadata = {
+export const metadata = buildMetadata({
   title: 'Contact Us — African Genuine Tours & Safaris',
   description:
     'Start planning your Tanzania safari or Kilimanjaro climb with African Genuine Tours & Safaris. Send us an enquiry and we respond within one working day.',
-};
+  path: '/contact',
+});
 
 const contactDetails = [
   {
@@ -111,7 +113,7 @@ export default function ContactPage() {
                           {item.value}
                         </p>
                       )}
-                      <p className="text-[#7a746c] text-[12px] mt-0.5">{item.sub}</p>
+                      <p className="text-[#756f67] text-[12px] mt-0.5">{item.sub}</p>
                     </div>
                   </div>
                 ))}

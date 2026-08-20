@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState, useCallback } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { Menu, X } from 'lucide-react';
 import { useScrollRaf } from '@/hooks/useScrollRaf';
 
 const NAV = [
@@ -74,23 +75,13 @@ export default function OlduvaiHeader() {
           <button
             type="button"
             onClick={() => setStaticMenuOpen((v) => !v)}
-            className="lg:hidden relative flex h-11 w-11 items-center justify-center rounded-pill border border-[rgba(224,168,63,0.4)] text-ov-brass"
+            className="control-dark lg:hidden relative flex h-11 w-11 items-center justify-center rounded-pill"
             aria-label={staticMenuOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={staticMenuOpen}
             aria-controls="olduvai-static-menu"
           >
             <span className="sr-only">{staticMenuOpen ? 'Close menu' : 'Open menu'}</span>
-            <svg width="18" height="14" viewBox="0 0 18 14" fill="none" aria-hidden="true">
-              {staticMenuOpen ? (
-                <path d="M1 1L17 13M17 1L1 13" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
-              ) : (
-                <>
-                  <path d="M0 1H18" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
-                  <path d="M0 7H18" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
-                  <path d="M0 13H18" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
-                </>
-              )}
-            </svg>
+            {staticMenuOpen ? <X size={18} strokeWidth={1.6} aria-hidden="true" /> : <Menu size={18} strokeWidth={1.6} aria-hidden="true" />}
           </button>
         </div>
 
@@ -144,7 +135,7 @@ export default function OlduvaiHeader() {
             </span>
             <a
               href="/contact"
-              className="font-jost text-[12px] font-light tracking-[.08em] text-ov-brass border border-ov-brass px-4 md:px-5 py-2 transition-all duration-300 hover:bg-ov-brass hover:text-ov-deep"
+              className="font-jost text-[12px] font-light tracking-[.08em] text-ov-brass border border-ov-brass bg-[#150f08] px-4 md:px-5 py-2 transition-[background-color,color,transform] duration-150 hover:bg-ov-brass hover:text-ov-deep active:scale-[0.96]"
             >
               Enquire
             </a>
@@ -153,23 +144,13 @@ export default function OlduvaiHeader() {
             <button
               type="button"
               onClick={() => setStickyMenuOpen((v) => !v)}
-              className="lg:hidden relative flex h-11 w-11 items-center justify-center rounded-pill border border-ov-brass/40 text-ov-brass"
+              className="control-dark lg:hidden relative flex h-11 w-11 items-center justify-center rounded-pill"
               aria-label={stickyMenuOpen ? 'Close menu' : 'Open menu'}
               aria-expanded={stickyMenuOpen}
               aria-controls="olduvai-sticky-menu"
             >
               <span className="sr-only">{stickyMenuOpen ? 'Close menu' : 'Open menu'}</span>
-              <svg width="18" height="14" viewBox="0 0 18 14" fill="none" aria-hidden="true">
-                {stickyMenuOpen ? (
-                  <path d="M1 1L17 13M17 1L1 13" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
-                ) : (
-                  <>
-                    <path d="M0 1H18" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
-                    <path d="M0 7H18" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
-                    <path d="M0 13H18" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
-                  </>
-                )}
-              </svg>
+              {stickyMenuOpen ? <X size={18} strokeWidth={1.6} aria-hidden="true" /> : <Menu size={18} strokeWidth={1.6} aria-hidden="true" />}
             </button>
           </div>
         </div>

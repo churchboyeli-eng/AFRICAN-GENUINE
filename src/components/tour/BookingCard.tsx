@@ -72,7 +72,7 @@ function RequestCard({
               onClick={() => setGuests(Math.max(1, guests - 1))}
               disabled={guests <= 1}
               aria-label="Remove a traveller"
-              className="h-8 w-8 rounded-full border border-[rgba(33,29,26,0.22)] flex items-center justify-center font-body text-[16px] text-[#5c5750] hover:text-[#211d1a] hover:border-[#d24d2e]/50 transition-colors disabled:opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#d24d2e]"
+              className="control-light h-8 w-8 rounded-full flex items-center justify-center font-body text-[16px] disabled:opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#c4472a]"
             >
               −
             </button>
@@ -86,7 +86,7 @@ function RequestCard({
               onClick={() => setGuests(Math.min(12, guests + 1))}
               disabled={guests >= 12}
               aria-label="Add a traveller"
-              className="h-8 w-8 rounded-full border border-[rgba(33,29,26,0.22)] flex items-center justify-center font-body text-[16px] text-[#5c5750] hover:text-[#211d1a] hover:border-[#d24d2e]/50 transition-colors disabled:opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#d24d2e]"
+              className="control-light h-8 w-8 rounded-full flex items-center justify-center font-body text-[16px] disabled:opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#c4472a]"
             >
               +
             </button>
@@ -138,7 +138,7 @@ function RequestCard({
           <p className="font-display text-[17px] font-bold tracking-tighter text-gold leading-none">
             Price on request
           </p>
-          <p className="font-mono text-[9px] uppercase tracking-label text-clay mt-0.5">enquire for dates</p>
+          <p className="font-mono text-[9px] uppercase tracking-label text-ov-faint mt-0.5">enquire for dates</p>
         </div>
         {WA_NUMBER && (
           <a
@@ -200,7 +200,7 @@ function DeparturesCard({
           </div>
           <div className="text-right pb-1">
             <p className="font-display text-[16px] font-bold text-ovl-accent">4.96 ★</p>
-            <p className="font-mono text-[9px] uppercase tracking-label text-[#7a746c]">214 reviews</p>
+            <p className="font-mono text-[9px] uppercase tracking-label text-[#756f67]">214 reviews</p>
           </div>
         </div>
 
@@ -217,10 +217,10 @@ function DeparturesCard({
                 role="radio"
                 aria-checked={deptIdx === i}
                 onClick={() => setDeptIdx(i)}
-                className={`w-full rounded-card px-4 py-3 text-left border transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold ${
+                className={`w-full rounded-card bg-[#f7f5f1] px-4 py-3 text-left border transition-[background-color,border-color,transform] duration-150 active:scale-[0.96] focus:outline-none focus-visible:ring-2 focus-visible:ring-gold ${
                   deptIdx === i
-                    ? 'border-[#d24d2e]/60 bg-[#d24d2e]/10'
-                    : 'border-[rgba(33,29,26,0.22)] hover:border-[#d24d2e]/30'
+                    ? 'border-[#c4472a]/60 bg-[#c4472a]/10'
+                    : 'border-[rgba(33,29,26,0.22)] hover:border-[#c4472a]/30 hover:bg-[#f1ede5]'
                 }`}
               >
                 <div className="flex items-center justify-between gap-2">
@@ -233,7 +233,7 @@ function DeparturesCard({
                   </span>
                 </div>
                 {d.note && (
-                  <p className="font-mono text-[10px] uppercase tracking-label text-[#7a746c] mt-1">{d.note}</p>
+                  <p className="font-mono text-[10px] uppercase tracking-label text-[#756f67] mt-1">{d.note}</p>
                 )}
               </button>
             ))}
@@ -253,7 +253,7 @@ function DeparturesCard({
               onClick={() => setGuests(Math.max(1, guests - 1))}
               disabled={guests <= 1}
               aria-label="Remove a traveller"
-              className="h-8 w-8 rounded-full border border-[rgba(33,29,26,0.22)] flex items-center justify-center font-body text-[16px] text-[#5c5750] hover:text-[#211d1a] hover:border-[#d24d2e]/50 transition-colors disabled:opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#d24d2e]"
+              className="control-light h-8 w-8 rounded-full flex items-center justify-center font-body text-[16px] disabled:opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#c4472a]"
             >
               −
             </button>
@@ -267,17 +267,17 @@ function DeparturesCard({
               onClick={() => setGuests(Math.min(6, guests + 1))}
               disabled={guests >= 6}
               aria-label="Add a traveller"
-              className="h-8 w-8 rounded-full border border-[rgba(33,29,26,0.22)] flex items-center justify-center font-body text-[16px] text-[#5c5750] hover:text-[#211d1a] hover:border-[#d24d2e]/50 transition-colors disabled:opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#d24d2e]"
+              className="control-light h-8 w-8 rounded-full flex items-center justify-center font-body text-[16px] disabled:opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#c4472a]"
             >
               +
             </button>
           </div>
-          <p className="font-mono text-[9px] uppercase tracking-label text-[#7a746c] mt-2 text-center">
+          <p className="font-mono text-[9px] uppercase tracking-label text-[#756f67] mt-2 text-center">
             Max 6 · Private group available
           </p>
         </div>
 
-        <div className="rounded-card bg-[#d24d2e]/[.06] border border-[#d24d2e]/20 px-4 py-4 flex items-center justify-between">
+        <div className="rounded-card bg-[#c4472a]/[.06] border border-[#c4472a]/20 px-4 py-4 flex items-center justify-between">
           <span className="font-body text-[13px] text-[#5c5750]">
             {hasPrice ? 'Est. total' : 'Your quote'}
           </span>
@@ -333,7 +333,7 @@ function DeparturesCard({
       >
         <div className="flex-1 min-w-0">
           <p className="font-display text-[22px] font-bold tracking-tighter text-gold leading-none">{dept.price}</p>
-          <p className="font-mono text-[9px] uppercase tracking-label text-clay mt-0.5">per person</p>
+          <p className="font-mono text-[9px] uppercase tracking-label text-ov-faint mt-0.5">per person</p>
         </div>
         {WA_NUMBER && (
           <a

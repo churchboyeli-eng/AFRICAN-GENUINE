@@ -34,7 +34,7 @@ export default function OriginStory() {
             </p>
             <a
               href="/itineraries"
-              className="inline-flex items-center gap-2 font-body text-[14px] font-bold text-ovl-accent hover:text-[#a83a20] transition-colors focus:outline-none focus-visible:underline"
+              className="inline-flex items-center gap-2 font-body text-[14px] font-bold text-ovl-accent hover:text-[#963620] transition-colors focus:outline-none focus-visible:underline"
             >
               Browse our itineraries <span aria-hidden="true">→</span>
             </a>
