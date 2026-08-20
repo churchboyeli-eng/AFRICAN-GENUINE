@@ -423,6 +423,21 @@ function InclusionsPanel({ included, excluded }: { included?: string[]; excluded
 /* ─── Accommodation panel ─────────────────────────────────── */
 type AccommodationTier = 'Mid-range' | 'Luxury' | 'Tailored stay';
 
+const TIER_VALUE: Record<AccommodationTier, { title: string; detail: string }> = {
+  'Mid-range': {
+    title: 'The safari essentials, done well',
+    detail: 'Characterful camps and lodges chosen for a comfortable night, a good meal and a practical position for the next day’s wildlife viewing.',
+  },
+  Luxury: {
+    title: 'More privacy at the end of the day',
+    detail: 'Elevated rooms, considered service and exceptional settings — for travellers who want the safari day to continue after game drive.',
+  },
+  'Tailored stay': {
+    title: 'Matched to the way you travel',
+    detail: 'Tell us what matters most — location, family space, a pool or a particular camp — and we will shape the right stay around it.',
+  },
+};
+
 function accommodationTier(lodge: TourLodge): AccommodationTier {
   if (lodge.stars === 'Mid-range') return 'Mid-range';
   if (lodge.stars === 'Luxury') return 'Luxury';
@@ -438,11 +453,17 @@ function AccommodationPanel({ lodges }: { lodges: TourLodge[] }) {
     <div>
       <h2 className="section-title mb-6">Where you&rsquo;ll stay</h2>
       <p className="mb-6 font-body text-[14px] leading-relaxed text-[#5c5750]">
-        Illustrative mid-range and luxury options for this route. Your final camp or lodge is selected for your dates and confirmed with your quote.
+        The right stay changes the rhythm of a safari: less time in transit, more time in the places you came to see. Choose the level that feels right, and we&rsquo;ll match it to your dates and route.
       </p>
-      <p className="mb-8 font-mono text-[10px] uppercase tracking-label text-ovl-faint">
-        Choose a stay to discuss it with your safari specialist
-      </p>
+      <div className="mb-8 border-y border-[rgba(33,29,26,0.22)] py-4 sm:flex sm:items-center sm:justify-between sm:gap-6">
+        <div>
+          <p className="eyebrow mb-1 text-ovl-faint">Your safari, your standard</p>
+          <p className="text-[14px] leading-relaxed text-[#5c5750]">Select a stay and your specialist will build the travel day around it.</p>
+        </div>
+        <span className="mt-3 inline-flex shrink-0 font-mono text-[10px] uppercase tracking-label text-ovl-accent sm:mt-0">
+          Curated for this route
+        </span>
+      </div>
 
       <div className="space-y-10">
         {tiers.map((tier) => {
@@ -452,14 +473,18 @@ function AccommodationPanel({ lodges }: { lodges: TourLodge[] }) {
           return (
             <section key={tier} aria-labelledby={`accommodation-tier-${tier.replaceAll(' ', '-').toLowerCase()}`}>
               <div className="mb-4 flex items-center gap-4">
-                <h3
-                  id={`accommodation-tier-${tier.replaceAll(' ', '-').toLowerCase()}`}
-                  className="font-display text-[22px] font-bold tracking-tighter text-[#211d1a]"
-                >
-                  {tier}
-                </h3>
+                <div>
+                  <h3
+                    id={`accommodation-tier-${tier.replaceAll(' ', '-').toLowerCase()}`}
+                    className="font-display text-[22px] font-bold tracking-tighter text-[#211d1a]"
+                  >
+                    {tier}
+                  </h3>
+                  <p className="mt-1 text-[13px] font-semibold text-[#5c5750]">{TIER_VALUE[tier].title}</p>
+                </div>
                 <span className="h-px flex-1 bg-[rgba(33,29,26,0.22)]" aria-hidden="true" />
               </div>
+              <p className="mb-5 max-w-2xl text-[14px] leading-relaxed text-[#5c5750]">{TIER_VALUE[tier].detail}</p>
               <div className="grid gap-5 md:grid-cols-2">
                 {tierLodges.map((lodge) => {
                   const isSelected = lodge.name === selectedName;
@@ -495,7 +520,7 @@ function AccommodationPanel({ lodges }: { lodges: TourLodge[] }) {
                         </h4>
                         <p className="mt-3 text-[14px] leading-relaxed text-[#5c5750]">{lodge.desc}</p>
                         <span className="mt-4 inline-flex font-mono text-[10px] uppercase tracking-label text-ovl-accent">
-                          {isSelected ? 'Selected for discussion' : 'View this stay'}
+                          {isSelected ? 'Selected for your quote' : 'Choose this stay'}
                         </span>
                       </div>
                     </button>
@@ -509,13 +534,13 @@ function AccommodationPanel({ lodges }: { lodges: TourLodge[] }) {
 
       {selectedLodge && (
         <div className="mt-8 rounded-card border border-ovl-accent bg-[#d24d2e]/[.06] p-6" aria-live="polite">
-          <p className="eyebrow text-ovl-accent mb-2">Selected stay</p>
+          <p className="eyebrow text-ovl-accent mb-2">Your selected stay</p>
           <h3 className="font-display text-[24px] font-bold tracking-tighter text-[#211d1a]">{selectedLodge.name}</h3>
           <p className="mt-3 max-w-2xl text-[14px] leading-relaxed text-[#5c5750]">
-            Tell us your preferred travel dates and we&rsquo;ll confirm whether this option fits your route, then offer suitable alternatives if needed.
+            Share your travel dates and we&rsquo;ll confirm the best room fit for this route, then offer like-for-like alternatives if this stay is unavailable.
           </p>
           <a href="/contact" className="btn-gold mt-5 inline-flex items-center justify-center">
-            Ask about this stay
+            Build my safari around this stay
           </a>
         </div>
       )}

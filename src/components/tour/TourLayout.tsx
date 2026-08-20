@@ -12,7 +12,6 @@ import TourReviewsSection from './TourReviewsSection';
 import RelatedTours from './RelatedTours';
 import TouristTripJsonLd from '@/components/TouristTripJsonLd';
 import type { Tour } from '@/data/tours/types';
-import { buildSafariAccommodation } from '@/data/tours/safariAccommodation';
 
 interface Props {
   tour: Tour;
@@ -24,8 +23,7 @@ export default function TourLayout({ tour, path }: Props) {
   const base = tour.basePath ?? '/itineraries';
   const isKili = base === '/kilimanjaro';
   const isDayTrip = tour.facts?.some((fact) => fact.label === 'Duration' && fact.value === '1 day');
-  const generatedLodges = isKili || isDayTrip ? [] : buildSafariAccommodation(tour.routeStops ?? []);
-  const accommodation = isKili || isDayTrip ? undefined : [...(tour.lodges ?? []), ...generatedLodges];
+  const accommodation = isKili || isDayTrip ? undefined : tour.lodges;
   const canonicalPath = path ?? `${base}/${tour.slug}`;
   return (
     <>
