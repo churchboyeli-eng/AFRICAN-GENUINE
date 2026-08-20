@@ -44,23 +44,29 @@ const REGION_OPTIONS: Record<string, AccommodationOption[]> = {
   Ngorongoro: [
     {
       stars: 'Mid-range',
-      name: 'Ngorongoro Farm House',
+      name: 'Heart & Soul Lodge',
       desc: 'Illustrative mid-range Karatu base for the Ngorongoro Conservation Area; final driving plan and room category are confirmed with your quote.',
-      image: '/img/dest/ngorongoro.webp',
+      image: '/img/accommodation/heart-and-soul-lodge.webp',
     },
     {
       stars: 'Luxury',
-      name: 'Elewana The Manor at Ngorongoro',
+      name: 'Ngorongoro Oldeani Mountain Lodge',
       desc: 'Illustrative luxury highlands stay near Ngorongoro; final room type and next-day crater access are confirmed with your quote.',
-      image: '/img/dest/ngorongoro.webp',
+      image: '/img/accommodation/ngorongoro-oldeani-mountain-lodge.webp',
     },
   ],
   Serengeti: [
     {
+      stars: 'Mid-range',
+      name: 'Safari Haven Serengeti',
+      desc: 'Illustrative mid-range Serengeti camp option; the final camp area, season and transfer plan are confirmed with your quote.',
+      image: '/img/accommodation/safari-haven-serengeti.webp',
+    },
+    {
       stars: 'Luxury',
-      name: 'Serengeti Bushtops',
+      name: 'Baobab Naabi Luxury Camp',
       desc: 'Illustrative luxury Serengeti camp option; the final camp area, season and transfer plan are confirmed with your quote.',
-      image: '/img/dest/serengeti.webp',
+      image: '/img/accommodation/baobab-naabi-luxury-camp.webp',
     },
   ],
   Ndutu: [
