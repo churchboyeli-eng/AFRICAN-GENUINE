@@ -43,6 +43,7 @@ export default function ContactForm() {
   });
   const [errors, setErrors] = useState<Errors>({});
   const [submitted, setSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState('');
 
   function set(key: keyof Fields, val: string) {
     setFields((f) => ({ ...f, [key]: val }));
@@ -54,7 +55,7 @@ export default function ContactForm() {
     const errs = validate(fields);
     if (Object.keys(errs).length > 0) { setErrors(errs); return; }
 
-    // Notify team via WhatsApp Cloud API (silent fail — doesn't block form)
+    setSubmitError('');
     const lines = [
       '📋 New enquiry — African Genuine Tours & Safaris',
       `Name: ${fields.name}`,
@@ -66,11 +67,22 @@ export default function ContactForm() {
       fields.message ? `Message: ${fields.message}` : null,
     ].filter(Boolean).join('\n');
 
+    const response = await fetch('/api/contact', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ kind: 'enquiry', ...fields }),
+    }).catch(() => null);
+
+    if (!response?.ok) {
+      setSubmitError('We could not send your enquiry. Please try again or contact us on WhatsApp.');
+      return;
+    }
+
     fetch('/api/whatsapp/send', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ text: lines }),
-    }).catch(() => {/* silent */});
+    }).catch(() => {/* WhatsApp is optional; cPanel email already succeeded. */});
 
     setSubmitted(true);
   }
@@ -195,6 +207,8 @@ export default function ContactForm() {
       >
         Send my enquiry
       </button>
+
+      {submitError && <p role="alert" className="text-center text-[13px] text-red-600">{submitError}</p>}
 
       <p className="text-center text-[#756f67] text-[12px]">
         We respond within one working day — no pressure, no generic quotes.

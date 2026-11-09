@@ -6,11 +6,20 @@ export default function NewsletterSignup() {
   const [name, setName]         = useState('');
   const [email, setEmail]       = useState('');
   const [submitted, setSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState('');
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     if (!email) return;
-    setSubmitted(true);
+    setSubmitError('');
+    const response = await fetch('/api/contact', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ kind: 'newsletter', name, email }),
+    }).catch(() => null);
+
+    if (response?.ok) setSubmitted(true);
+    else setSubmitError('We could not send your request. Please try again shortly.');
   }
 
   return (
@@ -60,6 +69,7 @@ export default function NewsletterSignup() {
               </button>
             </form>
           )}
+          {submitError && <p role="alert" className="mt-4 text-[13px] text-red-600">{submitError}</p>}
         </div>
       </div>
     </section>

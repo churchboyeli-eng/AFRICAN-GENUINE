@@ -29,6 +29,7 @@ export default function Enquiry() {
   const [fields, setFields] = useState<Fields>({ name: '', email: '', tripType: '', dates: '' });
   const [errors, setErrors] = useState<Errors>({});
   const [sent, setSent] = useState(false);
+  const [submitError, setSubmitError] = useState('');
 
   function set(key: keyof Fields, val: string) {
     setFields((f) => ({ ...f, [key]: val }));
@@ -39,6 +40,18 @@ export default function Enquiry() {
     e.preventDefault();
     const errs = validate(fields);
     if (Object.keys(errs).length > 0) { setErrors(errs); return; }
+
+    setSubmitError('');
+    const response = await fetch('/api/contact', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ kind: 'enquiry', ...fields }),
+    }).catch(() => null);
+
+    if (!response?.ok) {
+      setSubmitError('We could not send your enquiry. Please try again or contact us on WhatsApp.');
+      return;
+    }
 
     const msg = `New enquiry from ${fields.name} (${fields.email}). Trip: ${fields.tripType}. Dates: ${fields.dates || 'not specified'}.`;
     fetch('/api/whatsapp/send', {
@@ -188,6 +201,8 @@ export default function Enquiry() {
               >
                 Send my enquiry
               </button>
+
+              {submitError && <p role="alert" className="mt-4 font-jost text-[12px] text-red-600">{submitError}</p>}
 
               <p className="mt-6 font-jost text-[11px] font-light text-ovl-faint tracking-[.02em]">
                 ✦ No spam, ever. Your details are shared only with the guide assigned to your trip.
