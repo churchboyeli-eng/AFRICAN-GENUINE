@@ -13,9 +13,9 @@ export const metadata = buildMetadata({
 const contactDetails = [
   {
     label: 'Email us',
-    value: 'info@africangenuinesafaris.com',
+    value: 'info@africangenuinetravel.com',
     sub: 'We reply within one working day',
-    href: 'mailto:info@africangenuinesafaris.com',
+    href: 'mailto:info@africangenuinetravel.com',
     icon: (
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
         <rect x="2" y="4" width="20" height="16" rx="2"/>
