@@ -1,6 +1,7 @@
 'use client';
 
 import { FormEvent, useState } from 'react';
+import { CONTACT_ENDPOINT } from '@/config/contact';
 
 export default function NewsletterForm() {
   const [email, setEmail] = useState('');
@@ -10,7 +11,7 @@ export default function NewsletterForm() {
     event.preventDefault();
     setStatus('sending');
 
-    const response = await fetch('/api/contact', {
+    const response = await fetch(CONTACT_ENDPOINT, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ kind: 'newsletter', email }),

@@ -2,6 +2,7 @@
 
 import { useState, FormEvent } from 'react';
 import { useReveal } from '@/hooks/useReveal';
+import { CONTACT_ENDPOINT, WHATSAPP_API_ENABLED } from '@/config/contact';
 
 type Fields = { name: string; email: string; tripType: string; dates: string; };
 type Errors = Partial<Record<keyof Fields, string>>;
@@ -42,7 +43,7 @@ export default function Enquiry() {
     if (Object.keys(errs).length > 0) { setErrors(errs); return; }
 
     setSubmitError('');
-    const response = await fetch('/api/contact', {
+    const response = await fetch(CONTACT_ENDPOINT, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ kind: 'enquiry', ...fields }),
@@ -54,11 +55,13 @@ export default function Enquiry() {
     }
 
     const msg = `New enquiry from ${fields.name} (${fields.email}). Trip: ${fields.tripType}. Dates: ${fields.dates || 'not specified'}.`;
-    fetch('/api/whatsapp/send', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ text: msg }),
-    }).catch(() => {});
+    if (WHATSAPP_API_ENABLED) {
+      fetch('/api/whatsapp/send', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ text: msg }),
+      }).catch(() => {});
+    }
 
     setSent(true);
   }

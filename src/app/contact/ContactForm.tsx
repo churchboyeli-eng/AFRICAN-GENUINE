@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, FormEvent } from 'react';
+import { CONTACT_ENDPOINT, WHATSAPP_API_ENABLED } from '@/config/contact';
 
 type Fields = {
   name: string;
@@ -67,7 +68,7 @@ export default function ContactForm() {
       fields.message ? `Message: ${fields.message}` : null,
     ].filter(Boolean).join('\n');
 
-    const response = await fetch('/api/contact', {
+    const response = await fetch(CONTACT_ENDPOINT, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ kind: 'enquiry', ...fields }),
@@ -78,11 +79,13 @@ export default function ContactForm() {
       return;
     }
 
-    fetch('/api/whatsapp/send', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ text: lines }),
-    }).catch(() => {/* WhatsApp is optional; cPanel email already succeeded. */});
+    if (WHATSAPP_API_ENABLED) {
+      fetch('/api/whatsapp/send', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ text: lines }),
+      }).catch(() => {/* WhatsApp is optional; email already succeeded. */});
+    }
 
     setSubmitted(true);
   }
