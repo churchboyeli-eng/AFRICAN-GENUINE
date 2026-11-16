@@ -11,29 +11,35 @@ export function generateStaticParams() {
   return [...richSlugs, ...itinSlugs];
 }
 
-export function generateMetadata({ params }: { params: { slug: string } }) {
-  const rich = richTours[params.slug];
+type ItineraryDetailPageProps = {
+  params: Promise<{ slug: string }>;
+};
+
+export async function generateMetadata({ params }: ItineraryDetailPageProps) {
+  const { slug } = await params;
+  const rich = richTours[slug];
   if (rich) {
     return buildMetadata({
       title: rich.meta.title,
       description: rich.meta.description,
-      path: `/itineraries/${params.slug}`,
+      path: `/itineraries/${slug}`,
     });
   }
-  const itin = itineraries.find((it) => it.slug === params.slug);
+  const itin = itineraries.find((it) => it.slug === slug);
   if (!itin) return {};
   return buildMetadata({
     title: `${itin.title} — ${itin.days}-Day Tanzania Safari | African Genuine Tours & Safaris`,
     description: `${itin.title}: ${itin.days} days across ${itin.parks.join(', ')}. Best for: ${itin.best_for}.`,
-    path: `/itineraries/${params.slug}`,
+    path: `/itineraries/${slug}`,
   });
 }
 
-export default function ItineraryDetailPage({ params }: { params: { slug: string } }) {
-  const rich = richTours[params.slug];
+export default async function ItineraryDetailPage({ params }: ItineraryDetailPageProps) {
+  const { slug } = await params;
+  const rich = richTours[slug];
   if (rich) return <TourLayout tour={rich} />;
 
-  const itin = itineraries.find((it) => it.slug === params.slug);
+  const itin = itineraries.find((it) => it.slug === slug);
   if (!itin) notFound();
 
   const idx = itineraries.indexOf(itin);

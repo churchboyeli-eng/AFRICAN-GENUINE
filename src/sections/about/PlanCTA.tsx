@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import FadeUp from '@/components/FadeUp';
 
 export default function PlanCTA() {
@@ -14,12 +15,12 @@ export default function PlanCTA() {
             Tell us when you want to travel, what moves you, and how long you have. We&rsquo;ll come back within one working day with a personalised proposal — no obligation, no rush.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="/contact" className="btn-gold inline-flex items-center justify-center gap-2">
+            <Link href="/contact" className="btn-gold inline-flex items-center justify-center gap-2">
               Plan my safari
-            </a>
-            <a href="/itineraries" className="btn-ghost inline-flex items-center justify-center gap-2">
+            </Link>
+            <Link href="/itineraries" className="btn-ghost inline-flex items-center justify-center gap-2">
               Browse itineraries
-            </a>
+            </Link>
           </div>
         </FadeUp>
       </div>

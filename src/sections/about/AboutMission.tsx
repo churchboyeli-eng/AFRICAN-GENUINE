@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import FadeUp from '@/components/FadeUp';
 
 export default function AboutMission() {
@@ -19,9 +20,9 @@ export default function AboutMission() {
             <p className="text-[#5c5750] text-[16px] leading-[1.85] mb-10">
               We are not a wholesaler or aggregator. Every itinerary is handcrafted, every guide is personally known to us, and every partner property has earned its place through consistent standards and a provable contribution to the communities and ecosystems around it.
             </p>
-            <a href="/itineraries" className="btn-gold inline-flex items-center gap-3">
+            <Link href="/itineraries" className="btn-gold inline-flex items-center gap-3">
               Explore our tours <span aria-hidden="true">→</span>
-            </a>
+            </Link>
           </FadeUp>
 
           {/* Right: image */}

@@ -6,6 +6,8 @@ import { honeymoonTours } from '@/data/honeymoon';
 
 const BASE_URL = 'https://african-genuine-safaris.vercel.app';
 
+export const dynamic = 'force-static';
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes: MetadataRoute.Sitemap = [
     { url: `${BASE_URL}/`, lastModified: new Date(), changeFrequency: 'weekly', priority: 1 },

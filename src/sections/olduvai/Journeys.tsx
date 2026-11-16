@@ -2,6 +2,7 @@
 
 import { useRef, useState } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 import { useReveal } from '@/hooks/useReveal';
 import { tours } from '@/data/content';
@@ -31,12 +32,12 @@ export default function Journeys() {
           </h2>
         </div>
         <div className="flex items-center gap-6">
-          <a
+          <Link
             href="/itineraries"
             className="hidden sm:block font-jost text-[11px] uppercase tracking-[.2em] text-ovl-body hover:text-ovl-accent transition-colors duration-300"
           >
             All 21 itineraries →
-          </a>
+          </Link>
           <div className="flex gap-3">
             {([ArrowLeft, ArrowRight] as const).map((Icon, i) => (
               <button
@@ -63,7 +64,7 @@ export default function Journeys() {
             className="snap-start shrink-0 w-[340px] flex flex-col border border-[rgba(33,29,26,0.22)] group bg-ovl-bg"
           >
             {/* Image */}
-            <a
+            <Link
               href={tour.href}
               className="relative h-[380px] bg-[#150f08] overflow-hidden block"
               tabIndex={-1}
@@ -83,7 +84,7 @@ export default function Journeys() {
               <span className="absolute top-5 right-5 font-jost text-[10px] uppercase tracking-[.12em] text-[#f5ecd8]/80 border border-[rgba(224,168,63,0.3)] px-2.5 py-1">
                 ★ {tour.rating}
               </span>
-            </a>
+            </Link>
 
             {/* Card body */}
             <div className="flex flex-col flex-1 p-7 gap-4">
@@ -109,12 +110,12 @@ export default function Journeys() {
                 <span className="font-jost text-[12px] font-light text-ovl-accent">
                   {tour.price}
                 </span>
-                <a
+                <Link
                   href={tour.href}
                   className="font-jost text-[11px] uppercase tracking-[.16em] text-ovl-body hover:text-ovl-accent transition-colors duration-300"
                 >
                   View trip →
-                </a>
+                </Link>
               </div>
             </div>
           </article>

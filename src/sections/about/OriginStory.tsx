@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import FadeUp from '@/components/FadeUp';
 
 export default function OriginStory() {
@@ -32,12 +33,12 @@ export default function OriginStory() {
             <p className="text-[#5c5750] text-[16px] leading-[1.85] mb-10">
               That belief still shapes every route we plan, every guide we train, and every lodge we recommend. We are, at heart, a guide&rsquo;s company.
             </p>
-            <a
+            <Link
               href="/itineraries"
               className="inline-flex items-center gap-2 font-body text-[14px] font-bold text-ovl-accent hover:text-[#963620] transition-colors focus:outline-none focus-visible:underline"
             >
               Browse our itineraries <span aria-hidden="true">→</span>
-            </a>
+            </Link>
           </FadeUp>
 
         </div>

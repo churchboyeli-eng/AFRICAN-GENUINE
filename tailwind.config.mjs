@@ -1,6 +1,4 @@
-import type { Config } from 'tailwindcss';
-
-const config: Config = {
+const config = {
   content: ['./src/**/*.{ts,tsx}', './app/**/*.{ts,tsx}'],
   theme: {
     extend: {
@@ -29,11 +27,11 @@ const config: Config = {
         cream: '#f0ead9', sand: '#9b9078', clay: '#6f6347', leaf: '#a9d0a0',
       },
       fontFamily: {
-        display: ['var(--font-display)', 'system-ui', 'sans-serif'],
-        body: ['var(--font-body)', 'system-ui', 'sans-serif'],
+        display: ['var(--font-inter)', 'system-ui', 'sans-serif'],
+        body: ['var(--font-inter)', 'system-ui', 'sans-serif'],
         mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace'],
-        cormorant: ['var(--font-display)', 'system-ui', 'sans-serif'],
-        jost: ['var(--font-body)', 'system-ui', 'sans-serif'],
+        cormorant: ['var(--font-inter)', 'system-ui', 'sans-serif'],
+        jost: ['var(--font-inter)', 'system-ui', 'sans-serif'],
         accent: ['var(--font-accent)', 'Georgia', 'serif'],
       },
       letterSpacing: { tightest: '-0.03em', tighter: '-0.02em', label: '0.16em', wider2: '0.30em' },
@@ -51,4 +49,5 @@ const config: Config = {
   },
   plugins: [],
 };
+
 export default config;

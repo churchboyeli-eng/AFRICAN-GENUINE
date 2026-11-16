@@ -7,18 +7,24 @@ export function generateStaticParams() {
   return climbs.map((c) => ({ slug: c.slug }));
 }
 
-export function generateMetadata({ params }: { params: { slug: string } }) {
-  const climb = climbsBySlug[params.slug];
+type KilimanjaroDetailPageProps = {
+  params: Promise<{ slug: string }>;
+};
+
+export async function generateMetadata({ params }: KilimanjaroDetailPageProps) {
+  const { slug } = await params;
+  const climb = climbsBySlug[slug];
   if (!climb) return {};
   return buildMetadata({
     title: climb.meta.title,
     description: climb.meta.description,
-    path: `/kilimanjaro/${params.slug}`,
+    path: `/kilimanjaro/${slug}`,
   });
 }
 
-export default function KilimanjaroDetailPage({ params }: { params: { slug: string } }) {
-  const climb = climbsBySlug[params.slug];
+export default async function KilimanjaroDetailPage({ params }: KilimanjaroDetailPageProps) {
+  const { slug } = await params;
+  const climb = climbsBySlug[slug];
   if (!climb) notFound();
 
   const idx  = climbs.indexOf(climb);

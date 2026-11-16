@@ -11,8 +11,8 @@ export function useCountUp(target: number, duration = 1600, decimals = 0) {
     if (!el) return;
 
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      setValue(target);
-      return;
+      const frame = requestAnimationFrame(() => setValue(target));
+      return () => cancelAnimationFrame(frame);
     }
 
     function start() {

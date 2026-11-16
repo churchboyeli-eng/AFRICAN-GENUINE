@@ -7,18 +7,24 @@ export function generateStaticParams() {
   return honeymoonTours.map((t) => ({ slug: t.slug }));
 }
 
-export function generateMetadata({ params }: { params: { slug: string } }) {
-  const tour = honeymoonBySlug[params.slug];
+type HoneymoonDetailPageProps = {
+  params: Promise<{ slug: string }>;
+};
+
+export async function generateMetadata({ params }: HoneymoonDetailPageProps) {
+  const { slug } = await params;
+  const tour = honeymoonBySlug[slug];
   if (!tour) return {};
   return buildMetadata({
     title: tour.meta.title,
     description: tour.meta.description,
-    path: `/honeymoon/${params.slug}`,
+    path: `/honeymoon/${slug}`,
   });
 }
 
-export default function HoneymoonDetailPage({ params }: { params: { slug: string } }) {
-  const tour = honeymoonBySlug[params.slug];
+export default async function HoneymoonDetailPage({ params }: HoneymoonDetailPageProps) {
+  const { slug } = await params;
+  const tour = honeymoonBySlug[slug];
   if (!tour) notFound();
 
   const idx  = honeymoonTours.indexOf(tour);

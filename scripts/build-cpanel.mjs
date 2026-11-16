@@ -38,7 +38,7 @@ try {
   await rm(path.join(worktree, 'src', 'app', 'api'), { recursive: true, force: true });
 
   const nextBin = path.join(root, 'node_modules', 'next', 'dist', 'bin', 'next');
-  const build = spawnSync(process.execPath, [nextBin, 'build'], {
+  const build = spawnSync(process.execPath, [nextBin, 'build', '--webpack'], {
     cwd: worktree,
     env: {
       ...process.env,

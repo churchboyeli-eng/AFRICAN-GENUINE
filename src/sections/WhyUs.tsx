@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import FadeUp from '@/components/FadeUp';
 import { stats } from '@/data/content';
 
@@ -59,15 +59,15 @@ function formatNumber(n: number, parsed: ParsedStat): string {
 }
 
 function CountStat({ value, label, delay = 0 }: { value: string; label: string; delay?: number }) {
-  const parsed = parseStat(value);
+  const parsed = useMemo(() => parseStat(value), [value]);
   const [display, setDisplay] = useState(parsed.prefix + '0' + parsed.suffix);
   const triggered = useRef(false);
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      setDisplay(parsed.raw);
-      return;
+      const frame = requestAnimationFrame(() => setDisplay(parsed.raw));
+      return () => cancelAnimationFrame(frame);
     }
 
     function runCountUp() {
@@ -113,7 +113,7 @@ function CountStat({ value, label, delay = 0 }: { value: string; label: string; 
       observer?.disconnect();
       window.removeEventListener('scroll', onScroll);
     };
-  }, []);
+  }, [delay, parsed]);
 
   return (
     <div ref={ref} className="flex flex-col gap-1.5">

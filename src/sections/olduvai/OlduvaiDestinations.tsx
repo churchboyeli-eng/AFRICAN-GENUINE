@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import Link from 'next/link';
 import { useReveal } from '@/hooks/useReveal';
 import { destinations } from '@/data/content';
 
@@ -23,12 +24,12 @@ export default function OlduvaiDestinations() {
           <h2 className="font-cormorant text-[28px] md:text-[42px] font-light leading-[1.1] tracking-[-0.02em] text-ov-ivory">
             Pick your wilderness
           </h2>
-          <a
+          <Link
             href="/itineraries"
             className="ov-link hidden sm:block font-jost text-[11px] uppercase tracking-[.2em] text-ov-muted hover:text-ov-ivory transition-colors duration-300"
           >
             All itineraries →
-          </a>
+          </Link>
         </div>
       </div>
 
@@ -68,7 +69,7 @@ export default function OlduvaiDestinations() {
                 {dest.name}
               </h3>
             </div>
-            <a
+            <Link
               href="/itineraries"
               className="absolute inset-0 focus:outline-none"
               aria-label={`Explore ${dest.name}, ${dest.count}`}
